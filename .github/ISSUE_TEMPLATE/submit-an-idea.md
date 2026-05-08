@@ -2,7 +2,7 @@
 name: Submit an Idea
 about: Record and develop an idea into a trackable asset within IPM.db
 title: "[IDEA] "
-labels: Draft
+labels: Draft,Core System
 assignees: ajfisherco
 ---
 
