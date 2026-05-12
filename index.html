@@ -3,83 +3,312 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>IPM.db</title>
+<title>IPM.db | Ideas to Assets</title>
+<meta name="description" content="IPM.db turns ideas into owned, trackable assets through public intake, nodes, attribution, and contribution records.">
 <style>
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#0f1720;
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
-text-align:center;
-padding:20px;
+:root{
+  --bg:#0b1118;
+  --panel:#111a24;
+  --panel-2:#162231;
+  --text:#f5f7fa;
+  --muted:#b8c3cf;
+  --line:rgba(255,255,255,.14);
+  --gold:#f6c453;
+  --teal:#67c7c1;
+  --white:#ffffff;
 }
-.container{
-max-width:700px;
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:radial-gradient(circle at top left,rgba(103,199,193,.18),transparent 28%),linear-gradient(180deg,#0b1118 0%,#0f1720 100%);
+  color:var(--text);
+}
+a{color:inherit}
+.page{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+.header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:18px clamp(18px,4vw,54px);
+  background:rgba(11,17,24,.86);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(12px);
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:800;
+  letter-spacing:.02em;
+}
+.mark{
+  width:36px;
+  height:36px;
+  border:2px solid var(--teal);
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  color:var(--teal);
+  font-weight:900;
+}
+.nav{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.nav a{
+  text-decoration:none;
+  color:var(--muted);
+  font-weight:700;
+  font-size:.92rem;
+  padding:9px 11px;
+  border-radius:999px;
+}
+.nav a:hover{background:rgba(255,255,255,.08);color:var(--text)}
+.hero{
+  display:grid;
+  grid-template-columns:minmax(0,1.2fr) minmax(280px,.8fr);
+  gap:28px;
+  align-items:center;
+  padding:72px clamp(18px,4vw,54px) 48px;
+  max-width:1200px;
+  width:100%;
+  margin:0 auto;
+}
+.kicker{
+  color:var(--teal);
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  font-size:.82rem;
+  margin:0 0 14px;
 }
 h1{
-font-size:4rem;
-margin-bottom:10px;
+  font-size:clamp(3.1rem,10vw,7rem);
+  line-height:.9;
+  margin:0 0 22px;
+  letter-spacing:-.07em;
 }
-p{
-font-size:1.2rem;
-line-height:1.6;
-opacity:.9;
+.lead{
+  font-size:clamp(1.18rem,3vw,1.7rem);
+  line-height:1.35;
+  color:#e6edf3;
+  max-width:780px;
+  margin:0 0 28px;
+}
+.actions{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
+  margin-top:24px;
 }
 .button{
-display:inline-block;
-margin-top:30px;
-padding:15px 30px;
-background:#ffffff;
-color:#0f1720;
-text-decoration:none;
-font-weight:bold;
-border-radius:12px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:15px 22px;
+  border-radius:14px;
+  font-weight:900;
+  text-decoration:none;
+  border:1px solid var(--line);
+  letter-spacing:.01em;
 }
+.button.primary{background:var(--white);color:#0f1720}
+.button.dad{background:linear-gradient(135deg,var(--gold),#fff2bb);color:#111a24}
+.button.secondary{background:rgba(255,255,255,.08);color:var(--text)}
+.card{
+  background:linear-gradient(180deg,rgba(255,255,255,.08),rgba(255,255,255,.04));
+  border:1px solid var(--line);
+  border-radius:24px;
+  padding:24px;
+  box-shadow:0 20px 60px rgba(0,0,0,.25);
+}
+.flow{
+  display:grid;
+  gap:12px;
+}
+.flow div{
+  padding:14px 16px;
+  border-radius:16px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.08);
+  font-weight:800;
+}
+.flow span{color:var(--muted);font-weight:500}
+.section{
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  padding:42px clamp(18px,4vw,54px);
+}
+.section h2{
+  font-size:clamp(2rem,5vw,3.2rem);
+  line-height:1;
+  margin:0 0 16px;
+  letter-spacing:-.04em;
+}
+.section p{color:var(--muted);line-height:1.6;font-size:1.05rem}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:16px;
+  margin-top:24px;
+}
+.node{
+  min-height:145px;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:20px;
+}
+.node h3{margin:0 0 10px;font-size:1.25rem}
+.node p{margin:0;color:var(--muted);font-size:.98rem}
+.dad-panel{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:22px;
+  align-items:center;
+  background:linear-gradient(135deg,rgba(246,196,83,.16),rgba(103,199,193,.12));
+  border:1px solid var(--line);
+  border-radius:26px;
+  padding:28px;
+}
+.badge{
+  display:inline-block;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(246,196,83,.18);
+  color:#ffe29a;
+  border:1px solid rgba(246,196,83,.32);
+  font-weight:900;
+  font-size:.85rem;
+}
+.steps{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  margin-top:22px;
+}
+.step{
+  background:var(--panel-2);
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:18px;
+}
+.step strong{display:block;margin-bottom:7px}
 .footer{
-position:fixed;
-bottom:15px;
-left:15px;
-opacity:.5;
-font-size:.9rem;
+  margin-top:auto;
+  display:flex;
+  justify-content:space-between;
+  gap:18px;
+  flex-wrap:wrap;
+  padding:28px clamp(18px,4vw,54px);
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  background:rgba(0,0,0,.18);
+}
+.footer strong{color:var(--text)}
+@media(max-width:820px){
+  .header{align-items:flex-start;flex-direction:column}
+  .nav{justify-content:flex-start}
+  .hero{grid-template-columns:1fr;padding-top:46px}
+  .grid,.steps,.dad-panel{grid-template-columns:1fr}
+  h1{font-size:4.2rem}
+  .button{width:100%}
 }
 </style>
 </head>
 <body>
-<div class="container">
+<div class="page">
+  <header class="header">
+    <div class="brand"><div class="mark">IP</div><span>AJF&Co. / IPM.db</span></div>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#nodes">Nodes</a>
+      <a href="#dad">Dollar a Day</a>
+      <a href="#flow">Flow</a>
+      <a href="https://github.com/ajfisherco/Ipmdb/issues" target="_blank" rel="noopener">Submit</a>
+    </nav>
+  </header>
 
-<h1>IPM.db</h1>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="kicker">Ideas to Assets</p>
+        <h1>IPM.db</h1>
+        <p class="lead">A public entry point for turning ideas into owned, trackable assets through attribution, contribution records, and node-based development.</p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/ajfisherco/Ipmdb/issues" target="_blank" rel="noopener">ENTER IPM.db</a>
+          <a class="button dad" href="https://square.link/u/EcyDVlU3?src=sheet" target="_blank" rel="noopener">DAD — Dollar a Day</a>
+          <a class="button secondary" href="mailto:ajfisherco@gmail.com">Contact</a>
+        </div>
+      </div>
+      <aside class="card" aria-label="IPM.db process summary">
+        <div class="flow">
+          <div>Idea <span>captured</span></div>
+          <div>Attribution <span>recorded</span></div>
+          <div>Node <span>organized</span></div>
+          <div>Agreement <span>formed</span></div>
+          <div>Asset <span>tracked</span></div>
+        </div>
+      </aside>
+    </section>
 
-<p>
-Intellectual Property Management database.
-</p>
+    <section class="section" id="nodes">
+      <h2>Current public nodes</h2>
+      <p>Nodes are practical categories for collecting subject matter, proposals, agreements, and outcomes as material is received.</p>
+      <div class="grid">
+        <article class="node"><h3>Housing</h3><p>Intake, placement, support pathways, and transparent funding loops.</p></article>
+        <article class="node"><h3>Transportation</h3><p>Traffic demand management, access, mobility, and local movement systems.</p></article>
+        <article class="node"><h3>Governance</h3><p>Public accountability, decision records, dispute handling, and civic process.</p></article>
+        <article class="node"><h3>PCWM</h3><p>Post-consumer waste management, circular systems, and local recovery models.</p></article>
+        <article class="node"><h3>Economic Development</h3><p>Ideas, assets, licensing, contribution sharing, and practical implementation.</p></article>
+        <article class="node"><h3>Public Services</h3><p>Service improvements, visible reporting, and systems that can be fixed.</p></article>
+      </div>
+    </section>
 
-<p>
-Turning ideas into owned, trackable assets.
-</p>
+    <section class="section" id="dad">
+      <div class="dad-panel">
+        <div>
+          <span class="badge">First active node</span>
+          <h2>Dollar a Day</h2>
+          <p>If each person contributes $1/day, we create a predictable funding stream directed to intake, short-term placement, and pathways to housing.</p>
+          <p>One action. One dollar a day. Publicly tracked through IPM.db.</p>
+        </div>
+        <div class="actions">
+          <a class="button dad" href="https://square.link/u/EcyDVlU3?src=sheet" target="_blank" rel="noopener">Contribute to DAD</a>
+          <a class="button secondary" href="https://github.com/ajfisherco/Ipmdb/issues/8" target="_blank" rel="noopener">View DAD node</a>
+        </div>
+      </div>
+    </section>
 
-<a class="button"
-href="https://github.com/ajfisherco/Ipmdb/issues"
-target="_blank">
-ENTER IPM.db
-</a>
+    <section class="section" id="flow">
+      <h2>Intake flow</h2>
+      <p>Decisions are incorporated into the flow on the fly. The working model keeps origin, contribution, status, and next action visible.</p>
+      <div class="steps">
+        <div class="step"><strong>1. Draft</strong><span>Idea is logged.</span></div>
+        <div class="step"><strong>2. Proposed</strong><span>Purpose and next action are defined.</span></div>
+        <div class="step"><strong>3. Agreed</strong><span>Stakeholders accept the working terms.</span></div>
+        <div class="step"><strong>4. Asset</strong><span>Outcome is recorded and tracked.</span></div>
+      </div>
+    </section>
+  </main>
 
-<br><br>
-
-<a class="button"
-href="https://square.link/u/EcyDVlU3?src=sheet"
-target="_blank">
-DAD — Dollar a Day
-</a>
-
+  <footer class="footer">
+    <div><strong>AJF&Co.</strong> A Parent Company.</div>
+    <div>IPM.db — Intellectual Property Management database.</div>
+  </footer>
 </div>
-
-<div class="footer">
-AJF&Co.
-</div>
-
 </body>
 </html>
