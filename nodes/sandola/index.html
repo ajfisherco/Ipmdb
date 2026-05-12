@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sandola — Value in Motion | IPM.db</title>
+  <meta name="description" content="Sandola is an IPM.db draft concept node for modelling secure value movement, contribution flows, attribution-linked events, and future settlement structures.">
+  <style>
+    :root {
+      --ink: #06121f;
+      --blue: #36c7d0;
+      --deep-blue: #08739c;
+      --gold: #d7a944;
+      --soft-gold: #ffe6a0;
+      --panel: rgba(255,255,255,0.08);
+      --panel-border: rgba(255,255,255,0.18);
+      --text: #f6fbff;
+      --muted: #a7c3cc;
+      --warning: #ffd88a;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(54,199,208,0.22), transparent 28%),
+        radial-gradient(circle at 80% 10%, rgba(215,169,68,0.18), transparent 25%),
+        linear-gradient(135deg, #02070d 0%, #071929 45%, #02070d 100%);
+      overflow-x: hidden;
+    }
+
+    .network {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.38;
+      background-image:
+        linear-gradient(120deg, rgba(54,199,208,0.12) 1px, transparent 1px),
+        linear-gradient(60deg, rgba(215,169,68,0.10) 1px, transparent 1px);
+      background-size: 120px 120px;
+      mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
+    }
+
+    header {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 18px 18px;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+    }
+
+    .brand small {
+      display: block;
+      color: var(--muted);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+    }
+
+    .brand strong {
+      display: block;
+      font-size: 1.05rem;
+      letter-spacing: 0.04em;
+    }
+
+    .record-link {
+      color: var(--soft-gold);
+      text-decoration: none;
+      border: 1px solid rgba(255,230,160,0.4);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      background: rgba(255,230,160,0.05);
+    }
+
+    main {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px 18px 60px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+      gap: 28px;
+      align-items: center;
+      min-height: 62vh;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 9vw, 7.4rem);
+      line-height: 0.86;
+      margin: 0 0 20px;
+      letter-spacing: -0.07em;
+      text-transform: uppercase;
+    }
+
+    .subhead {
+      color: var(--blue);
+      font-size: clamp(1.1rem, 3vw, 2.1rem);
+      margin: 0 0 20px;
+      letter-spacing: 0.03em;
+    }
+
+    .lede {
+      max-width: 690px;
+      color: #d5e8ee;
+      font-size: 1.12rem;
+      line-height: 1.65;
+    }
+
+    .boundary {
+      margin-top: 22px;
+      border-left: 4px solid var(--gold);
+      padding: 12px 16px;
+      color: var(--warning);
+      background: rgba(215,169,68,0.08);
+      border-radius: 10px;
+      line-height: 1.45;
+    }
+
+    .coin-card {
+      position: relative;
+      aspect-ratio: 1;
+      border-radius: 36px;
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,0.12), transparent 20%),
+        linear-gradient(145deg, rgba(54,199,208,0.18), rgba(215,169,68,0.10));
+      border: 1px solid var(--panel-border);
+      box-shadow: 0 30px 80px rgba(0,0,0,0.5), inset 0 0 80px rgba(54,199,208,0.12);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+    }
+
+    .coin {
+      width: min(74%, 310px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 12px solid var(--gold);
+      background:
+        radial-gradient(circle at 40% 25%, #54dce4, #0b6f86 42%, #06384a 72%),
+        conic-gradient(from 25deg, #0a566f, #26b8c5, #083649, #d7a944, #0a566f);
+      box-shadow:
+        0 0 0 6px rgba(255,230,160,0.22),
+        inset 0 0 0 8px rgba(0,0,0,0.35),
+        inset 0 0 0 14px rgba(215,169,68,0.55),
+        0 22px 55px rgba(0,0,0,0.55),
+        0 0 40px rgba(54,199,208,0.34);
+      position: relative;
+      display: grid;
+      place-items: center;
+      transform-style: preserve-3d;
+      transition: transform 500ms ease, filter 500ms ease;
+      cursor: pointer;
+    }
+
+    .coin:hover { transform: rotateY(14deg) rotateX(6deg) scale(1.03); filter: saturate(1.16); }
+
+    .coin::before, .coin::after {
+      content: "";
+      position: absolute;
+      inset: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,230,160,0.55);
+    }
+
+    .coin::after {
+      inset: 36px;
+      border-color: rgba(54,199,208,0.55);
+      background:
+        linear-gradient(90deg, transparent 49%, rgba(215,169,68,0.25) 50%, transparent 51%),
+        linear-gradient(0deg, transparent 49%, rgba(215,169,68,0.20) 50%, transparent 51%);
+      background-size: 28px 28px;
+      opacity: 0.8;
+    }
+
+    .mark {
+      z-index: 2;
+      text-align: center;
+      text-shadow: 0 2px 0 rgba(0,0,0,0.35);
+    }
+
+    .symbol {
+      font-size: clamp(5rem, 18vw, 9.2rem);
+      font-weight: 900;
+      line-height: 0.8;
+      color: var(--soft-gold);
+      filter: drop-shadow(0 12px 12px rgba(0,0,0,0.45));
+    }
+
+    .coin-name {
+      margin-top: 12px;
+      color: var(--soft-gold);
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+
+    .ring-text {
+      position: absolute;
+      z-index: 3;
+      color: var(--soft-gold);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      font-size: 0.68rem;
+    }
+
+    .top-ring { top: 24px; }
+    .bottom-ring { bottom: 24px; }
+
+    section {
+      margin-top: 38px;
+      padding: 24px;
+      border: 1px solid var(--panel-border);
+      border-radius: 28px;
+      background: var(--panel);
+      backdrop-filter: blur(16px);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .stat {
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(0,0,0,0.18);
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.82rem;
+      margin-bottom: 6px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .stat strong {
+      font-size: 1.35rem;
+      color: var(--soft-gold);
+    }
+
+    .controls {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    button, .button {
+      border: 0;
+      border-radius: 16px;
+      padding: 14px 16px;
+      background: linear-gradient(135deg, #2ebccc, #0c6f92);
+      color: #001018;
+      font-weight: 800;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+    }
+
+    button.secondary, .button.secondary {
+      background: rgba(255,255,255,0.08);
+      color: var(--text);
+      border: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .log {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+      max-height: 280px;
+      overflow: auto;
+      padding-right: 4px;
+    }
+
+    .event {
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 16px;
+      padding: 12px 14px;
+      background: rgba(0,0,0,0.18);
+      color: #d9f7ff;
+      line-height: 1.45;
+    }
+
+    .event small { color: var(--muted); display: block; margin-top: 4px; }
+
+    footer {
+      color: var(--muted);
+      text-align: center;
+      padding: 30px 18px 50px;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 840px) {
+      header { align-items: flex-start; flex-direction: column; }
+      .hero { grid-template-columns: 1fr; }
+      .coin-card { max-width: 460px; width: 100%; justify-self: center; }
+      .grid, .controls { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="network" aria-hidden="true"></div>
+
+  <header>
+    <div class="brand">
+      <small>IPM.db concept node</small>
+      <strong>Sandola — Value in Motion</strong>
+    </div>
+    <a class="record-link" href="https://github.com/ajfisherco/Ipmdb/issues/15">IPM.db Record: Issue #15</a>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>Sandola</h1>
+        <p class="subhead">Value in Motion</p>
+        <p class="lede">Sandola is an IPM.db concept node for modelling secure, interoperable, and transparent value movement. It can be used to visualize contribution flows, public ledger movement, allocation movement, attribution-linked value events, and future settlement structures.</p>
+        <div class="boundary">Draft boundary: Sandola is not represented as a live cryptocurrency, security, bank product, payment product, or regulated financial instrument at this stage.</div>
+      </div>
+
+      <div class="coin-card" aria-label="Interactive Sandola coin">
+        <div class="coin" id="coin" role="button" tabindex="0" aria-label="Tap to create settlement event">
+          <div class="ring-text top-ring">Secure Value Network</div>
+          <div class="mark">
+            <div class="symbol">S</div>
+            <div class="coin-name">Sandola</div>
+          </div>
+          <div class="ring-text bottom-ring">Value in Motion</div>
+        </div>
+      </div>
+    </div>
+
+    <section>
+      <h2>Interactive settlement model</h2>
+      <p class="lede">This prototype logs symbolic value events for IPM.db. It models flow, attribution, and public-record movement without creating a live financial instrument.</p>
+
+      <div class="grid" aria-live="polite">
+        <div class="stat"><span>Symbolic events</span><strong id="eventCount">0</strong></div>
+        <div class="stat"><span>Modelled value</span><strong id="valueTotal">0 SND</strong></div>
+        <div class="stat"><span>Current state</span><strong>Draft</strong></div>
+      </div>
+
+      <div class="controls">
+        <button id="contributionBtn">Log contribution</button>
+        <button id="allocationBtn">Log allocation</button>
+        <button id="attributionBtn">Log attribution</button>
+        <button id="resetBtn" class="secondary">Reset model</button>
+      </div>
+
+      <div class="log" id="log" aria-label="Sandola event log"></div>
+    </section>
+
+    <section>
+      <h2>Node record</h2>
+      <div class="grid">
+        <div class="stat"><span>Node</span><strong>Economic Development</strong></div>
+        <div class="stat"><span>Subnode</span><strong>Digital Settlement</strong></div>
+        <div class="stat"><span>Originator</span><strong>AJF&Co.</strong></div>
+      </div>
+      <p class="lede">This page is a working public interface for the Sandola concept inside IPM.db. The authoritative draft record remains GitHub Issue #15.</p>
+      <a class="button" href="https://github.com/ajfisherco/Ipmdb/issues/15">Open IPM.db Issue #15</a>
+    </section>
+  </main>
+
+  <footer>
+    Alexander John Fisher & Co. — A Parent Company. IPM.db turns ideas into owned, trackable assets.
+  </footer>
+
+  <script>
+    const log = document.getElementById('log');
+    const eventCount = document.getElementById('eventCount');
+    const valueTotal = document.getElementById('valueTotal');
+    const coin = document.getElementById('coin');
+
+    let count = 0;
+    let total = 0;
+
+    function addEvent(type, value) {
+      count += 1;
+      total += value;
+      eventCount.textContent = count;
+      valueTotal.textContent = total.toLocaleString() + ' SND';
+
+      const entry = document.createElement('div');
+      entry.className = 'event';
+      entry.innerHTML = `<strong>${type}</strong> — ${value.toLocaleString()} symbolic SND<br><small>Event ${String(count).padStart(4, '0')} · Draft model · ${new Date().toLocaleString()}</small>`;
+      log.prepend(entry);
+    }
+
+    document.getElementById('contributionBtn').addEventListener('click', () => addEvent('Contribution flow logged', 1));
+    document.getElementById('allocationBtn').addEventListener('click', () => addEvent('Allocation movement logged', 5));
+    document.getElementById('attributionBtn').addEventListener('click', () => addEvent('Attribution-linked value event logged', 10));
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      count = 0;
+      total = 0;
+      eventCount.textContent = '0';
+      valueTotal.textContent = '0 SND';
+      log.innerHTML = '';
+    });
+
+    coin.addEventListener('click', () => addEvent('Coin interaction / settlement pulse', 1));
+    coin.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        addEvent('Coin interaction / settlement pulse', 1);
+      }
+    });
+  </script>
+</body>
+</html>
