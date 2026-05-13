@@ -1,0 +1,84 @@
+idea-intake.yml
+name: LOCK IDEA
+description: Capture and structure an idea into IPM.db
+title: "[IDEA]: "
+labels:
+  - Draft
+
+body:
+
+  - type: input
+    id: idea_title
+    attributes:
+      label: Idea Title
+      description: One clear sentence.
+      placeholder: Public contribution ledger tied to housing outcomes.
+    validations:
+      required: true
+
+  - type: input
+    id: originator
+    attributes:
+      label: Originator
+      placeholder: Alexander John Fisher
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Category
+      options:
+        - Housing
+        - Governance
+        - Transportation
+        - PCWM
+        - Economic Development
+        - Public Services
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: Explain the idea in plain language.
+      placeholder: What is it? Why does it matter?
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      placeholder: What problem does this solve?
+
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Proposed Outcome
+      placeholder: What should exist if this succeeds?
+
+  - type: checkboxes
+    id: next_action
+    attributes:
+      label: Next Action
+      options:
+        - label: Discussion
+        - label: Research
+        - label: Prototype
+        - label: Partnership
+        - label: Funding
+        - label: Implementation
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      placeholder: Links, files, sketches, patents, videos, notes.
+
+  - type: markdown
+    attributes:
+      value: |
+        Submission into IPM.db records contribution and development history as part of a public intellectual property management process.
