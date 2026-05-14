@@ -1,6 +1,7 @@
 const form = document.querySelector('#lockIdeaForm');
 const preview = document.querySelector('#issuePreview');
 const copyButton = document.querySelector('#copyIssueText');
+const openIssueButton = document.querySelector('#openGitHubIssue');
 const copyStatus = document.querySelector('#copyStatus');
 
 const valueOf = (id) => document.querySelector(`#${id}`)?.value.trim() || '';
@@ -147,8 +148,22 @@ async function copyIssueText() {
   }, 3500);
 }
 
+function openPrefilledGitHubIssue() {
+  updatePreview();
+
+  const title = valueOf('ideaTitle') || 'IPM.db LOCK IDEA';
+  const url = new URL('https://github.com/ajfisherco/Ipmdb/issues/new');
+
+  url.searchParams.set('title', title);
+  url.searchParams.set('body', preview.value);
+  url.searchParams.set('labels', 'Draft,Core System');
+
+  window.open(url.toString(), '_blank', 'noopener,noreferrer');
+}
+
 form.addEventListener('input', updatePreview);
 form.addEventListener('change', updatePreview);
 copyButton.addEventListener('click', copyIssueText);
+openIssueButton.addEventListener('click', openPrefilledGitHubIssue);
 
 updatePreview();
