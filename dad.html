@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DAD — Dollar a Day</title>
+<meta name="description" content="DAD — Dollar a Day is a simple contribution stream for housing action, tracked publicly through IPM.db.">
+<style>
+:root {
+  --cream:#fff8e9;
+  --paper:#fffdf5;
+  --ink:#063526;
+  --green:#06452f;
+  --green2:#0b6a45;
+  --gold:#ffb21a;
+  --orange:#ff7d1a;
+  --teal:#18a6a6;
+  --muted:#57665e;
+  --line:rgba(6,53,38,.16);
+  --shadow:0 22px 70px rgba(6,53,38,.17);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  color:var(--ink);
+  background:radial-gradient(circle at 10% 12%, rgba(255,178,26,.22), transparent 24%),radial-gradient(circle at 90% 8%, rgba(24,166,166,.16), transparent 24%),linear-gradient(180deg,#fff8e9,#fffdf5 42%,#fff5dc);
+}
+.page{max-width:980px;margin:0 auto;background:linear-gradient(180deg,rgba(255,255,255,.68),rgba(255,248,233,.88));min-height:100vh;box-shadow:0 0 0 1px rgba(6,53,38,.06)}
+header{display:flex;align-items:center;justify-content:space-between;padding:28px clamp(22px,5vw,52px);border-bottom:2px solid rgba(255,178,26,.45)}
+.brand{display:flex;align-items:center;gap:18px;font-weight:1000;font-size:clamp(1.45rem,4vw,2.15rem);letter-spacing:-.04em;color:var(--green)}
+.logo{width:54px;height:54px;display:grid;place-items:center;position:relative}
+.logo svg{width:52px;height:52px;filter:drop-shadow(0 4px 8px rgba(6,53,38,.12))}
+.menu{font-size:2rem;line-height:1;color:var(--green);font-weight:900}
+.hero{padding:50px clamp(22px,5vw,56px) 30px;position:relative;overflow:hidden}
+.hero h1{margin:0;font-family:Georgia,"Times New Roman",serif;font-size:clamp(4rem,12.2vw,8.35rem);line-height:.82;letter-spacing:-.065em;color:var(--green);text-shadow:0 5px 0 rgba(255,178,26,.20),0 18px 38px rgba(6,53,38,.14)}
+.hero h1 span{display:block}
+.underline{height:12px;width:min(440px,58vw);background:linear-gradient(90deg,var(--gold),var(--orange));border-radius:999px;transform:skewX(-18deg);margin:10px 0 22px 33%;box-shadow:0 8px 20px rgba(255,126,26,.18)}
+.sub{font-size:clamp(1.25rem,3vw,1.78rem);font-weight:650;line-height:1.25;color:#213d33;margin:0 0 28px}
+.sub strong{color:var(--green2);border-bottom:5px solid rgba(24,166,166,.45)}
+.scene{min-height:340px;border-radius:34px;background:radial-gradient(circle at 78% 18%, #ffd45f 0 5%, transparent 5.2%),radial-gradient(circle at 84% 18%, rgba(255,178,26,.22), transparent 18%),linear-gradient(180deg,#eaf9ff 0%,#fff8e9 45%,#d9f3c5 45%,#8fd16e 100%);position:relative;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(6,53,38,.12)}
+.skyline{position:absolute;left:18%;right:10%;top:80px;height:130px;background:linear-gradient(90deg,rgba(43,137,153,.17),rgba(43,137,153,.06));clip-path:polygon(0 100%,0 65%,7% 65%,7% 38%,14% 38%,14% 73%,22% 73%,22% 25%,29% 25%,29% 58%,36% 58%,36% 12%,45% 12%,45% 66%,54% 66%,54% 32%,63% 32%,63% 70%,71% 70%,71% 20%,79% 20%,79% 60%,88% 60%,88% 42%,96% 42%,96% 100%)}
+.sunrays{position:absolute;right:96px;top:44px;width:120px;height:120px;border-radius:50%;border:8px solid rgba(255,178,26,.34)}
+.sunrays:before{content:"";position:absolute;inset:26px;border-radius:50%;background:linear-gradient(135deg,#ffe38a,var(--gold));box-shadow:0 0 35px rgba(255,178,26,.45)}
+.house{position:absolute;bottom:52px;width:210px;height:145px;background:#fff9dc;border:5px solid rgba(6,53,38,.22);border-radius:10px;box-shadow:0 14px 26px rgba(6,53,38,.16)}
+.house:before{content:"";position:absolute;left:-20px;right:-20px;top:-70px;height:78px;background:var(--green);clip-path:polygon(50% 0,100% 100%,0 100%);border-radius:6px}
+.house:after{content:"";position:absolute;left:78px;bottom:0;width:48px;height:72px;background:var(--gold);border-radius:8px 8px 0 0}
+.h1{right:60px}.h2{right:284px;transform:scale(.72);bottom:42px;background:#ffd66a}
+.tree{position:absolute;bottom:24px;width:115px;height:150px;background:radial-gradient(circle,#83c844 0 58%,transparent 60%);border-radius:50%;filter:drop-shadow(0 10px 14px rgba(6,53,38,.15))}
+.tree:after{content:"";position:absolute;left:52px;top:80px;width:12px;height:78px;background:#7a4c23;border-radius:999px}
+.t1{left:52px;bottom:42px}.t2{left:320px;bottom:28px;transform:scale(.82)}.t3{right:12px;bottom:20px;transform:scale(.78)}
+.path{position:absolute;left:26%;bottom:-8px;width:360px;height:130px;background:#f4e4bd;border-radius:50% 50% 0 0;transform:rotate(-5deg);opacity:.86}
+.people{position:absolute;left:62px;bottom:50px;display:flex;gap:12px;align-items:flex-end}
+.person{width:38px;height:96px;border-radius:22px 22px 8px 8px;background:linear-gradient(180deg,var(--orange) 0 42%,#1e5b45 42%);position:relative}
+.person:before{content:"";position:absolute;left:7px;top:-24px;width:24px;height:24px;border-radius:50%;background:#a65b30}
+.person.small{height:66px;width:28px;background:linear-gradient(180deg,#ffd45f 0 45%,#316d86 45%)}
+.person.small:before{width:18px;height:18px;top:-18px;left:5px}
+.bike{position:absolute;left:450px;bottom:70px;width:92px;height:46px;border-bottom:8px solid var(--green);border-radius:30px;transform:rotate(-8deg)}
+.bike:before,.bike:after{content:"";position:absolute;bottom:-28px;width:42px;height:42px;border:6px solid var(--green);border-radius:50%}
+.bike:before{left:-12px}.bike:after{right:-12px}
+.flow{margin-top:-8px;background:rgba(255,255,255,.88);border-radius:34px 34px 0 0;padding:34px clamp(22px,5vw,56px) 24px;border-top:1px solid var(--line)}
+.section-title{display:flex;align-items:center;gap:13px;margin:0 0 20px;font-size:clamp(1.75rem,5vw,2.4rem);font-weight:1000;letter-spacing:-.05em;color:var(--green)}
+.heart{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--green);color:white;box-shadow:0 8px 22px rgba(6,53,38,.2)}
+.amounts{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:24px}
+.amount{min-height:124px;display:flex;flex-direction:column;align-items:center;justify-content:center;border-radius:24px;background:var(--paper);border:2px solid rgba(255,178,26,.38);box-shadow:0 15px 28px rgba(6,53,38,.08);font-weight:900;font-size:1.28rem}
+.amount strong{font-size:clamp(2.2rem,6vw,3.2rem);line-height:1;color:var(--green);letter-spacing:-.04em}
+.amount.active{background:radial-gradient(circle at 30% 20%,rgba(255,178,26,.26),transparent 35%),linear-gradient(135deg,#056033,var(--green));color:white;border:4px solid var(--gold);position:relative}
+.amount.active strong{color:white}.amount.active:after{content:"✓";position:absolute;right:-10px;top:-14px;width:44px;height:44px;display:grid;place-items:center;border-radius:50%;background:var(--gold);color:var(--green);font-size:1.4rem;box-shadow:0 8px 16px rgba(6,53,38,.22)}
+.action-grid{display:grid;grid-template-columns:1.35fr .95fr;gap:26px;align-items:stretch;margin-top:16px}
+.button{width:100%;min-height:78px;border:0;border-radius:22px;font-weight:1000;font-size:clamp(1.1rem,3.2vw,1.65rem);letter-spacing:.02em;display:flex;align-items:center;justify-content:center;gap:16px;text-decoration:none;cursor:pointer;box-shadow:0 18px 36px rgba(6,53,38,.18);transition:.2s ease}
+.button:hover{transform:translateY(-3px)}
+.primary{background:linear-gradient(135deg,#056033,#003b28);color:white;border:2px solid rgba(255,255,255,.22)}
+.secondary{background:linear-gradient(135deg,#ffb21a,#ff7d1a);color:white;margin-top:18px;border:2px solid rgba(255,255,255,.32)}
+.note{display:flex;align-items:center;justify-content:center;gap:8px;color:#42584e;font-weight:750;margin:10px 0 0;font-size:1rem}
+.qrbox{border-left:2px solid rgba(255,178,26,.42);padding-left:26px;display:flex;flex-direction:column;align-items:center;justify-content:center;position:relative}
+.qr{width:min(290px,34vw);max-width:100%;background:white;padding:14px;border-radius:22px;border:4px solid var(--gold);box-shadow:0 17px 34px rgba(6,53,38,.16)}
+.qr img{display:block;width:100%;height:auto;image-rendering:pixelated}
+.scan{margin-top:-4px;background:var(--green);color:white;padding:12px 18px;border-radius:7px;font-weight:1000;letter-spacing:.04em;box-shadow:0 10px 20px rgba(6,53,38,.2)}
+.trust{margin-top:26px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;border:2px solid rgba(6,106,69,.22);border-radius:22px;overflow:hidden;background:rgba(255,255,255,.7)}
+.trust div{padding:20px 18px;display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;background:rgba(255,253,245,.75)}
+.icon{font-size:2.4rem}.trust strong{display:block;font-size:1.1rem;color:var(--green);line-height:1.1}.trust span{font-size:.95rem;color:#46564f}
+footer{padding:24px clamp(22px,5vw,56px) 36px;text-align:center;font-weight:800;color:#46564f}
+footer strong{display:block;color:var(--green);font-size:1.12rem;margin-bottom:8px}
+.toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(100px);background:var(--green);color:white;padding:14px 18px;border-radius:999px;box-shadow:0 18px 50px rgba(0,0,0,.25);font-weight:900;opacity:0;transition:.28s ease;z-index:20;max-width:calc(100vw - 32px);text-align:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+@media(max-width:760px){.amounts{grid-template-columns:repeat(2,1fr)}.action-grid{grid-template-columns:1fr}.qrbox{border-left:0;border-top:2px solid rgba(255,178,26,.42);padding-left:0;padding-top:24px}.qr{width:min(340px,80vw)}.trust{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="page">
+<header>
+  <div class="brand">
+    <div class="logo" aria-hidden="true">
+      <svg viewBox="0 0 64 64" fill="none">
+        <path d="M14 30L32 14L50 30V54H14V30Z" stroke="#06452f" stroke-width="4" stroke-linejoin="round"/>
+        <path d="M32 42C25 37 22 34 22 30.5C22 27.8 24 26 26.5 26C28.8 26 30.5 27.2 32 29.2C33.5 27.2 35.2 26 37.5 26C40 26 42 27.8 42 30.5C42 34 39 37 32 42Z" fill="#06452f"/>
+        <path d="M20 8L17 2M32 6V0M44 8L47 2" stroke="#ffb21a" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <span>DAD — Dollar a Day</span>
+  </div>
+  <div class="menu" aria-label="Menu">☰</div>
+</header>
+
+<main>
+<section class="hero">
+  <h1><span>One dollar a day.</span><span>One community</span><span>at a time.</span></h1>
+  <div class="underline" aria-hidden="true"></div>
+  <p class="sub">A simple contribution stream for <strong>housing action.</strong></p>
+  <div class="scene" aria-label="Community housing illustration">
+    <div class="skyline"></div><div class="sunrays"></div><div class="path"></div>
+    <div class="tree t1"></div><div class="tree t2"></div><div class="tree t3"></div>
+    <div class="house h1"></div><div class="house h2"></div>
+    <div class="people"><div class="person"></div><div class="person small"></div></div>
+    <div class="bike"></div>
+  </div>
+</section>
+
+<section class="flow">
+  <h2 class="section-title"><span class="heart">♥</span>Choose your contribution</h2>
+  <div class="amounts">
+    <button class="amount active" data-amount="1"><span>Daily</span><strong>$1</strong></button>
+    <button class="amount" data-amount="7"><span>Weekly</span><strong>$7</strong></button>
+    <button class="amount" data-amount="30"><span>Monthly</span><strong>$30</strong></button>
+    <button class="amount" data-amount="365"><span>Yearly</span><strong>$365</strong></button>
+  </div>
+
+  <div class="action-grid">
+    <div>
+      <button class="button primary" onclick="copyTransfer()">▣ COPY E-TRANSFER EMAIL ›</button>
+      <div class="note">🛡 Copies the DAD e-transfer contact.</div>
+      <a class="button secondary" id="pledgeLink" href="#">♙ PLEDGE / OPT IN ›</a>
+    </div>
+    <div class="qrbox">
+      <div class="qr"><img alt="QR code to start a Dollar a Day contribution email" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXQAAAABdACAIAAACjCoSyAAAT/UlEQVR4nO2dO44kRxJFCf3/p9cNwLMuVXUX4I7kcOFuBE7YHY/Hx8dfrv/4e3+bv//2ydEekfL6fuk8zP9fLSkRmfz3ylLeH8ry+vXX18uyDHOfNSmpBf1/lc/fK3///bODPLx/6mO/z/r/taR86TpYdvT9trU9P9f15Zn6ZkO2n+ZZ52P8e35ekllTUvdk67T62fnHy/rvUp/rMpWfZ0tKTZRS6UaJuN/9v+7Px9aPg7+3HyUl0cX+3orSd9/7GNolYl5JCcj2MKRlIQ6bnpDv6/lKJM5GfsnqJSd/O9o7eP+z+4e24lZy3cSaqalPS25c+SpHevSTeI+CVl8mZZQ/1E9t+5er98/dF/ruO49FhSXpQcaS67KyUFNZsONWmfXz3P4vNK9gNQSN6bxtJKP19Pp4d9/nz083wNnK/HuifxFXRHpPrQ8+t+0df3U9sjv0nWj03pMWmuSv7LpBq34dzpjy9+XzsvE69dlFJ5FfnIbEHci90U6sz+8/COZJdIKXQfZv9rWI6vCq1RK7m47ntssBLm5bM42Z1J+d2jBcOl7ouhfb6qgytKbONVZ0AvP4slt3d+Idc8bm3xVGb1aMm1zrpScDv6NI3c9LNl0AC2SB9tfkrw1bVSJqf9eyZGlOj2Tt7/RtK16qH/S+s/qRGG2b3+ORPP8ZpJW23a0bXtK8t8nT0pKvR/8M96XC9KNNsl+0NF/QxI7V75s66enUstnzG+79x88vvx3H0Q9N9kXv3vyTMmRzPslqW9Vrtr5K+79nvK/3D9IyHEqEk6DulnO1yPGtGmfsfnbO3jdLp00oMl35nmSLJbaYmyr7tkvujpxLbzpWvFxmFSSd3u6LRWSmi6fV+I20cSGTmMVlQaJO9v3s2RJJFcaoWAOiZNJ88ISr4mYfPuZNS25Emu8umSSfeGtuY1u7K8Udx/GyWeJ2CSt+iyjbakWOEmKY9JKyZn8VEV1YLPlM+lzVroOizL7Oc13a/Y2d7/e3l2WLfSTKtdFs4sa0+g9p87/Sl/5Z+8/TOfl/9nA6vPLdUezrQsvrZpZ9JnCvvFGxS9KGUaa+LJ/uL+3Oa779E27LC+dX3tTw2vSot9eykF3X28kmmeyJV2mqtsye+6Gv7eLUkq3TxXwLMv+zy/K43ff3x6T/y7rP4z/YvPT0nylnWSqKNpJD/feGQ7rk1p6ZXhLRV3+8Y+4CBJS6SrN++fM6vMx7aIGb2aIJLf1OU1kSQ2SL6cvn8VaXVSycfpc1aa33PpZ/m11fJ5Pvf4keT75648z9x/Cs+fzRfy5D3P+y2HeZP2XQ0rZWYXmz7D3zq3k9O2M176+V5LSZLMtKdnigDTeyVZptXzXwNRsLmdNBem9nBM10nT5bn1d5bTXnrdpEnx3KFa7sz0nkzwnbe8nt6V52OjZ0ms+75SqMdvzpf2L5OrM9uIkkn8rZRZD82pdM2SB2xu759Q0ZJJ2Z3cSRJpdHJGSd9/78nY41Pt9jc6+hsNPB2tpfYvlK2Dwl55/1q5sg22StQU+9Vp9nP65AxJTbe6LOg++LUV7q+dNA6UJGl1veNjoz/aNXl21mJf5MtbJf9bkrTLU8+W5v6uIi3+v8e3rHiaOI1Z5mX02BKdkvKzl5XspLcvlfvd93trc+p+NTV53rXuZ7K1STa27P5OSdH2L6tz5vx9efW5x79bOvl51fkjz/c9cx9kT6R6Sdr77e747f/nyQlsg+yfcu+SSefw2SFeW3TUkTbpMdqJSdU5oF+by7Wrsvz/uJxq+TJvtnvv/96/PY+l7y8rXma6Mb3qlzyvSX9Enk2LL/u39/QOqN17ngU0l3+zsS0pDsR+G2MEqeZ0nON45OJJW2qSfbi35T1rpCJtknWe5WE7Jf5E9KPE2SrkXqoEkLpOmSberPspqlVZSPmbd1p2O7c84mfXkxTRzxSbLpnOjFElus0R0fz5ayHS19eR6n0WHdkLwXRH8u+E9z+UEWfYPgG/Mx619kTeN9+Srvkr/100+WrpNPMk50SkkhXTZz6uLXks4x/YFf/3E3e26bkst0l85f/pctuqreH+3v6lo+f5sPviiSfKtMzJskBd2iSlR+wue2QqeT/q2y7fs79Uk6C+XPtPJzS0yT5klWuGyVJW9OKSl/3rLeGcoPkkqWVLr2n+yv37CpJo59CIgnPTZUT60mTLLXaREh1QuqH/Z9tZ7rRJJnv7gWkO6JNKX/eRv/F8FV+n+5ty5HdKU9ZJV+bO7MsWl5+/OXff6zKf7Z9fji3X6cIG9cl5X94LhP3xhEf6fRAdWd+pH8cvL5vj89vPCaD6UeGWlat9JuVG0xtS15ak9Vbfl7JxwF/Sm1/nlFSaV8l62ngdH0m+a3W6WZJGnaG5u/y+6FqkX6QAyXfTN+f6p5P9JEoq+p3J9gk/kpTqBKl6vQSy93SXz6Rh0kWDrN+HKbm4rlXqhpQ++8f1oFStyk/LL0hJyLUezJjFbEnyk2skqa/L47+1u9zGlB1tjs73tEVNvSDUe8v4WT3Sf1LN1sy8hONpybUlbbPnYVbIkNK/YWL4m++ywUnJ9cZJnTZLlufevMLe7Bkk9FwOqU7/ulzyTkidZ8dxQ+o/Gr33+UnFaTP9dpuZ92s+TSvYpJUPy28R3d2SPCndm+8vbWaJFFQ6RN8dlmLpFovvzLN3HuLypX+/m1z52tFndK+oD8/XSyr9SOcN7ZLebWtkSd2cJdOWnSdfJkuW0r7rwkrbjOSbnGS2SSnfXrspzZueW3ivVVs7pVvfdSXl9ntyb3s/bsw2Op7XboMxZeTr5ssYz9e29kty+TK1ZaGrfv+zhbWzLx4tkyTWb/9khF/vks4/Vn3UdmnVL0lm1jfLcpOa1STpBpJb9qdr5JLv53jckndLm6Wo+woNzyNJq6RN/J8tbSXnpf5f0r2Q/ZIcRbnbnUS+fZ9fJ0na07XdSbrfZWfpfWXZ+Nq0a+t+Z1JSmB9ZZ0aWSrsTWnjvxKrkyVG8vWmffJW5/IJKow2a+C4qW/2xJRXdn3w+3t3RpJLnMprOlbJ0jmGhe1pS9WVSz5bK7fDCU9cZnMluWqM+r0Sro5XSdJI6tP/nxEa6l5wfi7T0KSklbZS0Njb0q76uKm7WM2S5D3VcJMS+ur9F4ZVpMu+y+HeN91nN5OStE+eNCUTpyTTxJ+fSQm3SSbZZ0qQLNOZOjxu4jDSGSdInlcy2h5b6T5fbU/O6E4myTfT4tqUE73i1N9nkk70e7xv3JJKck+xSTTh/10Geg/UHSPRqf+Jk2SR1lrqKokyUO1fWISN331/+h3CZVN8Zy0dMdG23lk6Z6fk2SLBb41k/Z9z7bUpJu98t3iWovky8r0m7+H1/3I86o5nSS7zSXcI9JX2WTXTvJF3u9oTSqS92GSlXU+YSfY1viSZMo3Jy6TbVyZpJ3iPaxu2eLt79zjy1aT5ZNmt1lvqcGcuOZnZZkjV7J3rF5Lb1GWvJM1StH7m9mHv1ke+LPOOSn39H79+vna15P+v64FkQXSfPpn+ZWd2n+tbIdKcmf/XKtvdePoySs1Zxx/eJl0uB1m/ZdNbVtNm+eJ7mqt4fqgfMlm+zPn1tofgvNVxbvmbvRDaXuX+6zy5L2l9eRJCXU9CJ5abnynf3+nc/wPcMUrxu4Oud+vjbp2ypt1cXyxWbkWe1t9ujjEpOQcmw9wct3ScZrUEbWTGq305S0NUeR1tUdknbsw0j35l9uJV9te/2jbx9Lx2znrHqtE/99ZU8K+2JZUnSq3Lffv5Uk4H00m+2eTXXK32Zkb3mkpJp2+d3nz+SS/XDpJbJH0m3I/w6rUi6UTWm/rK+tkStp2kj3H5i+TV6t+Zgvy9VTwbkprZHSfL2Zm9cvrEn85ZsJrUfvlNK9xjiLflb96G/0XSU1K6d+LNLRLLx0ZP6SkRSpFJL5Pi9de55C99xjLzaXs2Jx6Tbo+GdHacbW3N7yXJXrbN+vqlSfrfKvrPhjOlk42M/aZJqn5Or12XvVTt899vn+S0JPnj25Mvqxya9t8Fov+QWn4+9fOnf/1Tkv6r7bbN7fzb9ooz+/tc5LR+VT7Prk1pLFnm3ehfv79mt3u+03vt1MkPP/9ymTz5MvMJZRSH/z/L/vfLd3lvW1O2mc/+k0jX+yZfNk1uH9d9r8j/6ffj8myX9f7smmz/9C7Nyj731Gr2LAAAAAElFTkSuQmCC"></div>
+      <div class="scan">SCAN TO CONTRIBUTE</div>
+    </div>
+  </div>
+
+  <div class="trust">
+    <div><span class="icon">✅</span><p><strong>Secure</strong><span>Trusted giving made simple.</span></p></div>
+    <div><span class="icon">🌱</span><p><strong>Transparent</strong><span>Tracked publicly through IPM.db.</span></p></div>
+    <div><span class="icon">👥</span><p><strong>Community Driven</strong><span>Stronger together.</span></p></div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <strong>🌱 Tracked publicly through IPM.db.</strong>
+  DAD is currently seeking charitable status and partnership pathways for tax-deductible giving.
+</footer>
+</div>
+
+<div class="toast" id="toast">DAD e-transfer contact copied.</div>
+
+<script>
+const transferContact = 'ajfisherco@gmail.com';
+const pledgeSubject = 'Dollar a Day Opt-In';
+const pledgeBody = `Hello,
+
+I would like to opt in to the Dollar a Day funding initiative.
+
+I am pledging to contribute at a rate of $1 or more per day, either daily, weekly, monthly, or yearly.
+
+Name:
+
+Contribution preference:
+
+Daily / Weekly / Monthly / Yearly
+
+Please send any instructions for e-transfer or direct contribution.
+
+I understand this will be tracked publicly through IPM.db.
+
+AJFisherCo.com
+AJF&Co.`;
+
+function mailto(subject, body) {
+  return 'mailto:' + transferContact + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+}
+
+document.getElementById('pledgeLink').href = mailto(pledgeSubject, pledgeBody);
+
+function copyTransfer() {
+  navigator.clipboard.writeText(transferContact).then(() => showToast('DAD e-transfer contact copied.')).catch(() => {
+    window.location.href = mailto('Dollar a Day Contribution', 'Hello,\n\nI would like to contribute to Dollar a Day.\n\nName:\nContribution amount:\nFrequency:\n');
+  });
+}
+
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.textContent = message;
+  toast.classList.add('show');
+  setTimeout(() => toast.classList.remove('show'), 2200);
+}
+
+document.querySelectorAll('.amount').forEach(button => {
+  button.addEventListener('click', () => {
+    document.querySelectorAll('.amount').forEach(b => b.classList.remove('active'));
+    button.classList.add('active');
+  });
+});
+</script>
+</body>
+</html>
