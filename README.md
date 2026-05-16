@@ -2,19 +2,20 @@
 
 We help make your ideas and innovations — yours for good.
 
-## Current public entry point
-
-AJFisherCo.com is the current public face for IPM.db and its first active node: Dollar a Day.
-
 IPM.db — Intellectual Property Management database — exists to turn ideas into owned, trackable assets.
 
-The current homepage flow is:
+## Current public structure
 
-1. Submit an idea.
-2. Browse IPM.db.
-3. Contribute to Dollar a Day.
+AJFisherCo.com is the build, test, whiteboard, and preparation space for IPM.db and companion public sites.
 
-The page is being refined top to bottom so the system is clear, usable, and calm.
+Standalone domains should mirror what is first built and tested through AJF&Co.
+
+Current live structure:
+
+- AJF&Co. parent / build layer: https://ajfisherco.com
+- DAD beta page: https://ipmdb.ajfisherco.com/dad/
+- Public record / ledger layer: GitHub Issues in this repository
+- Payment path: Square, currently tested through the DAD contribution flow
 
 ## Purpose
 
@@ -27,8 +28,11 @@ It collects, organizes, and advances ideas into outcomes.
 Cooperative modelling.
 
 Ideas are developed collaboratively.
+
 Contributions are recorded.
+
 Nothing meaningful is erased.
+
 Everything evolves through visible, attributable change.
 
 Decisions are incorporated into the flow on the fly.
@@ -46,33 +50,70 @@ Compressed language means fewer words with more payload.
 IPM.db is fluid and case-driven.
 
 Stakeholders determine what is appropriate for each case.
+
 Terms are negotiated as conditions require.
+
 All agreements are explicit, recorded, and reviewable.
 
 No change to terms, attribution, or participation occurs without agreement.
 
-## Dollar a Day
+## DAD — Dollar a Day
 
-Dollar a Day is the first active public node.
+DAD is the first active companion initiative.
 
-Its working purpose is to help end homelessness by creating a simple, predictable funding stream for housing, placement, support, and community outcomes.
+Public line:
 
-The current public mechanism includes:
+> One dollar a day. One community at a time.
 
-- an opt-in email button addressed to dad@ajfisherco.com
-- a prewritten pledge email
-- an e-transfer copy button for ajfisherco@gmail.com
-- public tracking through IPM.db
+DAD is a simple contribution stream for housing action and local outcomes, tracked publicly through IPM.db.
 
-Working pledge language:
+The current beta flow is:
 
-> I would like to opt in to the Dollar a Day funding initiative to end homelessness.
->
-> I am making this commitment of support to help build a stable funding stream for housing and support.
->
-> I am pledging today to contribute at a rate of $1 or more per day through daily, weekly, monthly, or yearly contributions within the community in which I reside.
+1. DAD homepage explains the purpose.
+2. One primary **Contribute Now** button opens Square.
+3. Square handles the tested weekly contribution path.
+4. IPM.db / GitHub Issues record public milestones, changes, and outcomes.
+5. AJF&Co. remains the parent-company build and test layer.
+
+Current payment reality:
+
+- Weekly Square path tested at $7/week.
+- Daily, weekly, monthly, and yearly amounts are shown as simple equivalents.
+- Tax receipts are not promised unless processed through an eligible charity or qualified donee.
+
+The old pledge/e-transfer-first flow is deprecated as the homepage flow.
+
+E-transfer may remain a secondary method, but the public beta funnel now prioritizes one clear Square contribution path.
+
+## AJF&Co. site mirror rule
+
+AJFisherCo.com is the preparation and reference source.
+
+All future project sites should first be built and tested through AJF&Co. or an AJF&Co. subdomain, then mirrored to their standalone domain when ready.
+
+A project can separate when:
+
+1. The page flow works.
+2. The public wording is clean.
+3. The primary action works.
+4. The parent-company link is present.
+5. The public record path is clear.
+6. Legal or status disclaimers are not misleading.
+7. The project has a clear reason to stand alone.
+
+## AJF&Co. parent-company mark
+
+The locked metallic AJF&Co. emblem is the parent-company mark.
+
+It should appear as a semi-discreet link on DAD and future AJF&Co.-related public sites.
+
+Its purpose is to show parent-company approval and provide a path back to the build layer without overpowering the project page.
 
 ## COPO — Court of Public Opinion
+
+COPO is the next candidate project space.
+
+It should be built first through AJF&Co. as a working page before any standalone domain launch.
 
 COPO is the civic accountability node.
 
@@ -80,7 +121,7 @@ It turns public-interest questions into a clean public record.
 
 Core line:
 
-Do no harm. Tell the truth. Show the proof. Record the response.
+> Do no harm. Tell the truth. Show the proof. Record the response.
 
 I2A flow:
 
@@ -100,7 +141,7 @@ Comparable to or better than the best.
 
 - Core System
 - Housing
-- Dollar a Day
+- DAD — Dollar a Day
 - COPO — Court of Public Opinion
 - Transportation
 - Governance
