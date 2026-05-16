@@ -33,6 +33,14 @@ Everything evolves through visible, attributable change.
 
 Decisions are incorporated into the flow on the fly.
 
+## I2A
+
+I2A means Ideas to Assets.
+
+It is the working layer that turns raw ideas, claims, contributions, and decisions into owned, trackable, reviewable assets.
+
+Compressed language means fewer words with more payload.
+
 ## Authority
 
 IPM.db is fluid and case-driven.
@@ -64,6 +72,20 @@ Working pledge language:
 >
 > I am pledging today to contribute at a rate of $1 or more per day through daily, weekly, monthly, or yearly contributions within the community in which I reside.
 
+## COPO — Court of Public Opinion
+
+COPO is the civic accountability node.
+
+It turns public-interest questions into a clean public record.
+
+Core line:
+
+Do no harm. Tell the truth. Show the proof. Record the response.
+
+I2A flow:
+
+Issue → Claim → Evidence → Response Request → Public Record → Outcome Tracked
+
 ## Value
 
 When contributions generate measurable value:
@@ -79,6 +101,7 @@ Comparable to or better than the best.
 - Core System
 - Housing
 - Dollar a Day
+- COPO — Court of Public Opinion
 - Transportation
 - Governance
 - Economic Development
