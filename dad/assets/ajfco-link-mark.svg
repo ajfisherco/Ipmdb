@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" role="img" aria-label="AJF and Co parent company mark">
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="40%" r="70%">
+      <stop offset="0" stop-color="#17263a"/>
+      <stop offset="0.55" stop-color="#07111f"/>
+      <stop offset="1" stop-color="#02060b"/>
+    </radialGradient>
+    <linearGradient id="metal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.18" stop-color="#9fb4c8"/>
+      <stop offset="0.42" stop-color="#f6fbff"/>
+      <stop offset="0.62" stop-color="#627184"/>
+      <stop offset="1" stop-color="#eef6ff"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+  </defs>
+  <rect width="900" height="520" rx="52" fill="url(#bg)"/>
+  <circle cx="450" cy="252" r="188" fill="none" stroke="#d8e8ff" stroke-width="12" opacity="0.86"/>
+  <circle cx="450" cy="252" r="208" fill="none" stroke="#0a66ff" stroke-width="5" opacity="0.8" filter="url(#glow)"/>
+  <path d="M248 330 L408 128 L562 330 L494 330 L454 276 L398 420 L356 420 L408 276 L342 330 Z" fill="url(#metal)" stroke="#d7e7ff" stroke-width="5" filter="url(#shadow)"/>
+  <path d="M278 318 L636 132 L596 198 L384 300 Z" fill="url(#metal)" stroke="#d7e7ff" stroke-width="5" filter="url(#shadow)"/>
+  <path d="M596 330 C612 260 712 248 724 312 C731 351 681 364 650 334 C628 313 660 281 696 292" fill="none" stroke="url(#metal)" stroke-width="22" stroke-linecap="round" filter="url(#shadow)"/>
+  <text x="450" y="470" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#d8e8ff" letter-spacing="6">AJF &amp; Co.</text>
+</svg>
