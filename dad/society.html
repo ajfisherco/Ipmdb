@@ -14,24 +14,24 @@ body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Sego
   <section class="hero">
     <div class="label">DADS — Dollar A Day Society</div>
     <h1>Join the build.</h1>
-    <p>DADS is being prepared as a contribution-facing society path for structure, accountability, local participation, and community service.</p>
-    <p>Working name: <strong>Dollar a Day Housing Action Society</strong>.</p>
+    <p>DADS gives Dollar a Day a society structure for accountability, local participation, and community service.</p>
+    <p><strong>Dollar a Day Society (DADS)</strong> keeps the acronym adaptable as the mission evolves.</p>
     <div class="links"><a href="#join-form">Join membership</a><a href="ledger.html">View public record</a></div>
   </section>
   <section class="card"><h2>Propose</h2><p>Propose a simple, repeatable housing-action society built around daily contribution, local service, public records, and practical outcomes.</p><p>The target is to help move support toward people and housing pathways one person at a time, one community at a time.</p></section>
-  <section class="card"><h2>Membership</h2><p>Members and helpers can support outreach, local coordination, partner discovery, public records, media, events, practical services, and community delivery.</p><p>Members can begin with minimal information and build their personal profile only as they see fit. Public-facing records should use anonymized or limited account information wherever practical.</p></section>
-  <section class="card"><h2>Structure</h2><p>DAD is intended to operate with a charitable purpose and a board of directors over which Alexander John Fisher will preside.</p><p>The working governance model is consensus-seeking: the board deliberates, tests, and carries the 49% decision field, while the founder-presiding role holds final affirmative sign-off at the end of each instance.</p><p>AJF&Co. remains the build space. IPM.db remains the public record layer. DAD Society becomes the participation and delivery structure as the model is formalized.</p><p>Every contribution will be recorded. Receipts are part of the intended operating flow.</p></section>
-  <section class="card" id="join-form"><h2>Join membership</h2><p>Start with the minimum. Add more only if useful.</p><div class="privacy-note"><p class="micro"><strong>Privacy-first intake:</strong> email and general participation area are enough to begin. Name, phone, address, postal / ZIP code, community, and message are optional profile details.</p></div><form class="form-grid" id="dadsForm" onsubmit="sendJoin(event)">
-    <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" enterkeyhint="next" tabindex="1" required></div>
-    <div class="field"><label for="name">Name or alias <span class="micro">optional</span></label><input id="name" name="name" autocomplete="name" enterkeyhint="next" tabindex="2"><p class="micro">Use a real name, display name, or alias.</p></div>
-    <div class="field"><label for="role">I want to help with</label><select id="role" name="role" tabindex="3" required><option value="">Choose one</option><option>General membership / support</option><option>Board or governance</option><option>Local coordination</option><option>Outreach and promotion</option><option>Records and administration</option><option>Partner or sponsor development</option><option>Practical services</option><option>Technology / AI / systems</option><option>Other</option></select></div>
+  <section class="card"><h2>Membership</h2><p>Members and helpers can support outreach, local coordination, partner discovery, public records, media, events, practical services, and community delivery.</p><p>Members can begin with minimal information and build their personal profile only as they see fit. Public-facing records may use anonymized or limited account information wherever practical.</p></section>
+  <section class="card"><h2>Structure (proposed)</h2><p>DAD is intended to operate with a charitable purpose and a board of directors over which Alexander John Fisher will preside.</p><p>The working governance model is consensus-seeking: the board deliberates, tests, and carries the 49% decision field, while the founder-presiding role holds final affirmative sign-off at the end of each instance.</p><p>AJF&Co. remains the build space. IPM.db remains the public record layer. DAD Society becomes the participation and delivery structure as the model is formalized.</p><p>Every contribution will be recorded. Receipts are part of the intended operating flow.</p></section>
+  <section class="card" id="join-form"><h2>Join membership</h2><p>Start with the minimum. Add more only if useful.</p><div class="privacy-note"><p class="micro"><strong>Privacy-first intake:</strong> username, email, and general interest are enough to begin. Personal details are optional.</p></div><form class="form-grid" id="dadsForm" onsubmit="sendJoin(event)">
+    <div class="field"><label for="username">Username <span class="micro">required</span></label><input id="username" name="username" autocomplete="username" enterkeyhint="next" tabindex="1" required></div>
+    <div class="field"><label for="email">Email <span class="micro">required</span></label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" enterkeyhint="next" tabindex="2" required></div>
+    <div class="field"><label for="role">I want to help with <span class="micro">required</span></label><select id="role" name="role" tabindex="3" required><option value="">Choose one</option><option>General membership / support</option><option>Board or governance</option><option>Local coordination</option><option>Outreach and promotion</option><option>Records and administration</option><option>Partner or sponsor development</option><option>Practical services</option><option>Technology / AI / systems</option><option>Other</option></select></div>
     <div class="field"><label for="postal">Postal / ZIP code <span class="micro">optional</span></label><input id="postal" name="postal" autocomplete="postal-code" enterkeyhint="next" tabindex="4"><p class="micro">Optional location signal for community matching.</p></div>
-    <div class="field"><label for="location">Community / region <span class="micro">optional</span></label><input id="location" name="location" autocomplete="address-level2" enterkeyhint="next" tabindex="5"><p class="micro">Add city, neighbourhood, province/state, or service area only if useful.</p></div>
+    <div class="field"><label for="location">Community / region <span class="micro">optional</span></label><input id="location" name="location" autocomplete="address-level2" enterkeyhint="next" tabindex="5"></div>
     <div class="field"><label for="phone">Phone <span class="micro">optional</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" enterkeyhint="next" tabindex="6"></div>
-    <div class="field"><label for="address">Address <span class="micro">optional</span></label><input id="address" name="address" autocomplete="street-address" enterkeyhint="next" tabindex="7"><p class="micro">Only add address if needed for membership, receipting, or local coordination.</p></div>
-    <div class="field"><label for="message">Message <span class="micro">optional</span></label><textarea id="message" name="message" tabindex="8" placeholder="Tell us how you want to help, what community you care about, or what skill/service you can bring."></textarea></div>
-    <button class="submit" type="submit" tabindex="9">Review and prepare join email</button>
-  </form><p class="hint">This beta form checks the minimum required fields, then opens your email app with the membership note prepared. A direct database form can replace this when the intake system is connected.</p></section>
+    <div class="field"><label for="address">Address <span class="micro">optional</span></label><input id="address" name="address" autocomplete="street-address" enterkeyhint="next" tabindex="7"></div>
+    <div class="field"><label for="message">Message <span class="micro">optional</span></label><textarea id="message" name="message" tabindex="8" placeholder="Tell us how you want to help."></textarea></div>
+    <button class="submit" type="submit" tabindex="9">Prepare join email</button>
+  </form><p class="hint">This beta form checks required fields, then opens your email app. A direct intake system can replace this later.</p></section>
   <p class="fine">This is a beta organizing page, not a final legal registration page. Names and structure remain subject to registration, partner review, governance decisions, and applicable requirements.</p>
   <div class="footer"><a href="./">DAD</a> · <a href="ledger.html">Public record</a> · <a href="https://ajfisherco.com">AJF&Co.</a></div>
 </main>
@@ -42,16 +42,16 @@ function showToast(text){var t=document.getElementById('toast');t.textContent=te
 function sendJoin(event){
   event.preventDefault();
   var form=document.getElementById('dadsForm');
-  if(!form.checkValidity()){form.reportValidity();showToast('Check the highlighted fields.');return;}
+  if(!form.checkValidity()){form.reportValidity();showToast('Check the required fields.');return;}
+  var username=document.getElementById('username').value.trim();
   var email=document.getElementById('email').value.trim();
-  var name=document.getElementById('name').value.trim();
   var role=document.getElementById('role').value;
   var postal=document.getElementById('postal').value.trim().toUpperCase();
   var location=document.getElementById('location').value.trim();
   var phone=document.getElementById('phone').value.trim();
   var address=document.getElementById('address').value.trim();
   var message=document.getElementById('message').value.trim();
-  var body='Hello,%0A%0AI would like to join or help build DADS — Dollar A Day Society.%0A%0AEmail: '+encodeURIComponent(email)+'%0AName or alias: '+encodeURIComponent(name)+'%0AI want to help with: '+encodeURIComponent(role)+'%0APostal / ZIP code: '+encodeURIComponent(postal)+'%0ACommunity / region: '+encodeURIComponent(location)+'%0APhone: '+encodeURIComponent(phone)+'%0AAddress: '+encodeURIComponent(address)+'%0A%0AMessage:%0A'+encodeURIComponent(message)+'%0A%0A-AJFisherCo.com';
+  var body='Hello,%0A%0AI would like to join or help build DADS — Dollar A Day Society.%0A%0AUsername: '+encodeURIComponent(username)+'%0AEmail: '+encodeURIComponent(email)+'%0AI want to help with: '+encodeURIComponent(role)+'%0APostal / ZIP code: '+encodeURIComponent(postal)+'%0ACommunity / region: '+encodeURIComponent(location)+'%0APhone: '+encodeURIComponent(phone)+'%0AAddress: '+encodeURIComponent(address)+'%0A%0AMessage:%0A'+encodeURIComponent(message)+'%0A%0A-AJFisherCo.com';
   showToast('Opening prepared email.');
   window.location.href='mailto:ajfisherco@gmail.com?subject=DADS%20Membership%20Request&body='+body;
 }
