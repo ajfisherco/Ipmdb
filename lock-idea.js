@@ -3,144 +3,93 @@ const preview = document.querySelector('#issuePreview');
 const copyButton = document.querySelector('#copyIssueText');
 const openIssueButton = document.querySelector('#openGitHubIssue');
 const copyStatus = document.querySelector('#copyStatus');
+const sourceSelect = document.querySelector('#sourceSelect');
+const sentBySelect = document.querySelector('#sentBySelect');
+const customEntry = document.querySelector('#customEntry');
+const copyInterac = document.querySelector('#copyInterac');
+
+const interacEmail = 'ajfisherco@gmail.com';
 
 const valueOf = (id) => document.querySelector(`#${id}`)?.value.trim() || '';
 
-const checkedValues = (name) => Array.from(document.querySelectorAll(`input[name="${name}"]:checked`))
-  .map((input) => input.value);
-
 const lineOrBlank = (label, value) => `${label}: ${value || ''}`;
 
-const checkboxList = (allValues, selectedValues) => allValues
-  .map((value) => `- ${selectedValues.includes(value) ? '[x]' : '[ ]'} ${value}`)
-  .join('\n');
+function shouldShowCustomEntry() {
+  return sourceSelect?.value === 'Other' || sentBySelect?.value === 'Other';
+}
 
-const categories = [
-  'Housing',
-  'Governance',
-  'Transportation',
-  'PCWM',
-  'Economic Development',
-  'Public Services',
-  'Other'
-];
+function updateCustomEntry() {
+  if (!customEntry) return;
 
-const nextActions = [
-  'Discussion',
-  'Research',
-  'Prototype',
-  'Partnership',
-  'Funding',
-  'Implementation'
-];
+  customEntry.hidden = !shouldShowCustomEntry();
+
+  if (customEntry.hidden) {
+    customEntry.value = '';
+  }
+}
 
 function buildIssueMarkdown() {
-  const selectedCategories = checkedValues('category');
-  const selectedNextActions = checkedValues('nextAction');
-  const status = valueOf('status') || 'Draft';
+  const title = valueOf('ideaTitle') || 'Untitled idea';
+  const email = valueOf('email');
+  const dadEmail = valueOf('dadEmail');
+  const source = valueOf('sourceSelect');
+  const sentBy = valueOf('sentBySelect');
+  const custom = valueOf('customEntry');
 
-  return `# IPM.db — LOCK IDEA
+  return `# IPMdb.ai — LOCK IDEA
 
 Capture an idea before it disappears.
 
 ---
 
-## IDEA TITLE
-${valueOf('ideaTitle') || 'One clear sentence.'}
+## IDEA
+${title}
 
 ---
 
 ## ORIGINATOR
-${lineOrBlank('Name', valueOf('originatorName'))}
-${lineOrBlank('Handle', valueOf('originatorHandle'))}
-${lineOrBlank('Organization', valueOf('originatorOrganization'))}
+${lineOrBlank('Email', email)}
 
 ---
 
-## CATEGORY
-Select one or more:
-
-${checkboxList(categories, selectedCategories)}
-
----
-
-## SUMMARY
-Describe the idea in plain language.
-
-What is it?
-
-${valueOf('summaryWhat')}
-
-Why does it matter?
-
-${valueOf('summaryWhy')}
-
-Who benefits?
-
-${valueOf('summaryWho')}
+## ATTRIBUTION
+${lineOrBlank('How did you get here', source)}
+${lineOrBlank('Who sent you', sentBy)}
+${lineOrBlank('Custom entry', custom)}
 
 ---
 
-## PROBLEM
-What problem does this solve?
-
-${valueOf('problem')}
+## DOLLAR A DAY
+${lineOrBlank('DAD email', dadEmail)}
 
 ---
 
-## PROPOSED OUTCOME
-What should exist if this succeeds?
-
-${valueOf('proposedOutcome')}
-
----
-
-## NEXT ACTION
-What should happen next?
-
-${checkboxList(nextActions, selectedNextActions)}
+## ASSET LEDGER
+Status: Draft
+Version: 1.0
+Parent: AJF & Co.
+Related: IPMdb.ai, DAD
 
 ---
 
-## CONTRIBUTORS
-List contributors if applicable.
-
-${valueOf('contributors')}
-
----
-
-## STATUS
-
-- ${status}
-
----
-
-## REFERENCES
-Links, files, images, notes, sketches, patents, videos, or related material.
-
-${valueOf('references')}
-
----
-
-## ATTRIBUTION NOTICE
-
-Submission into IPM.db records origin, contribution, and development history as part of a public intellectual property management process.`;
+## NOTICE
+Submission into IPMdb records origin, contribution, and development history as part of a public intellectual property management process.`;
 }
 
 function updatePreview() {
-  preview.value = buildIssueMarkdown();
+  updateCustomEntry();
+
+  if (preview) {
+    preview.value = buildIssueMarkdown();
+  }
 }
 
-async function copyIssueText() {
-  updatePreview();
-
+async function writeClipboard(text, successMessage, failMessage) {
   try {
-    await navigator.clipboard.writeText(preview.value);
-    copyStatus.textContent = 'Issue text copied to clipboard.';
+    await navigator.clipboard.writeText(text);
+    copyStatus.textContent = successMessage;
   } catch (error) {
-    preview.focus();
-    preview.select();
-    copyStatus.textContent = 'Copy failed. Select the generated text and copy manually.';
+    copyStatus.textContent = failMessage;
   }
 
   window.setTimeout(() => {
@@ -148,10 +97,19 @@ async function copyIssueText() {
   }, 3500);
 }
 
+function copyIssueText() {
+  updatePreview();
+  writeClipboard(preview.value, 'Idea record copied to clipboard.', 'Copy failed. Select the generated text and copy manually.');
+}
+
+function copyInteracEmail() {
+  writeClipboard(interacEmail, 'Interac email copied.', 'Copy failed. Use ajfisherco@gmail.com.');
+}
+
 function openPrefilledGitHubIssue() {
   updatePreview();
 
-  const title = valueOf('ideaTitle') || 'IPM.db LOCK IDEA';
+  const title = valueOf('ideaTitle') || 'IPMdb LOCK IDEA';
   const url = new URL('https://github.com/ajfisherco/Ipmdb/issues/new');
 
   url.searchParams.set('title', title);
@@ -161,9 +119,10 @@ function openPrefilledGitHubIssue() {
   window.open(url.toString(), '_blank', 'noopener,noreferrer');
 }
 
-form.addEventListener('input', updatePreview);
-form.addEventListener('change', updatePreview);
-copyButton.addEventListener('click', copyIssueText);
-openIssueButton.addEventListener('click', openPrefilledGitHubIssue);
+form?.addEventListener('input', updatePreview);
+form?.addEventListener('change', updatePreview);
+copyButton?.addEventListener('click', copyIssueText);
+openIssueButton?.addEventListener('click', openPrefilledGitHubIssue);
+copyInterac?.addEventListener('click', copyInteracEmail);
 
 updatePreview();
