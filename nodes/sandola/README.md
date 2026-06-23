@@ -1,12 +1,12 @@
-# Sandola — Value in Motion
+# Sandola 2.0 — Value in Motion
 
 ## Status
 
-Draft / Concept Node
+Locked Concept Mark / Public Asset Node
 
 ## Parent System
 
-IPM.db — Ideas to Assets
+AJF & Co. / IPMdb.ai — Ideas 2 Assets
 
 ## Node
 
@@ -18,40 +18,45 @@ Digital Settlement / Value Movement
 
 ## Originator
 
-Alexander John Fisher / AJF&Co.
+Alexander John Fisher / AJF & Co.
 
-## IPM.db Record
+## IPMdb Record
 
 GitHub Issue: https://github.com/ajfisherco/Ipmdb/issues/15
 
+## Public Node
+
+https://ajfisherco.github.io/Ipmdb/nodes/sandola/
+
+## Version
+
+Sandola 2.0 is the current public version.
+
+Sandola v1 remains preserved in repository history.
+
 ## Purpose
 
-Sandola is an IPM.db concept node for modelling secure, interoperable, and transparent value movement.
+Sandola evolves the sand dollar into a digital value identity for modelling origin, contribution, attribution, and future settlement concepts.
 
-It can be used to visualize contribution flows, public ledger movement, allocation movement, attribution-linked value events, and future settlement structures.
-
-## Interactive Prototype
-
-Open the prototype file:
-
-- `nodes/sandola/index.html`
-
-The current prototype models Sandola as a symbolic IPM.db value node, not as a live cryptocurrency, security, bank product, payment product, or regulated financial instrument.
-
-## Working Phrase
-
-Sandola — Value in Motion.
+It connects the visual language of a sand dollar with a coin-like public asset identity for AJF & Co., IPMdb.ai, and Dollar a Day.
 
 ## Current Functions
 
-- Visual coin interface.
-- Simulated settlement event logging.
-- Contribution-flow modelling.
-- Public-record link to IPM.db Issue #15.
-- Draft boundary notice.
+- Public Sandola landing page.
+- Visual Sandola 2.0 concept mark.
+- GitHub asset lineage.
+- IPMdb Record #15 linkage.
+- ISO 20022 review track retained.
+
+## Related File
+
+- `nodes/sandola/index.html`
+- `nodes/sandola/Sandola_v2.md`
 
 ## Boundary
 
-Sandola is not being represented as a live coin, token, investment, security, currency, banking product, or payment rail at this draft stage.
+Sandola is a concept identity and public asset node.
+
+It is not being represented as a live coin, token, investment, security, currency, banking product, or payment rail at this stage.
 
 Any move toward a technical settlement layer requires legal, financial, technical, and compliance review.
