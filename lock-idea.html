@@ -3,119 +3,92 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IPM.db — LOCK IDEA</title>
+  <title>IPMdb.ai — LOCK IDEA</title>
   <link rel="stylesheet" href="lock-idea.css" />
 </head>
 <body>
   <main class="page-shell">
     <section class="hero" aria-labelledby="page-title">
-      <p class="eyebrow">IPM.db</p>
+      <p class="eyebrow">IPMdb.ai · Ideas 2 Assets</p>
       <h1 id="page-title">LOCK IDEA</h1>
-      <p class="lede">Capture an idea before it disappears.</p>
+      <p class="lede">Capture an idea, record its origin, and route it into the asset ledger.</p>
     </section>
 
     <form id="lockIdeaForm" class="idea-form">
-      <section class="card">
-        <label for="ideaTitle">IDEA TITLE</label>
-        <input id="ideaTitle" name="ideaTitle" type="text" placeholder="One clear sentence." required />
-      </section>
+      <section class="card lock-card" aria-labelledby="lock-title">
+        <h2 id="lock-title">LOCK IDEA</h2>
 
-      <section class="card grouped">
-        <h2>ORIGINATOR</h2>
-        <label for="originatorName">Name</label>
-        <input id="originatorName" name="originatorName" type="text" />
+        <label for="email">EMAIL</label>
+        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" required />
 
-        <label for="originatorHandle">Handle</label>
-        <input id="originatorHandle" name="originatorHandle" type="text" />
+        <label for="ideaTitle">YOUR IDEA IN ONE WORD</label>
+        <input id="ideaTitle" name="ideaTitle" type="text" maxlength="30" placeholder="Sandola" required />
 
-        <label for="originatorOrganization">Organization</label>
-        <input id="originatorOrganization" name="originatorOrganization" type="text" />
-      </section>
+        <button type="button" id="copyIssueText">LOCK IDEA</button>
 
-      <section class="card grouped">
-        <h2>CATEGORY</h2>
-        <p class="hint">Select one or more.</p>
-        <div class="check-grid" data-field="categories">
-          <label><input type="checkbox" name="category" value="Housing" /> Housing</label>
-          <label><input type="checkbox" name="category" value="Governance" /> Governance</label>
-          <label><input type="checkbox" name="category" value="Transportation" /> Transportation</label>
-          <label><input type="checkbox" name="category" value="PCWM" /> PCWM</label>
-          <label><input type="checkbox" name="category" value="Economic Development" /> Economic Development</label>
-          <label><input type="checkbox" name="category" value="Public Services" /> Public Services</label>
-          <label><input type="checkbox" name="category" value="Other" /> Other</label>
+        <div class="dropdown-stack" aria-label="Attribution routing">
+          <label for="sourceSelect">HOW DID YOU GET HERE?</label>
+          <select id="sourceSelect" name="sourceSelect">
+            <option value="">Choose one</option>
+            <option>Google</option>
+            <option>Friend</option>
+            <option>QR Code</option>
+            <option>DAD</option>
+            <option>Facebook</option>
+            <option>Truth Social</option>
+            <option>AJF</option>
+            <option>SQ</option>
+            <option>Other</option>
+          </select>
+
+          <label for="sentBySelect">WHO SENT YOU?</label>
+          <select id="sentBySelect" name="sentBySelect">
+            <option value="">Choose one</option>
+            <option>Google</option>
+            <option>Friend</option>
+            <option>QR Code</option>
+            <option>DAD</option>
+            <option>Facebook</option>
+            <option>Truth Social</option>
+            <option>AJF</option>
+            <option>SQ</option>
+            <option>Other</option>
+          </select>
+
+          <input id="customEntry" name="customEntry" type="text" placeholder="CUSTOM ENTRY" hidden />
         </div>
       </section>
 
-      <section class="card grouped">
-        <h2>SUMMARY</h2>
-        <label for="summaryWhat">What is it?</label>
-        <textarea id="summaryWhat" name="summaryWhat" rows="4"></textarea>
+      <section class="card dad-card" aria-labelledby="dad-title">
+        <p class="mini">DOLLAR A DAY</p>
+        <h2 id="dad-title">$1/DAY = ONE GOAL</h2>
+        <p class="dad-line">End homelessness through daily contribution, clean tracking, and public updates.</p>
 
-        <label for="summaryWhy">Why does it matter?</label>
-        <textarea id="summaryWhy" name="summaryWhy" rows="4"></textarea>
+        <label for="dadEmail">EMAIL</label>
+        <input id="dadEmail" name="dadEmail" type="email" inputmode="email" autocomplete="email" placeholder="you@example.com" />
 
-        <label for="summaryWho">Who benefits?</label>
-        <textarea id="summaryWho" name="summaryWho" rows="4"></textarea>
-      </section>
-
-      <section class="card">
-        <label for="problem">PROBLEM</label>
-        <textarea id="problem" name="problem" rows="5" placeholder="What problem does this solve?"></textarea>
-      </section>
-
-      <section class="card">
-        <label for="proposedOutcome">PROPOSED OUTCOME</label>
-        <textarea id="proposedOutcome" name="proposedOutcome" rows="5" placeholder="What should exist if this succeeds?"></textarea>
-      </section>
-
-      <section class="card grouped">
-        <h2>NEXT ACTION</h2>
-        <div class="check-grid" data-field="next-actions">
-          <label><input type="checkbox" name="nextAction" value="Discussion" /> Discussion</label>
-          <label><input type="checkbox" name="nextAction" value="Research" /> Research</label>
-          <label><input type="checkbox" name="nextAction" value="Prototype" /> Prototype</label>
-          <label><input type="checkbox" name="nextAction" value="Partnership" /> Partnership</label>
-          <label><input type="checkbox" name="nextAction" value="Funding" /> Funding</label>
-          <label><input type="checkbox" name="nextAction" value="Implementation" /> Implementation</label>
+        <div class="dad-actions" aria-label="Dollar a Day actions">
+          <a class="button" href="/dad/">CONTRIBUTE</a>
+          <button type="button" id="copyInterac" class="secondary">COPY INTERAC</button>
         </div>
       </section>
 
-      <section class="card">
-        <label for="contributors">CONTRIBUTORS</label>
-        <textarea id="contributors" name="contributors" rows="4" placeholder="List contributors if applicable."></textarea>
+      <section class="notice asset-ledger" aria-labelledby="ledger-title">
+        <h2 id="ledger-title">ASSET LEDGER</h2>
+        <p>Submission records origin, contribution, attribution path, and development history inside the IPMdb flow.</p>
       </section>
 
-      <section class="card">
-        <label for="status">STATUS</label>
-        <select id="status" name="status">
-          <option selected>Draft</option>
-          <option>Proposed</option>
-          <option>Agreed</option>
-          <option>Archived</option>
-        </select>
-      </section>
-
-      <section class="card">
-        <label for="references">REFERENCES</label>
-        <textarea id="references" name="references" rows="5" placeholder="Links, files, images, notes, sketches, patents, videos, or related material."></textarea>
-      </section>
-
-      <section class="notice">
-        <h2>ATTRIBUTION NOTICE</h2>
-        <p>Submission into IPM.db records origin, contribution, and development history as part of a public intellectual property management process.</p>
-      </section>
-
-      <section class="actions" aria-label="Form actions">
-        <button type="button" id="copyIssueText">COPY ISSUE TEXT</button>
-        <button type="button" id="openGitHubIssue" class="secondary">OPEN PREFILLED GITHUB ISSUE</button>
-      </section>
-
-      <section class="card preview-card">
+      <section class="card asset-ledger preview-card">
         <label for="issuePreview">GENERATED ISSUE TEXT</label>
         <textarea id="issuePreview" rows="18" readonly></textarea>
       </section>
 
-      <p id="copyStatus" class="copy-status" role="status" aria-live="polite"></p>
+      <section class="actions asset-ledger" aria-label="Form actions">
+        <button type="button" id="openGitHubIssue" class="secondary">OPEN PREFILLED GITHUB ISSUE</button>
+        <a class="button secondary" href="/">BACK TO AJF &amp; CO.</a>
+      </section>
+
+      <p id="copyStatus" class="copy-status asset-ledger" role="status" aria-live="polite"></p>
     </form>
   </main>
 
