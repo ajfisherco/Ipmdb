@@ -18,7 +18,7 @@
         <button type="button" class="option-button" data-amount="365">$365/year</button>
         <label class="custom-row" for="dadAmount">
           <span>Custom Amount</span>
-          <input id="dadAmount" type="number" min="1" step="1" inputmode="decimal" placeholder="$" />
+          <input id="dadAmount" type="number" min="1" step="1" inputmode="decimal" placeholder="$" autocomplete="off" />
         </label>
       </div>
 
@@ -43,10 +43,8 @@
         <p>Message: DAD Contribution</p>
       </section>
 
-      <section id="thankYou" class="thanks is-hidden" aria-live="polite">
-        <h2>Thank you for supporting Dollar A Day.</h2>
-        <p id="thanksAmount">Contribution selected.</p>
-        <p>Confirmation and receipt handling follow payment activity.</p>
+      <section id="launchNotice" class="notice is-hidden" aria-live="polite">
+        <p id="launchNoticeText"></p>
       </section>
     </section>
   </main>
