@@ -1,5 +1,5 @@
-const SQUARE_CARD_URL = "PASTE_SQUARE_CARD_LINK_HERE";
-const SQUARE_QR_URL = "PASTE_SQUARE_QR_LINK_HERE";
+const SQUARE_CARD_URL = "https://square.link/u/EcyDVlU3?src=sheet";
+const SQUARE_QR_URL = "https://square.link/u/EcyDVlU3?src=qr";
 const INTERAC_EMAIL = "ajfisherco@gmail.com";
 
 const options = document.querySelector("#dadOptions");
