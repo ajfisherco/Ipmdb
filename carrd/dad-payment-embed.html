@@ -1,0 +1,283 @@
+<!-- DAD PAYMENT EMBED | Carrd-ready -->
+<div id="dad-payment-embed">
+  <style>
+    #dad-payment-embed {
+      --dad-bg: #061a14;
+      --dad-panel: rgba(255,255,255,.10);
+      --dad-panel-strong: rgba(255,255,255,.16);
+      --dad-text: #f6fff9;
+      --dad-accent: #bbffd0;
+      --dad-line: rgba(255,255,255,.22);
+      width: 100%;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      color: var(--dad-text);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 25% 10%, rgba(112,255,174,.32), transparent 30rem),
+        radial-gradient(circle at 80% 70%, rgba(51,174,255,.18), transparent 28rem),
+        linear-gradient(145deg, #04120e, #0b2e22 55%, #04120e);
+      padding: 24px 0;
+      box-sizing: border-box;
+    }
+    #dad-payment-embed * { box-sizing: border-box; }
+    #dad-payment-embed .dad-card {
+      width: min(95vw, 760px);
+      border: 1px solid var(--dad-line);
+      border-radius: 30px;
+      background: var(--dad-panel);
+      box-shadow: 0 20px 90px rgba(0,0,0,.32);
+      backdrop-filter: blur(18px);
+      padding: clamp(22px, 5vw, 48px);
+    }
+    #dad-payment-embed .dad-kicker {
+      margin: 0 0 10px;
+      color: var(--dad-accent);
+      letter-spacing: .22em;
+      font-weight: 800;
+    }
+    #dad-payment-embed h1 {
+      margin: 0 0 24px;
+      font-size: clamp(2.2rem, 7vw, 5rem);
+      line-height: .95;
+      letter-spacing: -.06em;
+    }
+    #dad-payment-embed h2,
+    #dad-payment-embed p { margin-top: 0; }
+    #dad-payment-embed .dad-options,
+    #dad-payment-embed .dad-methods {
+      display: grid;
+      gap: 12px;
+    }
+    #dad-payment-embed button,
+    #dad-payment-embed .dad-custom-row {
+      width: 100%;
+      border: 1px solid var(--dad-line);
+      border-radius: 20px;
+      background: var(--dad-panel-strong);
+      color: var(--dad-text);
+      min-height: 60px;
+      font-size: 1.25rem;
+      font-weight: 850;
+    }
+    #dad-payment-embed button { cursor: pointer; }
+    #dad-payment-embed .dad-custom-row {
+      display: grid;
+      grid-template-columns: 1fr 160px;
+      align-items: center;
+      padding: 0 16px;
+      gap: 12px;
+    }
+    #dad-payment-embed input {
+      width: 100%;
+      border: 1px solid var(--dad-line);
+      border-radius: 14px;
+      background: rgba(0,0,0,.2);
+      color: var(--dad-text);
+      min-height: 46px;
+      padding: 0 12px;
+      font-size: 1.2rem;
+      font-weight: 800;
+    }
+    #dad-payment-embed .dad-summary,
+    #dad-payment-embed .dad-transfer,
+    #dad-payment-embed .dad-notice {
+      margin-top: 18px;
+      border: 1px solid var(--dad-line);
+      border-radius: 22px;
+      background: rgba(255,255,255,.08);
+      padding: 20px;
+    }
+    #dad-payment-embed .dad-summary-label {
+      color: var(--dad-accent);
+      font-weight: 850;
+      letter-spacing: .16em;
+    }
+    #dad-payment-embed .dad-amount {
+      font-size: clamp(2.4rem, 7vw, 4.8rem);
+      line-height: 1;
+      color: var(--dad-text);
+      font-weight: 900;
+      letter-spacing: -.06em;
+    }
+    #dad-payment-embed .dad-methods { margin-top: 18px; }
+    #dad-payment-embed .dad-method:disabled {
+      opacity: .38;
+      cursor: default;
+    }
+    #dad-payment-embed .dad-method.is-active {
+      background: var(--dad-accent);
+      color: #04120e;
+    }
+    #dad-payment-embed .dad-change {
+      margin-top: 12px;
+      background: transparent;
+      min-height: 46px;
+      color: var(--dad-accent);
+    }
+    #dad-payment-embed .dad-notice { color: var(--dad-accent); }
+    #dad-payment-embed .is-hidden { display: none !important; }
+    @media (max-width: 520px) {
+      #dad-payment-embed .dad-custom-row { grid-template-columns: 1fr; padding: 14px; }
+    }
+  </style>
+
+  <section class="dad-card">
+    <p class="dad-kicker">DOLLAR A DAY</p>
+    <h1>CONTRIBUTION: $/DAY</h1>
+
+    <div id="dadOptions" class="dad-options" aria-label="Contribution options">
+      <button type="button" class="dad-option" data-amount="1">$1/day</button>
+      <button type="button" class="dad-option" data-amount="365">$365/year</button>
+      <label class="dad-custom-row" for="dadAmount">
+        <span>Custom Amount</span>
+        <input id="dadAmount" type="number" min="1" step="1" inputmode="decimal" placeholder="$" autocomplete="off" />
+      </label>
+    </div>
+
+    <section id="dadSummary" class="dad-summary is-hidden" aria-live="polite">
+      <p class="dad-summary-label">CONTRIBUTION</p>
+      <p id="contributionAmount" class="dad-amount">$0.00</p>
+      <p id="daysCovered">DAYS COVERED: 0</p>
+      <p id="nextPaymentDate">NEXT PAYMENT DATE: —</p>
+      <button type="button" id="resetContribution" class="dad-change">Change amount</button>
+    </section>
+
+    <section class="dad-methods" aria-label="Payment methods">
+      <button type="button" id="payCard" class="dad-method" disabled>PAY BY CARD</button>
+      <button type="button" id="payEtransfer" class="dad-method" disabled>E-TRANSFER</button>
+      <button type="button" id="payQR" class="dad-method" disabled>QR CODE</button>
+    </section>
+
+    <section id="transferInstructions" class="dad-transfer is-hidden" aria-live="polite">
+      <h2>E-TRANSFER</h2>
+      <p>Send to: <strong>ajfisherco@gmail.com</strong></p>
+      <p id="transferAmount">Amount: —</p>
+      <p>Message: DAD Contribution</p>
+    </section>
+
+    <section id="launchNotice" class="dad-notice is-hidden" aria-live="polite">
+      <p id="launchNoticeText"></p>
+    </section>
+  </section>
+
+  <script>
+    (() => {
+      const SQUARE_CARD_URL = "https://square.link/u/EcyDVlU3?src=sheet";
+      const SQUARE_QR_URL = "https://square.link/u/EcyDVlU3?src=qr";
+      const INTERAC_EMAIL = "ajfisherco@gmail.com";
+
+      const root = document.querySelector("#dad-payment-embed");
+      const options = root.querySelector("#dadOptions");
+      const summary = root.querySelector("#dadSummary");
+      const customAmount = root.querySelector("#dadAmount");
+      const contributionAmount = root.querySelector("#contributionAmount");
+      const daysCovered = root.querySelector("#daysCovered");
+      const nextPaymentDate = root.querySelector("#nextPaymentDate");
+      const resetContribution = root.querySelector("#resetContribution");
+      const payCard = root.querySelector("#payCard");
+      const payEtransfer = root.querySelector("#payEtransfer");
+      const payQR = root.querySelector("#payQR");
+      const transferInstructions = root.querySelector("#transferInstructions");
+      const transferAmount = root.querySelector("#transferAmount");
+      const launchNotice = root.querySelector("#launchNotice");
+      const launchNoticeText = root.querySelector("#launchNoticeText");
+      let selectedAmount = 0;
+
+      function formatCurrency(amount) {
+        return amount.toLocaleString("en-CA", { style: "currency", currency: "CAD", minimumFractionDigits: 2 });
+      }
+
+      function calculateNextDate(days) {
+        const nextDate = new Date();
+        nextDate.setDate(nextDate.getDate() + Math.max(days, 1));
+        return nextDate.toLocaleDateString("en-CA", { month: "long", day: "numeric", year: "numeric" });
+      }
+
+      function buildPaymentUrl(baseUrl, amount) {
+        const url = new URL(baseUrl);
+        url.searchParams.set("amount", amount.toString());
+        return url.toString();
+      }
+
+      function showNotice(message) {
+        launchNoticeText.textContent = message;
+        launchNotice.classList.remove("is-hidden");
+      }
+
+      function hideNotice() {
+        launchNotice.classList.add("is-hidden");
+        launchNoticeText.textContent = "";
+      }
+
+      function setPaymentButtons(active) {
+        [payCard, payEtransfer, payQR].forEach((button) => {
+          button.disabled = !active;
+          button.classList.toggle("is-active", active);
+        });
+      }
+
+      function setAmount(amount) {
+        const nextAmount = Number(amount);
+        if (!Number.isFinite(nextAmount) || nextAmount <= 0) return;
+        selectedAmount = Math.round(nextAmount * 100) / 100;
+        const days = Math.floor(selectedAmount);
+        contributionAmount.textContent = formatCurrency(selectedAmount);
+        daysCovered.textContent = `DAYS COVERED: ${days}`;
+        nextPaymentDate.textContent = `NEXT PAYMENT DATE: ${calculateNextDate(days)}`;
+        transferAmount.textContent = `Amount: ${formatCurrency(selectedAmount)}`;
+        options.classList.add("is-hidden");
+        summary.classList.remove("is-hidden");
+        transferInstructions.classList.add("is-hidden");
+        hideNotice();
+        setPaymentButtons(true);
+      }
+
+      function resetAmount() {
+        selectedAmount = 0;
+        customAmount.value = "";
+        options.classList.remove("is-hidden");
+        summary.classList.add("is-hidden");
+        transferInstructions.classList.add("is-hidden");
+        hideNotice();
+        setPaymentButtons(false);
+      }
+
+      options.addEventListener("click", (event) => {
+        const button = event.target.closest("[data-amount]");
+        if (button) setAmount(button.dataset.amount);
+      });
+
+      customAmount.addEventListener("input", () => {
+        if (Number(customAmount.value) > 0) setAmount(customAmount.value);
+      });
+
+      customAmount.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") setAmount(customAmount.value);
+      });
+
+      resetContribution.addEventListener("click", resetAmount);
+
+      payCard.addEventListener("click", () => {
+        if (!selectedAmount) return;
+        window.open(buildPaymentUrl(SQUARE_CARD_URL, selectedAmount), "_blank", "noopener,noreferrer");
+      });
+
+      payEtransfer.addEventListener("click", async () => {
+        if (!selectedAmount) return;
+        transferInstructions.classList.remove("is-hidden");
+        showNotice("E-transfer instructions copied where supported.");
+        const message = `DAD Contribution ${formatCurrency(selectedAmount)} to ${INTERAC_EMAIL}`;
+        try { await navigator.clipboard.writeText(message); } catch (error) { console.warn("Clipboard copy unavailable", error); }
+      });
+
+      payQR.addEventListener("click", () => {
+        if (!selectedAmount) return;
+        window.open(buildPaymentUrl(SQUARE_QR_URL, selectedAmount), "_blank", "noopener,noreferrer");
+      });
+
+      setPaymentButtons(false);
+    })();
+  </script>
+</div>
