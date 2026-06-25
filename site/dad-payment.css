@@ -105,7 +105,7 @@ h1 {
 
 .summary,
 .instructions,
-.thanks {
+.notice {
   margin-top: 18px;
   border: 1px solid var(--line);
   border-radius: 22px;
@@ -145,6 +145,10 @@ h1 {
   margin-top: 12px;
   background: transparent;
   min-height: 46px;
+  color: var(--accent);
+}
+
+.notice {
   color: var(--accent);
 }
 
