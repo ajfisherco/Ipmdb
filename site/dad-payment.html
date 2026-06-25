@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>DAD Payment | Dollar A Day</title>
+  <meta name="description" content="Dollar A Day contribution flow." />
+  <link rel="stylesheet" href="./dad-payment.css" />
+</head>
+<body>
+  <main class="payment-shell">
+    <section class="payment-card">
+      <p class="kicker">DOLLAR A DAY</p>
+      <h1>CONTRIBUTION: $/DAY</h1>
+
+      <div id="dadOptions" class="option-list" aria-label="Contribution options">
+        <button type="button" class="option-button" data-amount="1">$1/day</button>
+        <button type="button" class="option-button" data-amount="365">$365/year</button>
+        <label class="custom-row" for="dadAmount">
+          <span>Custom Amount</span>
+          <input id="dadAmount" type="number" min="1" step="1" inputmode="decimal" placeholder="$" autocomplete="off" />
+        </label>
+      </div>
+
+      <section id="dadSummary" class="summary is-hidden" aria-live="polite">
+        <p class="summary-label">CONTRIBUTION</p>
+        <p id="contributionAmount" class="amount">$0.00</p>
+        <p id="daysCovered">DAYS COVERED: 0</p>
+        <p id="nextPaymentDate">NEXT PAYMENT DATE: —</p>
+        <button type="button" id="resetContribution" class="text-button">Change amount</button>
+      </section>
+
+      <section class="payment-methods" aria-label="Payment methods">
+        <button type="button" id="payCard" class="method-button" disabled>PAY BY CARD</button>
+        <button type="button" id="payEtransfer" class="method-button" disabled>E-TRANSFER</button>
+        <button type="button" id="payQR" class="method-button" disabled>QR CODE</button>
+      </section>
+
+      <section id="transferInstructions" class="instructions is-hidden" aria-live="polite">
+        <h2>E-TRANSFER</h2>
+        <p>Send to: <strong>ajfisherco@gmail.com</strong></p>
+        <p id="transferAmount">Amount: —</p>
+        <p>Message: DAD Contribution</p>
+      </section>
+
+      <section id="launchNotice" class="notice is-hidden" aria-live="polite">
+        <p id="launchNoticeText"></p>
+      </section>
+    </section>
+  </main>
+
+  <script src="./dad-payment.js"></script>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>IPMdb.ai | DAD</title>
+  <meta name="description" content="IPMdb.ai Ideas to Assets and DAD Dollar A Day launch page." />
+  <style>
+    :root{
+      --white:#f7fbff;
+      --blue:#1e9cff;
+      --blue2:#004fea;
+      --green:#6cff22;
+      --green2:#2fc50f;
+      --ink:#020812;
+      --line:rgba(255,255,255,.24);
+      --glass:rgba(255,255,255,.12);
+      --glass2:rgba(255,255,255,.18);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      min-height:100svh;
+      background:#03070b;
+      color:var(--white);
+      font-family:Arial,Helvetica,sans-serif;
+      overflow-x:hidden;
+    }
+    .app{
+      min-height:100svh;
+      width:100%;
+      display:grid;
+      place-items:center;
+      padding:12px;
+      background:
+        radial-gradient(circle at 20% 0%,rgba(26,143,255,.28),transparent 26rem),
+        radial-gradient(circle at 80% 100%,rgba(103,255,38,.24),transparent 28rem),
+        linear-gradient(135deg,#020812,#061b22 58%,#03110a);
+    }
+    .shell{
+      width:min(100%,760px);
+      min-height:calc(100svh - 24px);
+      display:grid;
+      place-items:center;
+    }
+    .panel{
+      width:100%;
+      max-width:560px;
+      min-height:calc(100svh - 30px);
+      border-radius:30px;
+      border:1px solid var(--line);
+      overflow:hidden;
+      box-shadow:0 24px 90px rgba(0,0,0,.42);
+      position:relative;
+    }
+    .panel.ipm{
+      background:
+        radial-gradient(circle at 50% 0%,rgba(80,202,255,.34),transparent 23rem),
+        linear-gradient(180deg,#0b7eb6 0%,#062c55 52%,#03111b 100%);
+    }
+    .panel.dad{
+      background:
+        radial-gradient(circle at 50% 0%,rgba(105,255,33,.28),transparent 24rem),
+        linear-gradient(180deg,#0b563e 0%,#07251d 58%,#020806 100%);
+    }
+    .inner{
+      width:100%;
+      min-height:calc(100svh - 30px);
+      padding:clamp(18px,4vw,34px);
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      gap:14px;
+    }
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      align-items:center;
+      margin-bottom:4px;
+    }
+    .pill{
+      min-height:44px;
+      padding:10px 15px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.38);
+      background:linear-gradient(#2f8cff,#0750e7);
+      color:#fff;
+      text-decoration:none;
+      font-weight:900;
+      font-size:clamp(15px,4.2vw,21px);
+      white-space:nowrap;
+      box-shadow:0 0 20px rgba(0,120,255,.38);
+    }
+    .ghost{
+      background:linear-gradient(#55f936,#21a90a);
+      color:#061006;
+    }
+    h1,h2,p{margin:0;text-align:center}
+    .logo-ipm{
+      font-size:clamp(64px,18vw,116px);
+      line-height:.86;
+      font-weight:500;
+      color:#52cfff;
+      text-shadow:0 0 26px rgba(82,207,255,.7);
+      letter-spacing:-.06em;
+      margin-top:8px;
+    }
+    .logo-dad{
+      font-size:clamp(76px,22vw,128px);
+      line-height:.82;
+      color:var(--green);
+      font-weight:900;
+      text-shadow:0 0 30px rgba(108,255,34,.84);
+      margin-top:6px;
+    }
+    .headline{
+      font-size:clamp(30px,8vw,50px);
+      line-height:.95;
+      font-weight:900;
+      letter-spacing:.06em;
+    }
+    .subline{
+      font-size:clamp(20px,5.8vw,35px);
+      line-height:1.05;
+      font-weight:900;
+      margin-top:4px;
+    }
+    .greenline{
+      color:var(--green);
+      text-shadow:0 0 20px rgba(108,255,34,.78);
+    }
+    .form,.choices,.methods{
+      display:grid;
+      gap:12px;
+      width:100%;
+      margin-top:8px;
+    }
+    input,select,textarea,button{
+      font:inherit;
+    }
+    .field, .select, textarea, .choice, .method, .lock, .change{
+      width:100%;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.28);
+      background:var(--glass);
+      color:#fff;
+      font-weight:900;
+      min-height:58px;
+      padding:0 18px;
+      outline:none;
+    }
+    .field::placeholder,textarea::placeholder{color:rgba(255,255,255,.72)}
+    .select{appearance:auto;white-space:normal;text-overflow:clip}
+    textarea{
+      min-height:142px;
+      resize:vertical;
+      padding:18px;
+      line-height:1.12;
+    }
+    .field,.select,textarea{
+      font-size:clamp(17px,4.9vw,25px);
+    }
+    .choice,.method,.lock,.change{
+      cursor:pointer;
+      font-size:clamp(21px,6vw,32px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+    }
+    .choice{min-height:60px;background:var(--glass2)}
+    .custom{
+      width:100%;
+      border-radius:20px;
+      border:1px solid rgba(255,255,255,.28);
+      background:var(--glass2);
+      padding:14px;
+      font-weight:900;
+      font-size:clamp(22px,6.4vw,34px);
+      display:grid;
+      gap:10px;
+    }
+    .custom input{
+      width:100%;
+      min-height:54px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.28);
+      background:rgba(0,0,0,.22);
+      color:#fff;
+      font-weight:900;
+      font-size:30px;
+      padding:0 18px;
+    }
+    .lock{
+      min-height:72px;
+      border:0;
+      background:linear-gradient(#29bdff,#006dff);
+      box-shadow:0 0 28px rgba(41,189,255,.5);
+    }
+    .method:disabled{
+      opacity:.34;
+      cursor:default;
+      background:rgba(0,0,0,.2);
+    }
+    .method.active{
+      background:linear-gradient(#83ff37,#36bd15);
+      color:#061006;
+      box-shadow:0 0 26px rgba(90,255,40,.5);
+    }
+    .summary,.transfer,.notice,.receipt{
+      margin-top:8px;
+      padding:15px;
+      border-radius:20px;
+      border:1px solid rgba(120,255,120,.42);
+      background:rgba(0,0,0,.22);
+      font-weight:900;
+      display:grid;
+      gap:8px;
+    }
+    .amount{
+      font-size:clamp(42px,12vw,74px);
+      line-height:1;
+      font-weight:900;
+    }
+    .change{
+      min-height:46px;
+      background:transparent;
+      color:#bbffd0;
+      font-size:18px;
+      margin-top:4px;
+    }
+    .foot{
+      margin-top:auto;
+      font-size:clamp(15px,4.3vw,21px);
+      line-height:1.05;
+      opacity:.95;
+      padding-top:8px;
+    }
+    .hidden{display:none!important}
+    @media(max-height:760px){
+      .inner{gap:10px;padding:14px}
+      .logo-dad{font-size:clamp(62px,18vw,100px)}
+      .logo-ipm{font-size:clamp(56px,15vw,92px)}
+      textarea{min-height:108px}
+      .field,.select,.choice,.method{min-height:52px}
+      .lock{min-height:62px}
+      .headline{font-size:clamp(25px,7vw,42px)}
+      .subline{font-size:clamp(18px,5vw,30px)}
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <div class="shell">
+      <section id="panel" class="panel ipm" aria-live="polite">
+        <div id="ipmView" class="inner">
+          <nav class="nav">
+            <button class="pill ghost" type="button" data-show="dad">← DAD</button>
+            <button class="pill" type="button" data-show="dad">DAD →</button>
+          </nav>
+
+          <h1 class="logo-ipm">IPMdb</h1>
+          <h2 class="headline">IDEAS 2 ASSETS</h2>
+          <p class="subline">THE FUTURE LIVES HERE</p>
+
+          <section class="form">
+            <input id="ideaTitle" class="field" type="text" maxlength="80" placeholder="YOUR IDEA IN ONE WORD" />
+            <input id="ideaEmail" class="field" type="email" placeholder="YOUR EMAIL" />
+            <select id="ideaSource" class="select">
+              <option value="">HOW DID YOU GET HERE?</option>
+              <option>Google Search</option>
+              <option>Friend</option>
+              <option>QR Code</option>
+              <option>Dollar A Day</option>
+              <option>Facebook</option>
+              <option>Truth Social</option>
+              <option>AJF</option>
+              <option>SQ</option>
+              <option>Other</option>
+            </select>
+            <textarea id="ideaDescription" placeholder="Describe your idea..."></textarea>
+            <button id="lockIdea" class="lock" type="button">LOCK IDEA</button>
+          </section>
+
+          <section id="ideaReceipt" class="receipt hidden">
+            <p>Your submission is ready to send.</p>
+            <p id="assetIdLine"></p>
+          </section>
+
+          <p class="foot">Every submission receives a permanent timestamp and Asset ID.</p>
+        </div>
+
+        <div id="dadView" class="inner hidden">
+          <nav class="nav">
+            <button class="pill" type="button" data-show="ipm">← IPMdb.ai</button>
+            <button class="pill ghost" type="button" data-show="ipm">IPMdb.ai →</button>
+          </nav>
+
+          <h1 class="logo-dad">DAD</h1>
+          <h2 class="headline">DOLLAR A DAY</h2>
+          <p class="subline">$1/DAY = 1 GOAL</p>
+          <p class="subline greenline">END HOMELESSNESS</p>
+
+          <section id="dadOptions" class="choices">
+            <button type="button" class="choice" data-amount="1">$1/day</button>
+            <button type="button" class="choice" data-amount="365">$365/year</button>
+            <label class="custom">Custom Amount
+              <input id="dadAmount" type="number" min="1" step="1" inputmode="decimal" placeholder="$" />
+            </label>
+          </section>
+
+          <section id="dadSummary" class="summary hidden">
+            <p>CONTRIBUTION</p>
+            <p id="contributionAmount" class="amount">$0.00</p>
+            <p id="daysCovered">DAYS COVERED: 0</p>
+            <p id="nextPaymentDate">NEXT PAYMENT DATE: —</p>
+            <button id="resetContribution" class="change" type="button">CHANGE AMOUNT</button>
+          </section>
+
+          <section class="methods">
+            <button id="payCard" class="method" type="button" disabled>PAY BY CARD</button>
+            <button id="payEtransfer" class="method" type="button" disabled>E-TRANSFER</button>
+            <button id="payQR" class="method" type="button" disabled>QR CODE</button>
+          </section>
+
+          <section id="transferInstructions" class="transfer hidden">
+            <p>E-TRANSFER</p>
+            <p>Send to: <strong>ajfisherco@gmail.com</strong></p>
+            <p id="transferAmount">Amount: —</p>
+            <p>Message: DAD Contribution</p>
+          </section>
+
+          <section id="notice" class="notice hidden"><p id="noticeText"></p></section>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (()=>{
+      const CARD="https://square.link/u/EcyDVlU3?src=site";
+      const QR="https://square.link/u/EcyDVlU3?src=qr";
+      const EMAIL="ajfisherco@gmail.com";
+      const panel=document.querySelector('#panel');
+      const ipm=document.querySelector('#ipmView');
+      const dad=document.querySelector('#dadView');
+      const showButtons=document.querySelectorAll('[data-show]');
+      const dadOptions=document.querySelector('#dadOptions');
+      const dadSummary=document.querySelector('#dadSummary');
+      const dadAmount=document.querySelector('#dadAmount');
+      const contributionAmount=document.querySelector('#contributionAmount');
+      const daysCovered=document.querySelector('#daysCovered');
+      const nextPaymentDate=document.querySelector('#nextPaymentDate');
+      const resetContribution=document.querySelector('#resetContribution');
+      const payCard=document.querySelector('#payCard');
+      const payEtransfer=document.querySelector('#payEtransfer');
+      const payQR=document.querySelector('#payQR');
+      const transferInstructions=document.querySelector('#transferInstructions');
+      const transferAmount=document.querySelector('#transferAmount');
+      const notice=document.querySelector('#notice');
+      const noticeText=document.querySelector('#noticeText');
+      const lockIdea=document.querySelector('#lockIdea');
+      const ideaReceipt=document.querySelector('#ideaReceipt');
+      const assetIdLine=document.querySelector('#assetIdLine');
+      let selected=0;
+
+      function show(which){
+        if(which==='dad'){
+          ipm.classList.add('hidden');
+          dad.classList.remove('hidden');
+          panel.classList.remove('ipm');
+          panel.classList.add('dad');
+        }else{
+          dad.classList.add('hidden');
+          ipm.classList.remove('hidden');
+          panel.classList.remove('dad');
+          panel.classList.add('ipm');
+        }
+      }
+      showButtons.forEach(b=>b.addEventListener('click',()=>show(b.dataset.show)));
+
+      const money=n=>n.toLocaleString('en-CA',{style:'currency',currency:'CAD',minimumFractionDigits:2});
+      const nextDate=d=>{const x=new Date();x.setDate(x.getDate()+Math.max(d,1));return x.toLocaleDateString('en-CA',{month:'long',day:'numeric',year:'numeric'})};
+      const payUrl=(u,a)=>{const x=new URL(u);x.searchParams.set('amount',a);return x.toString()};
+      const active=v=>[payCard,payEtransfer,payQR].forEach(b=>{b.disabled=!v;b.classList.toggle('active',v)});
+
+      function setAmount(v){
+        const n=Number(v);
+        if(!Number.isFinite(n)||n<=0)return;
+        selected=Math.round(n*100)/100;
+        const d=Math.floor(selected);
+        contributionAmount.textContent=money(selected);
+        daysCovered.textContent=`DAYS COVERED: ${d}`;
+        nextPaymentDate.textContent=`NEXT PAYMENT DATE: ${nextDate(d)}`;
+        transferAmount.textContent=`Amount: ${money(selected)}`;
+        dadOptions.classList.add('hidden');
+        dadSummary.classList.remove('hidden');
+        transferInstructions.classList.add('hidden');
+        notice.classList.add('hidden');
+        active(true);
+      }
+
+      dadOptions.addEventListener('click',e=>{
+        const b=e.target.closest('[data-amount]');
+        if(b)setAmount(b.dataset.amount);
+      });
+      dadAmount.addEventListener('input',()=>{if(Number(dadAmount.value)>0)setAmount(dadAmount.value)});
+      resetContribution.addEventListener('click',()=>{
+        selected=0;
+        dadAmount.value='';
+        dadOptions.classList.remove('hidden');
+        dadSummary.classList.add('hidden');
+        transferInstructions.classList.add('hidden');
+        notice.classList.add('hidden');
+        active(false);
+      });
+      payCard.addEventListener('click',()=>{if(selected)window.open(payUrl(CARD,selected),'_blank','noopener,noreferrer')});
+      payQR.addEventListener('click',()=>{if(selected)window.open(payUrl(QR,selected),'_blank','noopener,noreferrer')});
+      payEtransfer.addEventListener('click',async()=>{
+        if(!selected)return;
+        transferInstructions.classList.remove('hidden');
+        noticeText.textContent='E-transfer instructions copied where supported.';
+        notice.classList.remove('hidden');
+        try{await navigator.clipboard.writeText(`DAD Contribution ${money(selected)} to ${EMAIL}`)}catch(e){}
+      });
+
+      lockIdea.addEventListener('click',()=>{
+        const title=document.querySelector('#ideaTitle').value.trim()||'New IPMdb Idea';
+        const from=document.querySelector('#ideaEmail').value.trim();
+        const source=document.querySelector('#ideaSource').value;
+        const desc=document.querySelector('#ideaDescription').value.trim();
+        const now=new Date();
+        const y=now.getFullYear();
+        const m=String(now.getMonth()+1).padStart(2,'0');
+        const d=String(now.getDate()).padStart(2,'0');
+        const id=`IPM-${y}${m}${d}-${Math.floor(100000+Math.random()*900000)}`;
+        assetIdLine.textContent=`ASSET ID: ${id}`;
+        ideaReceipt.classList.remove('hidden');
+        const body=[`ASSET ID: ${id}`,`IDEA TITLE: ${title}`,`EMAIL: ${from}`,`SOURCE: ${source}`,'','DESCRIPTION:',desc].join('\n');
+        window.location.href=`mailto:${EMAIL}?subject=${encodeURIComponent('IPMdb Idea: '+title)}&body=${encodeURIComponent(body)}`;
+      });
+
+      active(false);
+      show('ipm');
+    })();
+  </script>
+</body>
+</html>
