@@ -52,6 +52,32 @@ Test desktop, iPhone, form submission, emails, links, QR, and payment routes.
 
 Publish the tested build to ajfisherco.com/ipmdb or the target standalone domain.
 
+## DAD payment launch rule
+
+Payments activate only after a contribution value is selected or entered.
+
+Suggested options:
+
+- $1/day
+- $365/year
+- Custom Amount
+
+Remove the monthly option.
+
+After amount selection, hide the option list and show:
+
+- Contribution amount
+- Days covered
+- Next payment date
+
+Active methods:
+
+- Pay by Card
+- E-Transfer
+- QR Code
+
+Remove the Complete button from the public payment flow.
+
 ## Readiness checklist
 
 - [ ] Intro page exists.
@@ -60,6 +86,10 @@ Publish the tested build to ajfisherco.com/ipmdb or the target standalone domain
 - [ ] I2A page exists.
 - [ ] IPMdb ledger page exists.
 - [ ] DAD page exists.
+- [ ] DAD payment flow uses $1/day, $365/year, and Custom Amount.
+- [ ] Monthly payment option removed.
+- [ ] Payment methods activate only after amount selection.
+- [ ] Complete button removed from public payment flow.
 - [ ] Graphics folder contains page visuals or placeholders.
 - [ ] Deployment instructions exist.
 - [ ] Mobile view tested.
