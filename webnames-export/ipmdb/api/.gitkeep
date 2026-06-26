@@ -1,0 +1,8 @@
+# API endpoints placeholder
+# Future API routes will be added here
+#
+# POST /api/ideas - Create idea lock
+# GET /api/ideas/:id - Retrieve idea
+# POST /api/contributions - Record contribution
+# GET /api/assets - List assets
+# GET /api/ledger - Public record
