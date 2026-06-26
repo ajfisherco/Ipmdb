@@ -1,7 +1,7 @@
 window.DAD = (() => {
   const etransfer = 'dad' + '@' + 'ajfisherco.com';
-  const cardUrl = '#card-link-pending';
-  const qrUrl = './assets/qr/';
+  const cardUrl = 'https://square.link/u/EcyDVlU3?src=ipmdb';
+  const qrUrl = cardUrl;
 
   function selectedAmount(form) {
     const custom = Number(form.dadCustom.value || 0);
@@ -12,9 +12,9 @@ window.DAD = (() => {
 
   function handleSubmit(form, receipt) {
     const amount = selectedAmount(form);
-    receipt.textContent = 'Contribution selected: $' + amount + '. Card link is ready for payment-provider wiring.';
+    receipt.textContent = 'Card selected for $' + amount + '. Opening Square checkout.';
     receipt.classList.remove('hidden');
-    if (cardUrl !== '#card-link-pending') window.location.href = cardUrl;
+    window.open(cardUrl, '_blank', 'noopener');
   }
 
   async function copyEtransfer(receipt) {
@@ -28,8 +28,9 @@ window.DAD = (() => {
   }
 
   function openQr(receipt) {
-    receipt.textContent = 'QR code folder path reserved: ' + qrUrl;
+    receipt.textContent = 'QR uses the same Square checkout link until final QR art is installed.';
     receipt.classList.remove('hidden');
+    window.open(qrUrl, '_blank', 'noopener');
   }
 
   return { handleSubmit, copyEtransfer, openQr };
