@@ -14,10 +14,10 @@
     <section class="panel panel-ipm" aria-labelledby="ipm-title">
       <nav class="panel-nav" aria-label="IPMdb navigation">
         <a href="#dad" class="pill">DAD →</a>
-        <a href="https://github.com/ajfisherco/Ipmdb/issues" class="pill ghost" target="_blank" rel="noopener">Ledger</a>
+        <a href="#ideaReceipt" class="pill ghost">Ledger Pending</a>
       </nav>
 
-      <div class="panel-card">
+      <div class="panel-card compact-card">
         <header class="brand-block">
           <p class="kicker">IPMdb.ai</p>
           <h1 id="ipm-title">Ideas 2 Assets</h1>
@@ -26,42 +26,42 @@
 
         <form id="ideaForm" class="stack" novalidate>
           <label>
-            <span>Idea title</span>
-            <input id="ideaTitle" name="ideaTitle" type="text" maxlength="80" placeholder="YOUR IDEA IN ONE WORD" autocomplete="off" required />
+            <span>Idea Title</span>
+            <input id="ideaTitle" name="ideaTitle" type="text" maxlength="80" placeholder="Your Idea In One Word" autocomplete="off" tabindex="1" required />
           </label>
 
           <label>
             <span>Email</span>
-            <input id="ideaEmail" name="ideaEmail" type="email" placeholder="YOUR EMAIL" autocomplete="email" required />
+            <input id="ideaEmail" name="ideaEmail" type="email" placeholder="Your Email" autocomplete="email" tabindex="2" required />
           </label>
 
           <label>
-            <span>How did you get here?</span>
-            <select id="ideaSource" name="ideaSource" required>
-              <option value="">HOW DID YOU GET HERE?</option>
-              <option value="Google">Google</option>
+            <span>How Did You Get Here?</span>
+            <select id="ideaSource" name="ideaSource" tabindex="3" required>
+              <option value="">Choose Source</option>
+              <option value="Search">Search</option>
               <option value="Friend">Friend</option>
               <option value="QR Code">QR Code</option>
-              <option value="DAD">DAD</option>
+              <option value="Dollar A Day">Dollar A Day</option>
               <option value="Facebook">Facebook</option>
               <option value="Truth Social">Truth Social</option>
-              <option value="AJF">AJF</option>
+              <option value="AJF & Co.">AJF & Co.</option>
               <option value="SQ">SQ</option>
               <option value="Other">Other</option>
             </select>
           </label>
 
           <label id="sourceOtherWrap" class="hidden">
-            <span>Specific source</span>
-            <input id="sourceOther" name="sourceOther" type="text" placeholder="CUSTOM ENTRY" />
+            <span>Specific Source</span>
+            <input id="sourceOther" name="sourceOther" type="text" placeholder="Custom Entry" tabindex="4" />
           </label>
 
           <label>
             <span>Description</span>
-            <textarea id="ideaDescription" name="ideaDescription" rows="5" placeholder="Describe your idea..."></textarea>
+            <textarea id="ideaDescription" name="ideaDescription" rows="3" placeholder="Describe your idea..." tabindex="5"></textarea>
           </label>
 
-          <button class="primary-button" type="submit">LOCK IDEA</button>
+          <button class="primary-button" type="submit" tabindex="6">Lock Idea</button>
           <p id="ideaReceipt" class="receipt hidden" role="status" aria-live="polite"></p>
         </form>
       </div>
@@ -70,36 +70,36 @@
     <section id="dad" class="panel panel-dad" aria-labelledby="dad-title">
       <nav class="panel-nav" aria-label="DAD navigation">
         <a href="#top" class="pill">← IPMdb.ai</a>
-        <button id="copyEtransfer" class="pill ghost" type="button">Copy e-transfer</button>
+        <button id="copyEtransfer" class="pill ghost" type="button">Copy E-transfer</button>
       </nav>
 
-      <div class="panel-card">
+      <div class="panel-card compact-card">
         <header class="brand-block">
           <p class="kicker">DAD</p>
           <h2 id="dad-title">Dollar A Day</h2>
-          <p class="tagline">$1/day = 1 goal. End homelessness.</p>
+          <p class="tagline">Choose amount. Choose method. Continue.</p>
         </header>
 
         <form id="dadForm" class="stack" novalidate>
           <div class="choice-grid" role="radiogroup" aria-label="Contribution amount">
-            <label class="choice"><input type="radio" name="dadAmount" value="1" checked /><span>$1/day</span></label>
-            <label class="choice"><input type="radio" name="dadAmount" value="365" /><span>$365/year</span></label>
+            <label class="choice"><input type="radio" name="dadAmount" value="1" checked /><span>$1 / Day</span></label>
+            <label class="choice"><input type="radio" name="dadAmount" value="365" /><span>$365 / Year</span></label>
           </div>
 
           <label>
-            <span>Custom amount</span>
-            <input id="dadCustom" name="dadCustom" type="number" min="1" step="1" placeholder="$ CUSTOM AMOUNT" />
+            <span>Custom Amount</span>
+            <input id="dadCustom" name="dadCustom" type="number" min="1" step="1" placeholder="Custom Amount" />
           </label>
 
           <label>
             <span>Email</span>
-            <input id="dadEmail" name="dadEmail" type="email" placeholder="YOUR EMAIL" autocomplete="email" />
+            <input id="dadEmail" name="dadEmail" type="email" placeholder="Your Email" autocomplete="email" />
           </label>
 
-          <div class="button-grid">
-            <button class="primary-button" type="submit" data-method="card">PAY BY CARD</button>
-            <button class="primary-button" type="button" id="dadEtransfer">E-TRANSFER</button>
-            <button class="primary-button" type="button" id="dadQr">QR CODE</button>
+          <div class="button-grid payment-grid">
+            <button class="primary-button" type="submit" data-method="card">Pay By Card</button>
+            <button class="primary-button" type="button" id="dadEtransfer">E-transfer</button>
+            <button class="primary-button" type="button" id="dadQr">QR Code</button>
           </div>
 
           <p id="dadReceipt" class="receipt hidden" role="status" aria-live="polite"></p>
