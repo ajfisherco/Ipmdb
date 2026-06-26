@@ -1,15 +1,12 @@
 <?php
 
 declare(strict_types=1);
-require __DIR__ . '/bootstrap.php';
+require_once __DIR__ . '/bootstrap.php';
 
 function ipmdb_next_asset_id(PDO $pdo): string
 {
     $today = date('Ymd');
     $config = ipmdb_config();
-
-    $pdo->beginTransaction();
-
     $stmt = $pdo->prepare('SELECT last_number FROM asset_sequences WHERE sequence_date = ?');
     $stmt->execute([$today]);
     $current = $stmt->fetchColumn();
@@ -24,17 +21,14 @@ function ipmdb_next_asset_id(PDO $pdo): string
         $stmt->execute([$number, $today]);
     }
 
-    $pdo->commit();
-
     return sprintf('%s-%s-%06d', $config['app']['asset_prefix'], $today, $number);
 }
 
-try {
-    $pdo = ipmdb_pdo();
-    ipmdb_json(['ok' => true, 'asset_id' => ipmdb_next_asset_id($pdo)]);
-} catch (Throwable $error) {
-    if (isset($pdo) && $pdo->inTransaction()) {
-        $pdo->rollBack();
+if (basename($_SERVER['SCRIPT_NAME']) === 'assetid.php') {
+    try {
+        $pdo = ipmdb_pdo();
+        ipmdb_json(['ok' => true, 'asset_id' => ipmdb_next_asset_id($pdo)]);
+    } catch (Throwable $error) {
+        ipmdb_json(['ok' => false, 'error' => 'Asset ID generation failed.'], 500);
     }
-    ipmdb_json(['ok' => false, 'error' => 'Asset ID generation failed.'], 500);
 }
