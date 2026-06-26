@@ -1,7 +1,6 @@
 @media (min-width:900px){
-  body{overflow:hidden}
-  .app-shell{height:100svh;grid-template-columns:1fr 1fr}
-  .panel{min-height:100svh;height:100svh}
-  .panel-card{max-height:92svh}
+  body{overflow-y:auto}
+  .app-shell{min-height:100svh;grid-template-columns:1fr 1fr}
+  .panel{min-height:100svh}
   .panel-ipm{border-right:1px solid rgba(255,255,255,.12)}
 }
