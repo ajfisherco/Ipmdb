@@ -1,11 +1,7 @@
 window.IPMdb = (() => {
-  const destination = 'ajfisherco' + '@' + 'gmail.com';
-
   function serializeIdea(form) {
     const source = form.ideaSource.value === 'Other' ? form.sourceOther.value.trim() : form.ideaSource.value;
     return {
-      assetId: window.IPMAsset.createAssetId(),
-      timestamp: window.IPMAsset.timestamp(),
       title: form.ideaTitle.value.trim(),
       email: form.ideaEmail.value.trim(),
       source,
@@ -21,32 +17,37 @@ window.IPMdb = (() => {
     return '';
   }
 
-  function mailto(record) {
-    const subject = encodeURIComponent('IPMdb Idea: ' + record.title);
-    const body = encodeURIComponent([
-      'ASSET ID: ' + record.assetId,
-      'TIMESTAMP: ' + record.timestamp,
-      'IDEA TITLE: ' + record.title,
-      'EMAIL: ' + record.email,
-      'SOURCE: ' + record.source,
-      '',
-      'DESCRIPTION:',
-      record.description || '(empty)'
-    ].join('\n'));
-    return 'mailto:' + destination + '?subject=' + subject + '&body=' + body;
+  async function submitIdea(record) {
+    const response = await fetch('./api/submit.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(record)
+    });
+    const payload = await response.json();
+    if (!response.ok || !payload.ok) {
+      throw new Error(payload.error || 'Submission failed.');
+    }
+    return payload;
   }
 
-  function handleSubmit(form, receipt) {
+  async function handleSubmit(form, receipt) {
     const error = validateIdea(form);
     if (error) {
       receipt.textContent = error;
       receipt.classList.remove('hidden');
       return;
     }
-    const record = serializeIdea(form);
-    receipt.textContent = 'Locked locally as ' + record.assetId + '. Your email client will open next.';
+
+    receipt.textContent = 'Locking idea...';
     receipt.classList.remove('hidden');
-    window.location.href = mailto(record);
+
+    try {
+      const payload = await submitIdea(serializeIdea(form));
+      receipt.textContent = 'Locked as ' + payload.asset_id + '. Email status: ' + (payload.mail_sent ? 'sent' : 'pending') + '.';
+      form.reset();
+    } catch (err) {
+      receipt.textContent = err.message;
+    }
   }
 
   return { handleSubmit };
