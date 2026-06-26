@@ -2,92 +2,115 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>IPM.db — Ideas to Assets</title>
-  <meta name="description" content="IPM.db turns ideas into owned, trackable assets. DAD — Dollar a Day. One dollar. One community. One change." />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>IPMdb.ai | DAD</title>
+  <meta name="description" content="IPMdb turns ideas into owned, trackable assets. DAD is Dollar A Day: one goal, end homelessness." />
   <link rel="stylesheet" href="./css/styles.css" />
   <link rel="stylesheet" href="./css/desktop.css" />
   <link rel="stylesheet" href="./css/mobile.css" />
 </head>
 <body>
-  <main class="shell">
-    <!-- Header with AJF&Co. brand -->
-    <header class="top">
-      <a class="brand" href="#top">
-        <span class="mark">
-          <img src="./assets/ajfco-link-mark.svg" alt="AJF&Co. parent company mark" />
-        </span>
-        <span>AJF&Co.<small>A Parent Company · IPM.db</small></span>
-      </a>
-    </header>
+  <main id="top" class="app-shell" aria-label="IPMdb and Dollar A Day launch application">
+    <section class="panel panel-ipm" aria-labelledby="ipm-title">
+      <nav class="panel-nav" aria-label="IPMdb navigation">
+        <a href="#dad" class="pill">DAD →</a>
+        <a href="https://github.com/ajfisherco/Ipmdb/issues" class="pill ghost" target="_blank" rel="noopener">Ledger</a>
+      </nav>
 
-    <!-- Hero section -->
-    <section class="hero">
-      <div class="hero-inner">
-        <div class="kicker">DAD beta gateway</div>
-        <h1>One dollar<br>a day.<br>One <span class="orange">community</span><br>at a time.</h1>
-        <p class="lede">A simple contribution stream for housing action and local outcomes, tracked publicly through IPM.db.</p>
+      <div class="panel-card">
+        <header class="brand-block">
+          <p class="kicker">IPMdb.ai</p>
+          <h1 id="ipm-title">Ideas 2 Assets</h1>
+          <p class="tagline">The future lives here.</p>
+        </header>
+
+        <form id="ideaForm" class="stack" novalidate>
+          <label>
+            <span>Idea title</span>
+            <input id="ideaTitle" name="ideaTitle" type="text" maxlength="80" placeholder="YOUR IDEA IN ONE WORD" autocomplete="off" required />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input id="ideaEmail" name="ideaEmail" type="email" placeholder="YOUR EMAIL" autocomplete="email" required />
+          </label>
+
+          <label>
+            <span>How did you get here?</span>
+            <select id="ideaSource" name="ideaSource" required>
+              <option value="">HOW DID YOU GET HERE?</option>
+              <option value="Google">Google</option>
+              <option value="Friend">Friend</option>
+              <option value="QR Code">QR Code</option>
+              <option value="DAD">DAD</option>
+              <option value="Facebook">Facebook</option>
+              <option value="Truth Social">Truth Social</option>
+              <option value="AJF">AJF</option>
+              <option value="SQ">SQ</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
+          <label id="sourceOtherWrap" class="hidden">
+            <span>Specific source</span>
+            <input id="sourceOther" name="sourceOther" type="text" placeholder="CUSTOM ENTRY" />
+          </label>
+
+          <label>
+            <span>Description</span>
+            <textarea id="ideaDescription" name="ideaDescription" rows="5" placeholder="Describe your idea..."></textarea>
+          </label>
+
+          <button class="primary-button" type="submit">LOCK IDEA</button>
+          <p id="ideaReceipt" class="receipt hidden" role="status" aria-live="polite"></p>
+        </form>
       </div>
     </section>
 
-    <!-- Contribution options cards -->
-    <section class="cards">
-      <div class="card">
-        <span class="icon">☀</span>
-        <b>Daily</b>
-        <strong>$1</strong>
-      </div>
-      <div class="card">
-        <span class="icon">▦</span>
-        <b>Weekly</b>
-        <strong>$7</strong>
-      </div>
-      <div class="card">
-        <span class="icon">◐</span>
-        <b>Monthly</b>
-        <strong>$30</strong>
-      </div>
-      <div class="card">
-        <span class="icon">⊙</span>
-        <b>Yearly</b>
-        <strong>$365</strong>
-      </div>
-    </section>
+    <section id="dad" class="panel panel-dad" aria-labelledby="dad-title">
+      <nav class="panel-nav" aria-label="DAD navigation">
+        <a href="#top" class="pill">← IPMdb.ai</a>
+        <button id="copyEtransfer" class="pill ghost" type="button">Copy e-transfer</button>
+      </nav>
 
-    <!-- Information panels -->
-    <section class="panel">
-      <h2>Built through AJF&Co. Tracked through IPM.db.</h2>
-      <p>DAD is the contribution face. DADS is the organizing society path. IPM.db is the public record layer. AJF&Co. keeps the parent-company build and test environment.</p>
-    </section>
+      <div class="panel-card">
+        <header class="brand-block">
+          <p class="kicker">DAD</p>
+          <h2 id="dad-title">Dollar A Day</h2>
+          <p class="tagline">$1/day = 1 goal. End homelessness.</p>
+        </header>
 
-    <section class="panel">
-      <h2>Clean public paths</h2>
-      <p>DAD lives at <strong>ajfisherco.com/dad</strong>. DADS lives at <strong>ajfisherco.com/dads</strong>. The public record lives at <strong>ajfisherco.com/issues</strong>.</p>
-    </section>
+        <form id="dadForm" class="stack" novalidate>
+          <div class="choice-grid" role="radiogroup" aria-label="Contribution amount">
+            <label class="choice"><input type="radio" name="dadAmount" value="1" checked /><span>$1/day</span></label>
+            <label class="choice"><input type="radio" name="dadAmount" value="365" /><span>$365/year</span></label>
+          </div>
 
-    <!-- Action buttons -->
-    <section class="panel action-buttons">
-      <a href="./dad/index.html" class="button primary">Open DAD</a>
-      <a href="./lock-idea/index.html" class="button secondary">Lock Idea</a>
-      <a href="https://github.com/ajfisherco/Ipmdb/issues" class="button secondary" target="_blank" rel="noopener">View Ledger</a>
+          <label>
+            <span>Custom amount</span>
+            <input id="dadCustom" name="dadCustom" type="number" min="1" step="1" placeholder="$ CUSTOM AMOUNT" />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input id="dadEmail" name="dadEmail" type="email" placeholder="YOUR EMAIL" autocomplete="email" />
+          </label>
+
+          <div class="button-grid">
+            <button class="primary-button" type="submit" data-method="card">PAY BY CARD</button>
+            <button class="primary-button" type="button" id="dadEtransfer">E-TRANSFER</button>
+            <button class="primary-button" type="button" id="dadQr">QR CODE</button>
+          </div>
+
+          <p id="dadReceipt" class="receipt hidden" role="status" aria-live="polite"></p>
+        </form>
+      </div>
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <p>DAD is a companion initiative to IPM.db. Every contribution will be recorded. Receipts are part of the intended operating flow.</p>
-    <div class="footer-links">
-      <a href="./dad/">DAD</a>
-      <span>·</span>
-      <a href="./dad/ledger.html">Public Record</a>
-      <span>·</span>
-      <a href="./dad/society.html">DADS</a>
-      <span>·</span>
-      <a href="https://github.com/ajfisherco/Ipmdb" target="_blank" rel="noopener">GitHub</a>
-    </div>
-  </footer>
-
-  <script src="./js/app.js"></script>
+  <script src="./js/asset.js"></script>
   <script src="./js/ipmdb.js"></script>
+  <script src="./js/dad.js"></script>
+  <script src="./js/app.js"></script>
 </body>
 </html>
