@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>IPMdb.ai | DAD</title>
+  <meta name="description" content="IPMdb.ai turns ideas into trackable assets. DAD is Dollar A Day: one goal, end homelessness." />
+  <link rel="stylesheet" href="./css/styles.css" />
+  <link rel="stylesheet" href="./css/desktop.css" />
+  <link rel="stylesheet" href="./css/mobile.css" />
+</head>
+<body>
+  <main id="top" class="app-shell" aria-label="IPMdb and Dollar A Day application">
+    <section id="ipmdb" class="panel panel-ipm" aria-labelledby="ipm-title">
+      <nav class="panel-nav" aria-label="IPMdb navigation">
+        <a href="#dad" class="nav-button">DAD →</a>
+        <a href="#ipm-status" class="nav-button ghost">Ledger Pending</a>
+      </nav>
+
+      <div class="panel-card">
+        <header class="brand-block">
+          <p class="brand-name">IPMdb.ai</p>
+          <h1 id="ipm-title">Ideas 2 Assets</h1>
+          <p class="tagline">The future lives here.</p>
+        </header>
+
+        <form id="ideaForm" class="form-stack" novalidate>
+          <label>
+            <span>Idea Title</span>
+            <input id="ideaTitle" name="title" type="text" maxlength="120" placeholder="Your Idea In One Word" autocomplete="off" tabindex="1" required />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input id="ideaEmail" name="email" type="email" placeholder="Your Email" autocomplete="email" tabindex="2" required />
+          </label>
+
+          <label>
+            <span>How Did You Get Here?</span>
+            <select id="ideaSource" name="source" tabindex="3" required>
+              <option value="">Choose Source</option>
+              <option value="Search">Search</option>
+              <option value="Friend">Friend</option>
+              <option value="QR Code">QR Code</option>
+              <option value="Dollar A Day">Dollar A Day</option>
+              <option value="Facebook">Facebook</option>
+              <option value="Truth Social">Truth Social</option>
+              <option value="AJF & Co.">AJF & Co.</option>
+              <option value="SQ">SQ</option>
+              <option value="Other">Other</option>
+            </select>
+          </label>
+
+          <label id="sourceOtherWrap" class="hidden">
+            <span>Specific Source</span>
+            <input id="sourceOther" name="sourceOther" type="text" maxlength="120" placeholder="Custom Entry" tabindex="4" />
+          </label>
+
+          <label>
+            <span>Description</span>
+            <textarea id="ideaDescription" name="description" rows="3" maxlength="3000" placeholder="Describe your idea..." tabindex="5"></textarea>
+          </label>
+
+          <button id="lockIdeaButton" class="primary-button" type="submit" tabindex="6">Lock Idea</button>
+          <p id="ipm-status" class="receipt hidden" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="dad" class="panel panel-dad" aria-labelledby="dad-title">
+      <nav class="panel-nav" aria-label="DAD navigation">
+        <a href="#ipmdb" class="nav-button">← IPMdb.ai</a>
+        <button id="copyEtransfer" class="nav-button ghost" type="button">Copy E-transfer</button>
+      </nav>
+
+      <div class="panel-card">
+        <header class="brand-block">
+          <p class="brand-name">DAD</p>
+          <h2 id="dad-title">Dollar A Day</h2>
+          <p class="tagline">$1/day. One goal. End homelessness.</p>
+        </header>
+
+        <form id="dadForm" class="form-stack" novalidate>
+          <div class="choice-grid" role="radiogroup" aria-label="Contribution amount">
+            <label class="choice"><input type="radio" name="dadAmount" value="1" checked /><span>$1 / Day</span></label>
+            <label class="choice"><input type="radio" name="dadAmount" value="365" /><span>$365 / Year</span></label>
+          </div>
+
+          <label>
+            <span>Custom Amount</span>
+            <input id="dadCustom" name="dadCustom" type="number" min="1" step="1" placeholder="Custom Amount" />
+          </label>
+
+          <label>
+            <span>Email</span>
+            <input id="dadEmail" name="dadEmail" type="email" placeholder="Your Email" autocomplete="email" />
+          </label>
+
+          <div class="payment-grid">
+            <button class="primary-button" type="submit">Pay By Card</button>
+            <button class="primary-button" type="button" id="dadEtransfer">E-transfer</button>
+            <button class="primary-button" type="button" id="dadQr">QR Code</button>
+          </div>
+
+          <p id="dad-status" class="receipt hidden" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="./js/asset.js"></script>
+  <script src="./js/ipmdb.js"></script>
+  <script src="./js/dad.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
