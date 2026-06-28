@@ -1,0 +1,4 @@
+IPMdb RC1
+Version: 1.0.0-rc1
+Deployment root: /httpdocs/ipmdb/
+Config excluded: api/config.local.php
