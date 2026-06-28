@@ -1,0 +1,14 @@
+@media (max-width:899px){
+  .app-shell{grid-template-columns:repeat(2,100vw);overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch}
+  .panel{scroll-snap-align:start;width:100vw;padding:62px 14px 14px}
+  .panel-card{width:100%;max-height:calc(100svh - 82px);padding:14px;border-radius:22px}
+  .panel-nav{position:absolute;top:calc(env(safe-area-inset-top) + 8px);left:10px;right:10px}
+  .nav-button{min-height:34px;padding:7px 10px;font-size:13px}
+  .brand-name{font-size:clamp(38px,13vw,64px)}
+  h1,h2{font-size:clamp(24px,7vw,36px)}
+  .tagline{font-size:clamp(14px,4vw,18px)}
+  input,select,textarea{font-size:15px;padding:10px 12px}
+  textarea{min-height:58px}
+  .choice-grid{grid-template-columns:1fr}
+  .receipt{font-size:13px}
+}
