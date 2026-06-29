@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>IPMdb / DAD Fullscreen Shell v1</title>
+  <style>
+    :root{
+      --white:#f7fbff;
+      --blue:#26bfff;
+      --blue2:#005dff;
+      --green:#70ff28;
+      --green2:#22b30b;
+      --ink:#020812;
+      --line:rgba(255,255,255,.24);
+      --card:rgba(255,255,255,.12);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#020812;color:var(--white);font-family:Arial,Helvetica,sans-serif}
+    body{height:100svh}
+    .shell{width:100vw;height:100svh;display:grid;grid-template-columns:1fr 1fr;background:radial-gradient(circle at 24% 12%,rgba(38,191,255,.35),transparent 32%),radial-gradient(circle at 76% 88%,rgba(112,255,40,.26),transparent 34%),linear-gradient(135deg,#020812,#061a34 50%,#031506);overflow:hidden}
+    .face{height:100svh;position:relative;display:flex;align-items:center;justify-content:center;padding:54px 16px 14px;overflow:hidden}
+    .face.ipm{background:radial-gradient(circle at 50% 0%,rgba(38,191,255,.42),transparent 42%)}
+    .face.dad{background:radial-gradient(circle at 50% 0%,rgba(112,255,40,.34),transparent 44%)}
+    .nav{position:absolute;top:10px;left:12px;right:12px;display:flex;justify-content:space-between;gap:8px}
+    .pill{min-height:36px;padding:7px 12px;border-radius:999px;border:1px solid var(--line);background:rgba(0,0,0,.28);color:#fff;text-decoration:none;font-size:14px;font-weight:900}
+    .card{width:min(100%,540px);max-height:calc(100svh - 76px);padding:16px;border-radius:24px;border:1px solid var(--line);background:var(--card);backdrop-filter:blur(18px);box-shadow:0 18px 46px rgba(0,0,0,.4);overflow:hidden}
+    .ipm .card{background:linear-gradient(180deg,rgba(0,86,180,.55),rgba(0,8,18,.78))}
+    .dad .card{background:linear-gradient(180deg,rgba(0,98,45,.58),rgba(0,8,18,.82))}
+    header{text-align:center;margin:0 0 10px}.logo{margin:0;font-size:clamp(34px,6vw,70px);line-height:.86;font-weight:400;letter-spacing:-.06em;text-shadow:0 0 28px rgba(255,255,255,.3)}.ipm .logo{color:var(--blue)}.dad .logo{color:var(--green);font-weight:900}h1,h2{margin:6px 0 0;font-size:clamp(21px,3vw,36px);line-height:.95;font-weight:900;letter-spacing:.04em}.tagline{margin:7px 0 0;font-size:clamp(14px,1.6vw,20px);font-weight:900;line-height:1.08}.stack{display:grid;gap:8px}label{display:grid;gap:4px}span{font-size:12px;font-weight:900;color:rgba(255,255,255,.78)}input,select,textarea,button{width:100%;border:1px solid var(--line);border-radius:15px;padding:10px 13px;background:rgba(255,255,255,.13);color:var(--white);font-size:15px;font-weight:800}textarea{height:62px;resize:none}button{border:0;background:linear-gradient(180deg,var(--blue),var(--blue2));font-size:17px;font-weight:950;cursor:pointer}.dad button{background:linear-gradient(180deg,var(--green),var(--green2));color:#061006}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}.receipt{padding:9px 11px;border:1px solid var(--line);border-radius:14px;background:rgba(0,0,0,.28);font-size:13px;font-weight:800;line-height:1.2}
+    @media(max-width:820px){.shell{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.face{min-width:100vw;scroll-snap-align:start}.nav{position:absolute}.card{max-height:calc(100svh - 76px)}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="face ipm" id="ipm">
+      <nav class="nav"><a class="pill" href="#dad">DAD →</a><a class="pill" href="#">Ledger Pending</a></nav>
+      <div class="card">
+        <header><p class="logo">IPMdb.ai</p><h1>Ideas 2 Assets</h1><p class="tagline">The future lives here.</p></header>
+        <form class="stack">
+          <label><span>Idea Title</span><input placeholder="Your Idea In One Word" /></label>
+          <label><span>Email</span><input type="email" placeholder="Your Email" /></label>
+          <label><span>How Did You Get Here?</span><select><option>Choose Source</option><option>Search</option><option>Friend</option><option>QR Code</option><option>Dollar A Day</option><option>AJF & Co.</option><option>Other</option></select></label>
+          <label><span>Description</span><textarea placeholder="Describe your idea..."></textarea></label>
+          <button type="button">Lock Idea</button>
+          <div class="receipt">Submission confirmation appears here.</div>
+        </form>
+      </div>
+    </section>
+    <section class="face dad" id="dad">
+      <nav class="nav"><a class="pill" href="#ipm">← IPMdb.ai</a><a class="pill" href="#">Copy E-transfer</a></nav>
+      <div class="card">
+        <header><p class="logo">DAD</p><h2>Dollar A Day</h2><p class="tagline">Choose amount. Choose method. Continue.</p></header>
+        <form class="stack">
+          <div class="grid2"><button type="button">$1 / Day</button><button type="button">$365 / Year</button></div>
+          <label><span>Custom Amount</span><input type="number" placeholder="Custom Amount" /></label>
+          <label><span>Email</span><input type="email" placeholder="Your Email" /></label>
+          <button type="button">Pay By Card</button>
+          <button type="button">E-transfer</button>
+          <button type="button">QR Code</button>
+          <div class="receipt">Contribution confirmation appears here.</div>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
