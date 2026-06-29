@@ -1,6 +1,6 @@
 window.DAD = (() => {
   const etransfer = 'dad' + '@' + 'ajfisherco.com';
-  const cardUrl = 'https://square.link/u/EcyDVlU3?src=ipmdb';
+  const cardUrl = 'https://square.link/u/O5gSk7XM?src=ipmdb';
   const qrUrl = cardUrl;
 
   function selectedAmount(form) {
