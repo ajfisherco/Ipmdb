@@ -1,152 +1,296 @@
-# IPM.db
+# IPMdb
 
-We help make your ideas and innovations — yours for good.
+**Ideas 2 Assets**
 
-IPM.db — Intellectual Property Management database — exists to turn ideas into owned, trackable assets.
+IPMdb (Intellectual Property Management database) is a platform for transforming ideas into enduring intellectual assets.
 
-## Current public structure
+Ideas are preserved.
 
-AJFisherCo.com is the build, test, whiteboard, and preparation space for IPM.db and companion public sites.
+Knowledge evolves.
 
-Standalone domains should mirror what is first built and tested through AJF&Co.
+History remains visible.
 
-Current live structure:
+Relationships compound value.
 
-- AJF&Co. parent / build layer: https://ajfisherco.com
-- DAD beta page: https://ipmdb.ajfisherco.com/dad/
-- Public record / ledger layer: GitHub Issues in this repository
-- Payment path: Square, currently tested through the DAD contribution flow
+Implementation follows understanding.
 
-## Purpose
+---
 
-IPM.db exists to move ideas and innovations into real-world use by, for, and with their originators and contributors.
+# Purpose
 
-It collects, organizes, and advances ideas into outcomes.
+IPMdb exists to help individuals, organizations, researchers, businesses, governments, and communities capture, develop, implement, and preserve intellectual assets throughout their entire lifecycle.
 
-## Method
+Rather than simply storing information, IPMdb creates an environment where ideas become structured, attributable, searchable, versioned, related, and continuously improved.
 
-Cooperative modelling.
+Ideas become assets.
 
-Ideas are developed collaboratively.
+Assets become knowledge.
 
-Contributions are recorded.
+Knowledge becomes implementation.
+
+Implementation generates new ideas.
+
+---
+
+# Philosophy
+
+Ideas rarely exist in isolation.
+
+Every idea is influenced by previous knowledge and has the potential to influence future knowledge.
+
+IPMdb preserves both the idea and its evolution.
 
 Nothing meaningful is erased.
 
-Everything evolves through visible, attributable change.
+History is preserved.
 
-Decisions are incorporated into the flow on the fly.
+Relationships are preserved.
 
-## I2A
+Attribution is preserved.
 
-I2A means Ideas to Assets.
+Implementation is encouraged.
 
-It is the working layer that turns raw ideas, claims, contributions, and decisions into owned, trackable, reviewable assets.
+Knowledge compounds because relationships compound.
 
-Compressed language means fewer words with more payload.
+---
 
-## Authority
+# Core Principles
 
-IPM.db is fluid and case-driven.
+- Truth over convenience.
+- Attribution before appropriation.
+- Preserve history.
+- Preserve provenance.
+- Build for tomorrow.
+- Decisions are incorporated into the flow on the fly.
+- Comparable to or better than the best.
 
-Stakeholders determine what is appropriate for each case.
+---
 
-Terms are negotiated as conditions require.
+# I2A
 
-All agreements are explicit, recorded, and reviewable.
+**I2A** means **Ideas 2 Assets**.
 
-No change to terms, attribution, or participation occurs without agreement.
+Every asset begins as an idea.
 
-## DAD — Dollar a Day
+Ideas are captured, refined, related, reviewed, versioned, implemented, and preserved.
 
-DAD is the first active companion initiative.
+I2A represents the working layer that transforms thought into durable intellectual assets.
 
-Public line:
+---
 
-> One dollar a day. One community at a time.
+# Doers
 
-DAD is a simple contribution stream for housing action and local outcomes, tracked publicly through IPM.db.
+IPMdb is built for **Doers**.
 
-The current beta flow is:
+A Doer creates, contributes to, reviews, improves, implements, or stewards intellectual assets.
 
-1. DAD homepage explains the purpose.
-2. One primary **Contribute Now** button opens Square.
-3. Square handles the tested weekly contribution path.
-4. IPM.db / GitHub Issues record public milestones, changes, and outcomes.
-5. AJF&Co. remains the parent-company build and test layer.
+Every asset records the Doers responsible for its evolution.
 
-Current payment reality:
+IPMdb values contribution over consumption.
 
-- Weekly Square path tested at $7/week.
-- Daily, weekly, monthly, and yearly amounts are shown as simple equivalents.
-- Tax receipts are not promised unless processed through an eligible charity or qualified donee.
+---
 
-The old pledge/e-transfer-first flow is deprecated as the homepage flow.
+# Asset Lifecycle
 
-E-transfer may remain a secondary method, but the public beta funnel now prioritizes one clear Square contribution path.
+Ideas evolve through a transparent lifecycle.
 
-## AJF&Co. site mirror rule
+```
+Idea
+    ↓
+Lock
+    ↓
+Asset
+    ↓
+Relationships
+    ↓
+Versions
+    ↓
+Implementation
+    ↓
+History
+```
 
-AJFisherCo.com is the preparation and reference source.
+Every stage remains attributable and reviewable.
 
-All future project sites should first be built and tested through AJF&Co. or an AJF&Co. subdomain, then mirrored to their standalone domain when ready.
+Nothing meaningful is lost.
 
-A project can separate when:
+---
 
-1. The page flow works.
-2. The public wording is clean.
-3. The primary action works.
-4. The parent-company link is present.
-5. The public record path is clear.
-6. Legal or status disclaimers are not misleading.
-7. The project has a clear reason to stand alone.
+# Current Platform
 
-## AJF&Co. parent-company mark
+Version 1.0 currently includes:
 
-The locked metallic AJF&Co. emblem is the parent-company mark.
+- Idea Lock
+- Asset Viewer
+- Asset Ledger
+- Search
+- Relationships
+- Version History
+- Administrative Workspace
+- Mobile-first interface
+- Version-controlled assets
+- Relationship mapping
+- Provenance tracking
 
-It should appear as a semi-discreet link on DAD and future AJF&Co.-related public sites.
+Current development includes:
 
-Its purpose is to show parent-company approval and provide a path back to the build layer without overpowering the project page.
+- >mi< Engine
+- Relationship Intelligence
+- Progressive Web App
+- AI-assisted relationship discovery
+- Knowledge graph visualization
 
-## COPO — Court of Public Opinion
+---
 
-COPO is the next candidate project space.
+# The >mi< Engine
 
-It should be built first through AJF&Co. as a working page before any standalone domain launch.
+The >mi< Engine is the relationship intelligence of IPMdb.
 
-COPO is the civic accountability node.
+Rather than treating ideas as isolated records, >mi< continually discovers, evaluates, and strengthens meaningful relationships between intellectual assets.
 
-It turns public-interest questions into a clean public record.
+As the knowledge base grows, the value of every asset increases through its connections to every other asset.
 
-Core line:
+---
 
-> Do no harm. Tell the truth. Show the proof. Record the response.
+# Relationship Intelligence
 
-I2A flow:
+Relationship Intelligence identifies semantic, conceptual, chronological, causal, implementation, and interdisciplinary relationships between assets.
 
-Issue → Claim → Evidence → Response Request → Public Record → Outcome Tracked
+Relationships become assets themselves.
 
-## Value
+Each relationship preserves confidence, evidence, provenance, history, and future potential.
 
-When contributions generate measurable value:
+---
 
-- contributors participate proportionally
-- attribution and compensation remain linked
-- terms are visible and agreed in advance
+# Platform Architecture
 
-Comparable to or better than the best.
+```
+AJF & Co.
+Parent Company
+Research
+Development
+Testing
 
-## Current nodes
+        │
+
+        ▼
+
+IPMdb
+Ideas 2 Assets
+Knowledge Platform
+
+        │
+
+        ▼
+
+Companion Projects
+
+• DAD
+• COPO
+• Future initiatives
+```
+
+AJF & Co. serves as the parent company responsible for research, development, testing, and incubation.
+
+Projects mature within the AJF & Co. ecosystem before becoming standalone public initiatives when appropriate.
+
+---
+
+# Companion Initiatives
+
+## DAD
+
+Dollar a Day is the first active companion initiative.
+
+Mission:
+
+> One dollar a day.
+> One community at a time.
+
+DAD demonstrates how ideas captured within IPMdb become measurable community outcomes through transparent implementation.
+
+---
+
+## COPO
+
+Court of Public Opinion is a civic accountability initiative.
+
+Core principle:
+
+> Do no harm.
+> Tell the truth.
+> Show the proof.
+> Record the response.
+
+COPO transforms public-interest issues into structured public records supported by evidence and documented outcomes.
+
+---
+
+# Current Nodes
+
+Current knowledge domains include:
 
 - Core System
 - Housing
-- DAD — Dollar a Day
-- COPO — Court of Public Opinion
-- Transportation
 - Governance
+- Transportation
 - Economic Development
 - Public Services
 - Post-Consumer Waste Management
+- DAD
+- COPO
 
-Nodes are added and refined as subject material is received.
+Additional nodes are introduced as knowledge grows.
+
+---
+
+# Development Principles
+
+Development occurs through continuous iteration.
+
+Ideas are locked before implementation whenever practical.
+
+Every meaningful improvement becomes an asset.
+
+Version history documents platform evolution.
+
+Relationships reveal future opportunities.
+
+The platform evolves without sacrificing historical integrity.
+
+---
+
+# Roadmap
+
+Near-term priorities include:
+
+- Progressive Web App
+- AI-assisted relationship suggestions
+- Advanced semantic search
+- Knowledge graph visualization
+- Relationship scoring
+- Collaboration tools
+- Public APIs
+- Companion project expansion
+
+Every roadmap item originates as an IPMdb asset.
+
+---
+
+# Vision
+
+IPMdb is designed to become a living intellectual ecosystem.
+
+It preserves ideas.
+
+It preserves history.
+
+It preserves attribution.
+
+It reveals relationships.
+
+It accelerates implementation.
+
+Its purpose is not simply to organize knowledge.
+
+Its purpose is to help transform human thought into enduring intellectual assets whose value increases through connection, collaboration, and continuous evolution.
