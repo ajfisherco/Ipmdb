@@ -1,6 +1,6 @@
 # IPMdb
 
-**Ideas 2 Assets**
+> **Ideas 2 Assets**
 
 IPMdb (Intellectual Property Management database) is a platform for transforming ideas into enduring intellectual assets.
 
@@ -10,17 +10,17 @@ Knowledge evolves.
 
 History remains visible.
 
-Relationships compound value.
+Relationships create value.
 
 Implementation follows understanding.
 
 ---
 
-# Purpose
+## Mission
 
-IPMdb exists to help individuals, organizations, researchers, businesses, governments, and communities capture, develop, implement, and preserve intellectual assets throughout their entire lifecycle.
+IPMdb exists to help people transform ideas into structured, attributable, searchable, versioned, connected, and implementable intellectual assets.
 
-Rather than simply storing information, IPMdb creates an environment where ideas become structured, attributable, searchable, versioned, related, and continuously improved.
+It provides a living environment where ideas evolve through collaboration, evidence, implementation, and historical record.
 
 Ideas become assets.
 
@@ -28,11 +28,11 @@ Assets become knowledge.
 
 Knowledge becomes implementation.
 
-Implementation generates new ideas.
+Implementation inspires future ideas.
 
 ---
 
-# Philosophy
+## Vision
 
 Ideas rarely exist in isolation.
 
@@ -40,59 +40,56 @@ Every idea is influenced by previous knowledge and has the potential to influenc
 
 IPMdb preserves both the idea and its evolution.
 
-Nothing meaningful is erased.
-
-History is preserved.
-
-Relationships are preserved.
-
-Attribution is preserved.
-
-Implementation is encouraged.
+Rather than functioning as a traditional database, IPMdb maintains an expanding network of intellectual assets whose value increases through their relationships with one another.
 
 Knowledge compounds because relationships compound.
 
 ---
 
-# Core Principles
+## Core Principles
 
 - Truth over convenience.
 - Attribution before appropriation.
 - Preserve history.
 - Preserve provenance.
+- Preserve relationships.
 - Build for tomorrow.
 - Decisions are incorporated into the flow on the fly.
 - Comparable to or better than the best.
 
 ---
 
-# I2A
+## Ideas 2 Assets (I2A)
 
-**I2A** means **Ideas 2 Assets**.
+I2A represents the operating model of IPMdb.
 
 Every asset begins as an idea.
 
-Ideas are captured, refined, related, reviewed, versioned, implemented, and preserved.
+Ideas are captured, refined, related, reviewed, versioned, implemented, and preserved throughout their lifecycle.
 
-I2A represents the working layer that transforms thought into durable intellectual assets.
+Nothing meaningful is erased.
+
+Every meaningful improvement becomes part of the historical record.
 
 ---
 
-# Doers
+## Doers
 
-IPMdb is built for **Doers**.
+IPMdb is built for Doers.
 
 A Doer creates, contributes to, reviews, improves, implements, or stewards intellectual assets.
 
 Every asset records the Doers responsible for its evolution.
 
-IPMdb values contribution over consumption.
+Contribution is visible.
+
+Attribution is preserved.
+
+Implementation is encouraged.
 
 ---
 
-# Asset Lifecycle
-
-Ideas evolve through a transparent lifecycle.
+## Asset Lifecycle
 
 ```
 Idea
@@ -110,15 +107,13 @@ Implementation
 History
 ```
 
-Every stage remains attributable and reviewable.
-
-Nothing meaningful is lost.
+Every stage remains attributable, searchable, and reviewable.
 
 ---
 
-# Current Platform
+## Current Platform
 
-Version 1.0 currently includes:
+Current Version 1.0 includes:
 
 - Idea Lock
 - Asset Viewer
@@ -128,45 +123,17 @@ Version 1.0 currently includes:
 - Version History
 - Administrative Workspace
 - Mobile-first interface
-- Version-controlled assets
-- Relationship mapping
 - Provenance tracking
+- Version-controlled assets
 
-Current development includes:
-
-- >mi< Engine
-- Relationship Intelligence
-- Progressive Web App
-- AI-assisted relationship discovery
-- Knowledge graph visualization
+Development continues through versioned releases.
 
 ---
 
-# The >mi< Engine
-
-The >mi< Engine is the relationship intelligence of IPMdb.
-
-Rather than treating ideas as isolated records, >mi< continually discovers, evaluates, and strengthens meaningful relationships between intellectual assets.
-
-As the knowledge base grows, the value of every asset increases through its connections to every other asset.
-
----
-
-# Relationship Intelligence
-
-Relationship Intelligence identifies semantic, conceptual, chronological, causal, implementation, and interdisciplinary relationships between assets.
-
-Relationships become assets themselves.
-
-Each relationship preserves confidence, evidence, provenance, history, and future potential.
-
----
-
-# Platform Architecture
+## Platform Architecture
 
 ```
 AJF & Co.
-Parent Company
 Research
 Development
 Testing
@@ -183,52 +150,55 @@ Knowledge Platform
 
         ▼
 
-Companion Projects
+Companion Initiatives
 
 • DAD
 • COPO
-• Future initiatives
+• Future Projects
 ```
 
 AJF & Co. serves as the parent company responsible for research, development, testing, and incubation.
 
-Projects mature within the AJF & Co. ecosystem before becoming standalone public initiatives when appropriate.
+Projects mature within AJF & Co. before becoming independent public initiatives when appropriate.
 
 ---
 
-# Companion Initiatives
+## Emerging Capabilities
 
-## DAD
+Current development includes:
 
-Dollar a Day is the first active companion initiative.
+- >mi< Engine
+- Relationship Intelligence
+- Progressive Web App
+- AI-assisted relationship discovery
+- Knowledge graph visualization
+- Advanced semantic search
 
-Mission:
-
-> One dollar a day.
-> One community at a time.
-
-DAD demonstrates how ideas captured within IPMdb become measurable community outcomes through transparent implementation.
-
----
-
-## COPO
-
-Court of Public Opinion is a civic accountability initiative.
-
-Core principle:
-
-> Do no harm.
-> Tell the truth.
-> Show the proof.
-> Record the response.
-
-COPO transforms public-interest issues into structured public records supported by evidence and documented outcomes.
+These capabilities will continue to evolve through versioned assets within IPMdb.
 
 ---
 
-# Current Nodes
+## Companion Initiatives
 
-Current knowledge domains include:
+### DAD — Dollar a Day
+
+**One dollar a day. One community at a time.**
+
+DAD demonstrates how intellectual assets can become measurable community outcomes through transparent implementation.
+
+---
+
+### COPO — Court of Public Opinion
+
+**Do no harm. Tell the truth. Show the proof. Record the response.**
+
+COPO provides a structured framework for documenting public-interest issues through evidence, responses, and transparent public records.
+
+---
+
+## Knowledge Domains
+
+Current domains include:
 
 - Core System
 - Housing
@@ -240,57 +210,44 @@ Current knowledge domains include:
 - DAD
 - COPO
 
-Additional nodes are introduced as knowledge grows.
+Additional domains are introduced as knowledge expands.
 
 ---
 
-# Development Principles
+## Development
 
-Development occurs through continuous iteration.
+IPMdb is developed through continuous iteration.
 
 Ideas are locked before implementation whenever practical.
 
-Every meaningful improvement becomes an asset.
+Every significant improvement becomes an asset.
 
-Version history documents platform evolution.
+Every version preserves its history.
 
-Relationships reveal future opportunities.
+Every relationship strengthens the knowledge network.
 
-The platform evolves without sacrificing historical integrity.
+The platform evolves without sacrificing provenance.
 
 ---
 
-# Roadmap
+## Roadmap
 
-Near-term priorities include:
+Current priorities include:
 
 - Progressive Web App
 - AI-assisted relationship suggestions
-- Advanced semantic search
 - Knowledge graph visualization
 - Relationship scoring
 - Collaboration tools
 - Public APIs
 - Companion project expansion
 
-Every roadmap item originates as an IPMdb asset.
+Each roadmap item begins as an IPMdb asset before implementation.
 
 ---
 
-# Vision
+## Purpose
 
-IPMdb is designed to become a living intellectual ecosystem.
+IPMdb exists to preserve ideas, protect attribution, reveal relationships, encourage collaboration, and accelerate implementation.
 
-It preserves ideas.
-
-It preserves history.
-
-It preserves attribution.
-
-It reveals relationships.
-
-It accelerates implementation.
-
-Its purpose is not simply to organize knowledge.
-
-Its purpose is to help transform human thought into enduring intellectual assets whose value increases through connection, collaboration, and continuous evolution.
+Its purpose is to help transform human thought into enduring intellectual assets whose value grows through connection, contribution, and continuous evolution.
