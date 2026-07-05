@@ -167,7 +167,7 @@ Projects mature within AJF & Co. before becoming independent public initiatives 
 
 Current development includes:
 
-- >mi< Engine
+-  >mi< Engine
 - Relationship Intelligence
 - Progressive Web App
 - AI-assisted relationship discovery
