@@ -1,152 +1,128 @@
-# IPM.db
+# IPMdb.ai
 
-We help make your ideas and innovations — yours for good.
+**Turn ideas into verifiable, connected assets.**
 
-IPM.db — Intellectual Property Management database — exists to turn ideas into owned, trackable assets.
+IPMdb is an idea-to-asset provenance ledger built for OpenAI Build Week 2026. It gives an idea a stable asset ID, preserves its version history, maps meaningful relationships, and produces a public SHA-256 provenance receipt without publishing the originator's email.
 
-## Current public structure
+The project combines a working PHP/MariaDB application with a human-in-the-loop GPT-5.6 relationship analyst. Codex was used to recover, audit, harden, document, and test the submission codebase.
 
-AJFisherCo.com is the build, test, whiteboard, and preparation space for IPM.db and companion public sites.
+## Why it matters
 
-Standalone domains should mirror what is first built and tested through AJF&Co.
+Useful ideas are routinely buried in inboxes, documents, and chat threads. Conventional task tools track work, but they rarely preserve where an idea came from, how it changed, or which later outcomes depended on it.
 
-Current live structure:
+IPMdb makes that chain visible:
 
-- AJF&Co. parent / build layer: https://ajfisherco.com
-- DAD beta page: https://ipmdb.ajfisherco.com/dad/
-- Public record / ledger layer: GitHub Issues in this repository
-- Payment path: Square, currently tested through the DAD contribution flow
+`Idea → Asset ID → Version History → Relationship Graph → Provenance Receipt`
 
-## Purpose
+## What judges can try
 
-IPM.db exists to move ideas and innovations into real-world use by, for, and with their originators and contributors.
+- Lock an idea and receive a stable `IPMDB-####` identifier.
+- Search the public ledger without exposing submitter contact information.
+- Open an asset and inspect its history and connected assets.
+- Explore the interactive Asset Domain Map.
+- Generate a public HTML or JSON provenance receipt with stable content hashes.
+- Ask GPT-5.6 to propose typed graph edges, then approve or reject every suggestion.
+- Export relationships as JSON, CSV, Mermaid, GraphML, or Cytoscape data.
 
-It collects, organizes, and advances ideas into outcomes.
+## Run it in one command
 
-## Method
+Requirements: Docker with Compose.
 
-Cooperative modelling.
+```bash
+docker compose up --build
+```
 
-Ideas are developed collaboratively.
+Open [http://localhost:8080/ipmdb/](http://localhost:8080/ipmdb/).
 
-Contributions are recorded.
+The seeded judge environment contains six sample assets and six relationships. Administrative features use local demo credentials only:
 
-Nothing meaningful is erased.
+- Email: `judge@ipmdb.local`
+- Password: `IPMdbBuildWeek2026!`
 
-Everything evolves through visible, attributable change.
+To exercise the GPT-5.6 feature, provide an API key before starting:
 
-Decisions are incorporated into the flow on the fly.
+```bash
+export OPENAI_API_KEY="your_api_key"
+docker compose up --build
+```
 
-## I2A
+Production credentials are never committed. The checked-in values are isolated Docker demo credentials and must not be reused outside the local judge environment.
 
-I2A means Ideas to Assets.
+## GPT-5.6 and Codex
 
-It is the working layer that turns raw ideas, claims, contributions, and decisions into owned, trackable, reviewable assets.
+The private **AI Map** workflow sends only an asset's non-contact content and a bounded set of candidate assets to the OpenAI Responses API. It uses the `gpt-5.6` alias, Structured Outputs, a strict relationship schema, and medium reasoning effort. Model output is treated as a recommendation: a human administrator must approve an edge before IPMdb writes it.
 
-Compressed language means fewer words with more payload.
+Codex was used across the build to:
 
-## Authority
+- recover the graph client after a packaging error replaced JavaScript with CSS;
+- trace data flow across the PHP, SQL, and browser layers;
+- remove committed production credentials and public PII exposure;
+- add authentication, CSRF protection, rate limiting, safe error handling, and portable configuration;
+- implement provenance receipts and the GPT-5.6 review workflow;
+- create a reproducible schema, sample dataset, judge environment, and automated checks.
 
-IPM.db is fluid and case-driven.
+The GPT-5.6 model ID and Responses API integration follow the [official model documentation](https://developers.openai.com/api/docs/models/gpt-5.6-sol) and [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs).
 
-Stakeholders determine what is appropriate for each case.
+## Architecture
 
-Terms are negotiated as conditions require.
+```mermaid
+flowchart TD
+    A["Idea intake"] --> B["Asset ledger"]
+    B --> C["Version archive"]
+    B --> D["Relationship graph"]
+    B --> E["SHA-256 receipt"]
+    F["GPT-5.6 analyst"] --> G["Human approval"]
+    G --> D
+```
 
-All agreements are explicit, recorded, and reviewable.
+| Layer | Implementation |
+|---|---|
+| Web application | PHP 8.3 and Apache |
+| Data | MariaDB 11.4 with reproducible schema and seed |
+| Graph | Dependency-free browser JavaScript and CSS |
+| AI | OpenAI Responses API, `gpt-5.6`, strict JSON Schema |
+| Security | Password hashes, session expiry, CSRF tokens, rate limits, privacy-safe public queries |
+| Portability | Docker Compose or environment-driven Plesk deployment |
 
-No change to terms, attribution, or participation occurs without agreement.
+## Key routes
 
-## DAD — Dollar a Day
+| Route | Purpose | Access |
+|---|---|---|
+| `/ipmdb/` | Lock an idea | Public |
+| `/ipmdb/ledger.php` | Browse assets | Public |
+| `/ipmdb/viewer.php?asset_id=IPMDB-0001` | View an asset | Public |
+| `/ipmdb/relationship_explorer.php` | Explore the graph | Public |
+| `/ipmdb/provenance.php?asset_id=IPMDB-0001` | Verify provenance | Public |
+| `/ipmdb/provenance.php?asset_id=IPMDB-0001&format=json` | Machine-readable receipt | Public |
+| `/ipmdb/ai_relationships.php?asset_id=IPMDB-0001` | GPT-5.6 analysis | Admin |
+| `/ipmdb/admin.php` | Manage assets | Admin |
 
-DAD is the first active companion initiative.
+## Validate the submission
 
-Public line:
+```bash
+npm install
+npm test
+```
 
-> One dollar a day. One community at a time.
+The test command parses every PHP file, validates the graph JavaScript, checks the schema and seed, and scans tracked application files for common credential mistakes. GitHub Actions runs the equivalent checks on every push and pull request.
 
-DAD is a simple contribution stream for housing action and local outcomes, tracked publicly through IPM.db.
+## Production configuration
 
-The current beta flow is:
+Use environment variables or copy `ipmdb/config.local.php.example` to the ignored `ipmdb/config.local.php`. At minimum, configure:
 
-1. DAD homepage explains the purpose.
-2. One primary **Contribute Now** button opens Square.
-3. Square handles the tested weekly contribution path.
-4. IPM.db / GitHub Issues record public milestones, changes, and outcomes.
-5. AJF&Co. remains the parent-company build and test layer.
+- `IPMDB_DB_DSN`, `IPMDB_DB_USER`, `IPMDB_DB_PASS`
+- `IPMDB_ADMIN_EMAIL`, `IPMDB_ADMIN_PASSWORD_HASH`
+- `OPENAI_API_KEY` for AI Map
+- `IPMDB_OPENAI_MODEL` (defaults to `gpt-5.6`)
 
-Current payment reality:
+Never deploy the Docker demo passwords. Rotate any credential that has ever appeared in an exported package before publishing that package or deploying this branch.
 
-- Weekly Square path tested at $7/week.
-- Daily, weekly, monthly, and yearly amounts are shown as simple equivalents.
-- Tax receipts are not promised unless processed through an eligible charity or qualified donee.
+## Submission material
 
-The old pledge/e-transfer-first flow is deprecated as the homepage flow.
+- [Build Week submission copy](BUILD_WEEK_SUBMISSION.md)
+- [Under-three-minute demo script](DEMO_SCRIPT.md)
+- [Plesk deployment checklist](ipmdb/DEPLOYMENT_STANDARD.md)
 
-E-transfer may remain a secondary method, but the public beta funnel now prioritizes one clear Square contribution path.
+## License
 
-## AJF&Co. site mirror rule
-
-AJFisherCo.com is the preparation and reference source.
-
-All future project sites should first be built and tested through AJF&Co. or an AJF&Co. subdomain, then mirrored to their standalone domain when ready.
-
-A project can separate when:
-
-1. The page flow works.
-2. The public wording is clean.
-3. The primary action works.
-4. The parent-company link is present.
-5. The public record path is clear.
-6. Legal or status disclaimers are not misleading.
-7. The project has a clear reason to stand alone.
-
-## AJF&Co. parent-company mark
-
-The locked metallic AJF&Co. emblem is the parent-company mark.
-
-It should appear as a semi-discreet link on DAD and future AJF&Co.-related public sites.
-
-Its purpose is to show parent-company approval and provide a path back to the build layer without overpowering the project page.
-
-## COPO — Court of Public Opinion
-
-COPO is the next candidate project space.
-
-It should be built first through AJF&Co. as a working page before any standalone domain launch.
-
-COPO is the civic accountability node.
-
-It turns public-interest questions into a clean public record.
-
-Core line:
-
-> Do no harm. Tell the truth. Show the proof. Record the response.
-
-I2A flow:
-
-Issue → Claim → Evidence → Response Request → Public Record → Outcome Tracked
-
-## Value
-
-When contributions generate measurable value:
-
-- contributors participate proportionally
-- attribution and compensation remain linked
-- terms are visible and agreed in advance
-
-Comparable to or better than the best.
-
-## Current nodes
-
-- Core System
-- Housing
-- DAD — Dollar a Day
-- COPO — Court of Public Opinion
-- Transportation
-- Governance
-- Economic Development
-- Public Services
-- Post-Consumer Waste Management
-
-Nodes are added and refined as subject material is received.
+Dedicated to the public domain under [CC0 1.0 Universal](LICENSE).

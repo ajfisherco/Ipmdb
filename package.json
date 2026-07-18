@@ -1,0 +1,16 @@
+{
+  "name": "ipmdb-build-week-2026",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Validation harness for the IPMdb.ai OpenAI Build Week submission",
+  "type": "module",
+  "scripts": {
+    "check:php": "node tests/validate-php.mjs",
+    "check:js": "node --check ipmdb/assets/js/relationship_graph.js",
+    "check:submission": "node tests/validate-submission.mjs",
+    "test": "npm run check:php && npm run check:js && npm run check:submission"
+  },
+  "dependencies": {
+    "php-parser": "3.7.0"
+  }
+}

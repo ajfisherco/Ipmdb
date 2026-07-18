@@ -1,0 +1,39 @@
+services:
+  db:
+    image: mariadb:11.4
+    environment:
+      MARIADB_DATABASE: ipmdb
+      MARIADB_USER: ipmdb
+      MARIADB_PASSWORD: ipmdb-demo-only
+      MARIADB_ROOT_PASSWORD: ipmdb-root-demo-only
+    volumes:
+      - ipmdb-db:/var/lib/mysql
+      - ./ipmdb/database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql:ro
+      - ./ipmdb/database/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql:ro
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  app:
+    build: .
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      IPMDB_ENV: development
+      IPMDB_BASE_PATH: /ipmdb
+      IPMDB_DB_DSN: mysql:host=db;port=3306;dbname=ipmdb;charset=utf8mb4
+      IPMDB_DB_USER: ipmdb
+      IPMDB_DB_PASS: ipmdb-demo-only
+      IPMDB_ADMIN_EMAIL: judge@ipmdb.local
+      IPMDB_ADMIN_PASSWORD_HASH: "$$2b$$12$$87yb4NVjbGYpi7wE4eoGTOdZOaH2Lxzv74jy6l5F.86T6VxIMlgse"
+      IPMDB_SESSION_MINUTES: 60
+      IPMDB_OPENAI_MODEL: gpt-5.6
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+    ports:
+      - "8080:80"
+
+volumes:
+  ipmdb-db:

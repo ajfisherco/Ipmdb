@@ -1,0 +1,36 @@
+<?php
+declare(strict_types=1);
+
+/*
+ * Copy to config.local.php and replace every CHANGE_ME value.
+ * Never commit config.local.php.
+ */
+
+return [
+    'app' => [
+        'environment' => 'production',
+        'base_path' => '/ipmdb',
+        'public_email' => false,
+    ],
+    'db' => [
+        'dsn' => 'mysql:host=localhost;port=3306;dbname=CHANGE_ME;charset=utf8mb4',
+        'user' => 'CHANGE_ME',
+        'pass' => 'CHANGE_ME',
+    ],
+    'auth' => [
+        'email' => 'CHANGE_ME',
+        // Generate with: php -r "echo password_hash('YOUR_PASSWORD', PASSWORD_DEFAULT), PHP_EOL;"
+        'password_hash' => 'CHANGE_ME',
+        'session_minutes' => 60,
+    ],
+    'openai' => [
+        'api_key' => 'CHANGE_ME_OR_USE_OPENAI_API_KEY',
+        'model' => 'gpt-5.6',
+        'timeout_seconds' => 45,
+    ],
+    'mail' => [
+        'from' => 'no-reply@ipmdb.ai',
+        'reply_to' => 'CHANGE_ME',
+        'to' => 'CHANGE_ME',
+    ],
+];

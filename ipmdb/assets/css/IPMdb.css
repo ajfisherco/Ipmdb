@@ -1,0 +1,249 @@
+/* ==========================================================
+   IPMdb Global Stylesheet v1.1
+   AJF/SQ Standard
+   ========================================================== */
+
+:root{
+  --ipm-blue:#60a5fa;
+  --ipm-blue-strong:#2563eb;
+  --ipm-blue-dark:#0f172a;
+  --dad-green:#86efac;
+  --dad-green-strong:#16a34a;
+
+  --bg:#020617;
+  --bg-soft:#07111f;
+
+  --panel:rgba(15,23,42,.82);
+  --panel-strong:rgba(15,23,42,.92);
+  --panel-hover:rgba(30,41,59,.88);
+
+  --field:rgba(2,6,23,.82);
+  --field-focus:rgba(15,23,42,.94);
+
+  --text:#e5f2ff;
+  --muted:#9fb4ca;
+
+  --border:rgba(148,163,184,.32);
+  --border-strong:rgba(148,163,184,.52);
+
+  --radius:24px;
+  --radius-sm:16px;
+  --shadow:0 24px 80px rgba(0,0,0,.42);
+  --transition:.22s ease;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+  background:var(--bg);
+}
+
+body{
+  min-height:100svh;
+  background:
+    radial-gradient(circle at top left,rgba(96,165,250,.22),transparent 38%),
+    radial-gradient(circle at bottom right,rgba(134,239,172,.16),transparent 34%),
+    linear-gradient(180deg,var(--bg-soft),var(--bg));
+  color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  line-height:1.5;
+  overflow-x:hidden;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+a{
+  color:var(--ipm-blue);
+  text-decoration:none;
+  font-weight:900;
+}
+
+a:hover{
+  color:#93c5fd;
+}
+
+button{
+  cursor:pointer;
+  transition:var(--transition);
+  font-family:inherit;
+}
+
+.container{
+  width:min(1600px,95%);
+  margin:auto;
+}
+
+.card{
+  background:var(--panel);
+  backdrop-filter:blur(18px);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:52px;
+  padding:14px 24px;
+  border:none;
+  border-radius:999px;
+  background:var(--ipm-blue-strong);
+  color:#fff;
+  font-weight:1000;
+  letter-spacing:.02em;
+  transition:var(--transition);
+  text-align:center;
+}
+
+.btn:hover{
+  transform:translateY(-1px);
+  background:#3b82f6;
+  color:#fff;
+}
+
+.btn-green{
+  background:var(--dad-green-strong);
+}
+
+.btn-green:hover{
+  background:#22c55e;
+  color:#fff;
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  padding:16px 18px;
+  color:var(--text);
+  background:var(--field);
+  border:2px solid var(--border-strong);
+  border-radius:var(--radius-sm);
+  outline:none;
+  transition:var(--transition);
+  font:inherit;
+  font-size:18px;
+  font-weight:800;
+}
+
+textarea{
+  line-height:1.45;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:#c7d2fe;
+  opacity:1;
+  letter-spacing:.03em;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  border-color:var(--ipm-blue);
+  background:var(--field-focus);
+  box-shadow:0 0 0 4px rgba(96,165,250,.18);
+}
+
+select{
+  appearance:auto;
+}
+
+header,
+footer{
+  width:100%;
+}
+
+section{
+  padding:48px 0;
+}
+
+.logo{
+  max-height:96px;
+}
+
+.hidden{
+  display:none!important;
+}
+
+.center{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.grid{
+  display:grid;
+  gap:24px;
+}
+
+.grid-2{
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+}
+
+.text-center{
+  text-align:center;
+}
+
+.fade{
+  opacity:0;
+  transform:translateY(20px);
+  transition:.5s;
+}
+
+.fade.show{
+  opacity:1;
+  transform:none;
+}
+
+.ipmdb-fixed-footer{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  padding:14px 22px;
+  background:rgba(2,6,23,.88);
+  border-top:1px solid var(--border);
+  display:flex;
+  justify-content:space-between;
+  color:var(--muted);
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  z-index:50;
+}
+
+@media (max-width:768px){
+
+  body{
+    font-size:17px;
+  }
+
+  section{
+    padding:32px 0;
+  }
+
+  .container{
+    width:min(100%,94vw);
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .grid{
+    gap:16px;
+  }
+
+}
