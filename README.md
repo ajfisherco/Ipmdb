@@ -63,6 +63,20 @@ Codex was used across the build to:
 
 The GPT-5.6 model ID and Responses API integration follow the [official model documentation](https://developers.openai.com/api/docs/models/gpt-5.6-sol) and [Structured Outputs guide](https://developers.openai.com/api/docs/guides/structured-outputs).
 
+## What changed during Build Week
+
+IPMdb existed before the July 13, 2026 submission period as a PHP/MariaDB idea ledger with intake, search, versions, and manual relationship tooling. The Build Week entry is the meaningful extension documented in [pull request #90](https://github.com/ajfisherco/Ipmdb/pull/90) and its dated commit history.
+
+| Before Build Week | Added or completed July 13–18, 2026 with Codex and GPT-5.6 |
+|---|---|
+| Idea intake, asset ledger, search, version records, and manual relationship routes | GPT-5.6 AI Map using the Responses API, strict Structured Outputs, bounded candidates, and human approval before writes |
+| A packaged graph client that could not run because its JavaScript file had been overwritten by CSS | Restored interactive graph client and repaired a truncated relationship-suggestion route |
+| Server-specific configuration containing legacy credentials and public queries that returned submitter email | Environment-driven configuration, credential removal, public-contact redaction, hashed admin authentication, expiring sessions, rate limiting, CSRF checks, and safer error handling |
+| No public cryptographic verification surface | SHA-256 provenance receipts in human-readable HTML and machine-readable JSON |
+| No reproducible judge environment or submission validation | Docker Compose, MariaDB schema and six-asset sample ledger, automated PHP/JavaScript/security checks, GitHub Actions, deployment notes, submission copy, and narrated demo script |
+
+The core Build Week work is contained on the `build-week-2026` branch. The required Codex `/feedback` session ID will be included in the Devpost submission.
+
 ## Architecture
 
 ```mermaid

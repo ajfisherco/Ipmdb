@@ -34,6 +34,10 @@ Codex served as the engineering partner for the submission. It audited the inher
 
 IPMdb calls `gpt-5.6` through the OpenAI Responses API for relationship analysis. Structured Outputs constrain the response to known asset IDs and supported relationship types. The model supplies a concise rationale and confidence score; a human approves or rejects every proposed edge.
 
+## Build Week extension of an existing project
+
+Before the July 13 submission period, IPMdb was a PHP/MariaDB idea ledger with intake, search, version records, and manual relationship tooling. During Build Week, Codex helped recover and repair that inherited application and meaningfully extend it with the GPT-5.6 AI Map, strict human approval, public SHA-256 provenance receipts, privacy and security hardening, a restored interactive graph, a reproducible Docker judge environment, sample data, automated validation, and deployment/submission documentation. The dated implementation is isolated on the `build-week-2026` branch and documented in pull request #90.
+
 ## Built with
 
 - Codex
@@ -74,6 +78,7 @@ Set `OPENAI_API_KEY` before `docker compose up` to run live GPT-5.6 analysis. Th
 - [x] Category selected: Work & Productivity
 - [x] Public repository branch with setup instructions
 - [x] Project description prepared
+- [x] Prior work and Build Week additions clearly distinguished
 - [x] Under-three-minute narrated demo script prepared
 - [ ] Deploy the submission branch to the public demo URL
 - [ ] Record and upload the public YouTube demo
