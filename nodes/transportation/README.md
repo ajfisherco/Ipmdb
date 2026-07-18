@@ -2,7 +2,7 @@
 
 ## Asset ID
 
-IPMDB-0005
+IPMDB-0009
 
 ## Purpose
 
@@ -20,11 +20,6 @@ Draft node.
 - public access improvement
 - traffic flow optimization
 - infrastructure concepts
-
-## Contributors
-
-- Alexander John Fisher
-- ChatGPT
 
 ## Public Reporting
 

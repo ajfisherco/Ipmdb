@@ -2,7 +2,7 @@
 
 ## Asset ID
 
-IPMDB-0004
+IPMDB-0008
 
 ## Purpose
 
@@ -26,11 +26,6 @@ Draft node.
 - GOVERNANCE.md
 - DISPUTES.md
 - CONTRIBUTING.md
-
-## Contributors
-
-- Alexander John Fisher
-- ChatGPT
 
 ## Public Reporting
 

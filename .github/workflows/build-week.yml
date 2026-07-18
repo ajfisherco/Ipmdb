@@ -1,0 +1,36 @@
+name: Build Week validation
+
+on:
+  push:
+    branches: [build-week-2026, v1-rebuild]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: curl, mbstring, pdo_mysql
+
+      - name: Lint PHP
+        run: find ipmdb -type f -name '*.php' -print0 | xargs -0 -n1 php -l
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install validation dependencies
+        run: npm ci
+
+      - name: Run submission checks
+        run: npm test

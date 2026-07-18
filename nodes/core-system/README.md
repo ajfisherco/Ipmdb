@@ -6,7 +6,7 @@ IPMDB-0001
 
 ## Purpose
 
-To operate IPM.db as a system that turns ideas into owned, trackable assets.
+To operate IPMdb.ai as public-domain infrastructure that turns ideas into stable, connected, verifiable assets.
 
 ## Current Status
 
@@ -23,10 +23,12 @@ Active development.
 
 ## Related Systems
 
-- AJFisherCo.com
-- GitHub repository
-- public contribution pathways
-- node architecture
+- Relationship Explorer
+- The Mill
+- DAD and DADS
+- Sandola ledger/archive
+- public provenance
+- seven-node architecture
 
 ## Next Actions
 

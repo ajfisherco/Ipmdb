@@ -2,12 +2,12 @@
 
 Status: LOCKED
 
-Parent: AJF & Co.
+Parent: IPMdb.ai — Ideas 2 Assets
 
 Related: IPMdb.ai, Dollar a Day (DAD)
 
-Concept: Evolution of Sandola integrating a sand dollar motif into a digital asset and cryptocurrency identity.
+Concept: Evolution of the Sandola mark for a public ledger/archive connecting contribution, evidence, implementation, attribution, and transparent reserves.
 
-Purpose: Intellectual property asset placeholder for future visual identity and ISO 20022 aligned exploration.
+Purpose: Public asset identity and recordkeeping layer. Sandola is not a speculative currency, investment, security, banking product, or payment rail.
 
 Date Locked: 2026-06-23

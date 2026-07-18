@@ -1,0 +1,14 @@
+# Production-only configuration and runtime data
+ipmdb/config.local.php
+ipmdb/.env
+.env
+
+# Local tools and operating-system files
+node_modules/
+.DS_Store
+Thumbs.db
+
+# Generated archives, logs, and coverage
+*.zip
+*.log
+coverage/

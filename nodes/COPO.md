@@ -2,6 +2,8 @@
 
 COPO is a civic accountability node for IPM.db.
 
+Asset ID: `IPMDB-0007`
+
 It turns public-interest questions into a clean record.
 
 ## Core line
@@ -61,4 +63,4 @@ COPO applies that flow to public accountability.
 
 Draft node.
 
-Next action: create a one-screen COPO page under AJFisherCo.com / IPM.db with a case intake path and evidence checklist.
+Next action: create a one-screen COPO page in IPMdb.ai with a case intake path and evidence checklist.

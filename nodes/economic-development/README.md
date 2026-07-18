@@ -1,12 +1,12 @@
-# Economic Development
+# Economic Security
 
 ## Asset ID
 
-IPMDB-0007
+IPMDB-0012
 
 ## Purpose
 
-To develop cooperative economic models and implementation pathways that generate measurable value while preserving attribution and participation.
+To develop cooperative economic models and implementation pathways that create durable economic security while preserving attribution and participation.
 
 ## Current Status
 
@@ -20,11 +20,6 @@ Draft node.
 - funding structures
 - scalable operational models
 - community participation systems
-
-## Contributors
-
-- Alexander John Fisher
-- ChatGPT
 
 ## Related Nodes
 
@@ -42,4 +37,4 @@ Draft node.
 
 ---
 
-Economic development is treated as coordinated value creation linked to participation and implementation.
+Economic security is treated as coordinated value creation linked to participation and implementation.

@@ -2,87 +2,48 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Sandola 2.0 — AJF & Co. | IPMdb.ai</title>
-<meta name="description" content="Sandola 2.0 is the locked AJF & Co. concept mark evolving a sand dollar into a digital value identity for IPMdb.ai.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sandola | IPMdb.ai Ledger and Archive</title>
+<meta name="description" content="Sandola is the IPMdb.ai ledger/archive concept for contribution, evidence, implementation, attribution, and transparent reserves.">
 <style>
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html,body{min-height:100%;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#02070d;color:#f8fbff}
-  body{overflow-x:hidden;background:radial-gradient(circle at 16% 10%,rgba(72,204,214,.26),transparent 30%),radial-gradient(circle at 84% 18%,rgba(238,191,91,.22),transparent 28%),linear-gradient(135deg,#02070d 0%,#062133 48%,#02070d 100%)}
-  .mesh{position:fixed;inset:0;pointer-events:none;opacity:.36;background-image:linear-gradient(120deg,rgba(72,204,214,.13) 1px,transparent 1px),linear-gradient(60deg,rgba(238,191,91,.10) 1px,transparent 1px);background-size:118px 118px;mask-image:radial-gradient(circle at center,#000 20%,transparent 82%)}
-  .shell{position:relative;z-index:1;max-width:1160px;margin:0 auto;padding:28px 18px 44px}
-  header{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:28px}
-  .brand small{display:block;color:#9fc1cb;letter-spacing:.16em;text-transform:uppercase;font-size:.72rem}
-  .brand strong{display:block;font-size:1.05rem;letter-spacing:.05em;color:#fff4c6}
-  .pill{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;color:#ffe8a5;border:1px solid rgba(255,232,165,.45);background:rgba(255,232,165,.06);border-radius:999px;padding:10px 14px;font-size:.88rem;font-weight:750;white-space:nowrap}
-  .hero{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,450px);gap:34px;align-items:center;min-height:68svh}
-  h1{font-size:clamp(4rem,14vw,9rem);line-height:.82;letter-spacing:-.08em;text-transform:uppercase;text-shadow:0 18px 50px rgba(0,0,0,.48)}
-  .version{color:#48ccd6;font-size:clamp(1.35rem,3.4vw,2.45rem);font-weight:850;letter-spacing:.05em;margin:12px 0 14px;text-transform:uppercase}
-  .lede{max-width:680px;color:#d8edf2;font-size:1.18rem;line-height:1.58;margin-bottom:18px}
-  .lock{display:inline-grid;gap:6px;margin-top:8px;padding:14px 16px;border-left:4px solid #eebf5b;background:rgba(238,191,91,.08);border-radius:12px;color:#ffe8a5;line-height:1.38}
-  .lock b{color:#fff4c6;text-transform:uppercase;letter-spacing:.08em;font-size:.78rem}
-  .coin-card{position:relative;aspect-ratio:1;border-radius:40px;border:1px solid rgba(255,255,255,.18);background:radial-gradient(circle at 35% 25%,rgba(255,255,255,.14),transparent 18%),linear-gradient(145deg,rgba(72,204,214,.18),rgba(238,191,91,.10));box-shadow:0 32px 90px rgba(0,0,0,.54),inset 0 0 85px rgba(72,204,214,.13);display:grid;place-items:center;overflow:hidden}
-  .coin-card::before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,transparent,rgba(72,204,214,.20),transparent,rgba(238,191,91,.18),transparent);animation:spin 18s linear infinite}
-  @keyframes spin{to{transform:rotate(360deg)}}
-  .sandola{position:relative;width:min(78%,345px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 22%,#fff2bd 0 8%,#e7c870 22%,#b98234 49%,#5c391a 74%,#2a180b 100%);border:12px solid #eebf5b;box-shadow:0 0 0 7px rgba(255,232,165,.18),inset 0 0 0 8px rgba(0,0,0,.25),inset 0 0 0 18px rgba(255,232,165,.18),0 26px 62px rgba(0,0,0,.62),0 0 45px rgba(72,204,214,.35);display:grid;place-items:center;isolation:isolate}
-  .sandola::before{content:"";position:absolute;inset:34px;border-radius:50%;border:2px solid rgba(255,245,199,.72);background:radial-gradient(circle,#ffeebb 0 4%,transparent 5%),radial-gradient(ellipse at 50% 22%,rgba(255,246,207,.85) 0 7%,transparent 8%),radial-gradient(ellipse at 28% 40%,rgba(255,246,207,.78) 0 6%,transparent 7%),radial-gradient(ellipse at 72% 40%,rgba(255,246,207,.78) 0 6%,transparent 7%),radial-gradient(ellipse at 36% 70%,rgba(255,246,207,.68) 0 5%,transparent 6%),radial-gradient(ellipse at 64% 70%,rgba(255,246,207,.68) 0 5%,transparent 6%);box-shadow:inset 0 0 30px rgba(255,255,255,.18)}
-  .sandola::after{content:"";position:absolute;inset:78px;border-radius:50%;border:1px solid rgba(72,204,214,.7);background:linear-gradient(90deg,transparent 48%,rgba(72,204,214,.32) 50%,transparent 52%),linear-gradient(0deg,transparent 48%,rgba(72,204,214,.24) 50%,transparent 52%);background-size:26px 26px;opacity:.78}
-  .smark{position:relative;z-index:2;color:#062133;text-align:center;text-shadow:0 1px 0 rgba(255,255,255,.38)}
-  .smark .glyph{font-size:clamp(5.2rem,17vw,9rem);font-weight:950;line-height:.78;color:#fff0b4;filter:drop-shadow(0 12px 12px rgba(0,0,0,.42))}
-  .smark .name{font-size:1.55rem;font-weight:900;letter-spacing:.03em;color:#fff0b4;margin-top:10px;text-transform:uppercase}
-  .ring{position:absolute;z-index:3;color:#fff0b4;text-transform:uppercase;letter-spacing:.24em;font-size:.66rem;font-weight:850;text-shadow:0 2px 4px rgba(0,0,0,.45)}
-  .ring.top{top:25px}.ring.bottom{bottom:25px}
-  section{margin-top:28px;padding:24px;border:1px solid rgba(255,255,255,.16);border-radius:28px;background:rgba(255,255,255,.075);backdrop-filter:blur(16px)}
-  .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
-  .tile{padding:18px;border-radius:18px;border:1px solid rgba(255,255,255,.13);background:rgba(0,0,0,.18);min-height:96px}
-  .tile span{display:block;color:#9fc1cb;font-size:.76rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px}
-  .tile strong{display:block;color:#ffe8a5;font-size:1.25rem;line-height:1.2}
-  footer{color:#9fc1cb;text-align:center;padding:32px 10px 10px;font-size:.9rem;line-height:1.5}
-  @media(max-width:860px){header{align-items:flex-start;flex-direction:column}.hero{grid-template-columns:1fr;min-height:auto}.coin-card{max-width:480px;width:100%;justify-self:center}.grid{grid-template-columns:1fr}section{padding:18px}h1{font-size:clamp(4.2rem,22vw,7rem)}}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%}body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:radial-gradient(circle at 12% 8%,rgba(14,165,233,.22),transparent 34rem),linear-gradient(145deg,#020617,#071726 62%,#120c02);color:#f8fafc}.wrap{width:min(1080px,94vw);margin:auto;padding:24px 0 48px}.top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:24px}.brand{font-weight:1000;font-size:22px;color:#7dd3fc}.nav{display:flex;gap:8px;flex-wrap:wrap}.nav a{color:#f8fafc;text-decoration:none;border:1px solid rgba(148,163,184,.3);background:rgba(15,23,42,.74);border-radius:999px;padding:10px 14px;font-weight:800}.hero{display:grid;grid-template-columns:1.15fr .85fr;gap:22px;align-items:center}.card{border:1px solid rgba(148,163,184,.3);border-radius:28px;background:rgba(15,23,42,.82);box-shadow:0 28px 80px rgba(0,0,0,.34)}.copy{padding:clamp(26px,5vw,52px)}.kicker{text-transform:uppercase;letter-spacing:.18em;color:#fbbf24;font-size:12px;font-weight:1000}h1{font-size:clamp(56px,10vw,104px);line-height:.88;letter-spacing:-.075em;margin:14px 0 20px}.lede{font-size:clamp(19px,3vw,27px);line-height:1.38;color:#dbeafe;margin:0}.official{padding:16px;overflow:hidden}.official img{display:block;width:100%;height:auto;border-radius:18px;background:#000}.boundary{margin-top:20px;padding:22px;border-left:5px solid #fbbf24}.boundary strong{display:block;color:#fde68a;font-size:22px;margin-bottom:8px}.boundary p,.fact p{color:#b9cadb;line-height:1.55;margin:0}.facts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:20px}.fact{padding:20px}.fact h2{font-size:22px;margin:0 0 10px}.footer{margin-top:24px;padding-top:18px;border-top:1px solid rgba(148,163,184,.3);color:#94a3b8;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}@media(max-width:780px){.top{display:block}.nav{margin-top:12px}.hero,.facts{grid-template-columns:1fr}.official{order:-1}}
 </style>
 </head>
 <body>
-  <div class="mesh" aria-hidden="true"></div>
-  <div class="shell">
-    <header>
-      <div class="brand">
-        <small>AJF & Co. official asset node</small>
-        <strong>Sandola 2.0 — filed with IPMdb.ai</strong>
-      </div>
-      <a class="pill" href="https://github.com/ajfisherco/Ipmdb/issues/15">IPMdb Record #15</a>
-    </header>
+<main class="wrap">
+  <header class="top">
+    <div class="brand">IPMdb.ai · Ideas 2 Assets</div>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="/ipmdb/ecosystem.php">System Map</a>
+      <a href="/ipmdb/relationship_explorer.php">Graph</a>
+      <a href="/ipmdb/ledger.php">Ledger</a>
+      <a href="/ipmdb/dad/">DAD</a>
+    </nav>
+  </header>
 
-    <main>
-      <div class="hero">
-        <div>
-          <h1>Sandola</h1>
-          <p class="version">2.0 · Locked concept mark</p>
-          <p class="lede">Sandola evolves the sand dollar into a digital value identity: origin, contribution, attribution, and settlement represented as one clean public asset.</p>
-          <div class="lock"><b>Status</b><span>Locked as the current Sandola public node for AJF & Co., related to IPMdb.ai and Dollar a Day.</span></div>
-        </div>
+  <section class="hero">
+    <article class="card copy">
+      <div class="kicker">Ledger / archive · IPMDB-0013</div>
+      <h1>Sandola</h1>
+      <p class="lede">The recordkeeping layer connecting contribution, evidence, implementation, attribution, transparent reserves, and measurable outcomes.</p>
+    </article>
+    <figure class="card official">
+      <img src="../../ipmdb/assets/brand/sandola-official.png" alt="Official Sandola logo">
+    </figure>
+  </section>
 
-        <div class="coin-card" aria-label="Sandola 2.0 coin mark">
-          <div class="sandola">
-            <div class="ring top">Ideas 2 Assets</div>
-            <div class="smark"><div class="glyph">$</div><div class="name">Sandola</div></div>
-            <div class="ring bottom">Value in Motion</div>
-          </div>
-        </div>
-      </div>
+  <section class="card boundary">
+    <strong>Clear boundary</strong>
+    <p>Sandola is not a speculative currency, token sale, investment, security, banking product, or payment rail. Its current role is transparent evidence, attribution, implementation, and recordkeeping.</p>
+  </section>
 
-      <section aria-label="Sandola asset facts">
-        <div class="grid">
-          <div class="tile"><span>Asset</span><strong>Sandola</strong></div>
-          <div class="tile"><span>Version</span><strong>2.0 Locked</strong></div>
-          <div class="tile"><span>Lineage</span><strong>Sand dollar × digital coin</strong></div>
-          <div class="tile"><span>Parent</span><strong>AJF & Co.</strong></div>
-          <div class="tile"><span>Related</span><strong>IPMdb.ai · DAD</strong></div>
-          <div class="tile"><span>Future track</span><strong>ISO 20022 review</strong></div>
-        </div>
-      </section>
-    </main>
+  <section class="facts" aria-label="Sandola functions">
+    <article class="card fact"><h2>Contribution</h2><p>Links people, resources, work, and attribution to stable IPMdb asset records.</p></article>
+    <article class="card fact"><h2>Evidence</h2><p>Preserves source material, decisions, versions, and implementation proof.</p></article>
+    <article class="card fact"><h2>Outcomes</h2><p>Connects DAD, DADS, and all seven action nodes to funding, delivery, and results.</p></article>
+  </section>
 
-    <footer>Sandola is a concept identity and public asset node. It is not offered here as a live cryptocurrency, security, bank product, payment product, or investment.</footer>
-  </div>
+  <footer class="footer"><strong>Sandola · Official mark used without alteration</strong><span>Public-domain infrastructure for traceable action.</span></footer>
+</main>
 </body>
 </html>

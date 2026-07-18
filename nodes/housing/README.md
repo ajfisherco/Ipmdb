@@ -2,7 +2,7 @@
 
 ## Asset ID
 
-IPMDB-0003
+IPMDB-0006
 
 ## Purpose
 
@@ -26,17 +26,12 @@ Draft node.
 - Dollar a Day
 - Governance
 - Public Services
-- Economic Development
+- Economic Security
 
 ## Active Projects
 
 - Dollar a Day housing support pathway
 - Victoria, BC pilot concept
-
-## Contributors
-
-- Alexander John Fisher
-- ChatGPT
 
 ## Agreements
 

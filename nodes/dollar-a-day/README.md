@@ -8,6 +8,8 @@ IPMDB-0002
 
 To create a stable micro-contribution funding stream intended to help end homelessness and support housing outcomes.
 
+DAD is IPMdb.ai's Priority 1 flagship implementation. Every contribution, decision, implementation step, and outcome can be connected to a public IPMdb asset.
+
 ## Current Status
 
 Public prototype active.
@@ -20,9 +22,9 @@ Public prototype active.
 - public contribution tracking
 - website participation flow
 
-## Public Connector
+## Public Identity
 
-AJFisherCo.com
+dad@ipmdb.ai
 
 ## Contribution Flow
 
@@ -31,9 +33,9 @@ AJFisherCo.com
 3. Participation is publicly tracked through IPM.db
 4. Reporting and outcomes remain visible
 
-## Pilot Focus
+## Goal
 
-Victoria, BC
+$1/day. One goal. End homelessness.
 
 ## Next Actions
 
