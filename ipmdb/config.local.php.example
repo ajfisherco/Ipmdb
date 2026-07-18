@@ -28,6 +28,10 @@ return [
         'model' => 'gpt-5.6',
         'timeout_seconds' => 45,
     ],
+    'dad' => [
+        'public_email' => 'dad@ipmdb.ai',
+        'square_url' => 'CHANGE_ME_OR_USE_IPMDB_DAD_SQUARE_URL',
+    ],
     'mail' => [
         'from' => 'no-reply@ipmdb.ai',
         'reply_to' => 'CHANGE_ME',

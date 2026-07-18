@@ -1,32 +1,24 @@
-# Sandola 2.0 — Value in Motion
+# Sandola — Evidence and Value in Motion
 
 ## Status
 
-Locked Concept Mark / Public Asset Node
+Active ledger/archive concept and public asset node
+
+## Asset ID
+
+IPMDB-0013
 
 ## Parent System
 
-AJF & Co. / IPMdb.ai — Ideas 2 Assets
+IPMdb.ai — Ideas 2 Assets
 
-## Node
+## Related Nodes
 
-Economic Development
-
-## Subnode
-
-Digital Settlement / Value Movement
-
-## Originator
-
-Alexander John Fisher / AJF & Co.
+Economic Security, Governance, DAD, DADS, and Public Provenance
 
 ## IPMdb Record
 
 GitHub Issue: https://github.com/ajfisherco/Ipmdb/issues/15
-
-## Public Node
-
-https://ajfisherco.github.io/Ipmdb/nodes/sandola/
 
 ## Version
 
@@ -36,17 +28,17 @@ Sandola v1 remains preserved in repository history.
 
 ## Purpose
 
-Sandola evolves the sand dollar into a digital value identity for modelling origin, contribution, attribution, and future settlement concepts.
+Sandola is the ecosystem's ledger/archive concept. It records contribution, evidence, implementation, attribution, and transparent reserves so value can be traced through the relationship graph.
 
-It connects the visual language of a sand dollar with a coin-like public asset identity for AJF & Co., IPMdb.ai, and Dollar a Day.
+It connects IPMdb.ai assets to DAD decisions, funding, work, and outcomes without treating the record as a speculative product.
 
 ## Current Functions
 
-- Public Sandola landing page.
-- Visual Sandola 2.0 concept mark.
-- GitHub asset lineage.
-- IPMdb Record #15 linkage.
-- ISO 20022 review track retained.
+- Record contribution and attribution.
+- Link evidence to implementation and outcomes.
+- Preserve public asset lineage and version history.
+- Expose transparent reserve and allocation records.
+- Connect DAD, DADS, and all seven action nodes.
 
 ## Related File
 
@@ -55,8 +47,4 @@ It connects the visual language of a sand dollar with a coin-like public asset i
 
 ## Boundary
 
-Sandola is a concept identity and public asset node.
-
-It is not being represented as a live coin, token, investment, security, currency, banking product, or payment rail at this stage.
-
-Any move toward a technical settlement layer requires legal, financial, technical, and compliance review.
+Sandola is not a speculative currency, token sale, investment, security, banking product, or payment rail. Its current role is evidence, attribution, implementation, and transparent recordkeeping. Any future financial functionality would require separate legal, financial, technical, and compliance review.

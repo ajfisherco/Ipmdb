@@ -38,6 +38,10 @@ $categories = [
   'Housing',
   'DAD',
   'COPO',
+  'PCWM',
+  'Public Service',
+  'Economic Security',
+  'Sandola',
   'Other',
 ];
 

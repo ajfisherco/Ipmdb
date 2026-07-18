@@ -18,6 +18,8 @@ declare(strict_types=1);
 
   <nav class="nav" aria-label="Primary navigation">
     <a class="btn primary" href="/ipmdb/">Lock Idea</a>
+    <a class="btn" href="/ipmdb/ecosystem.php">System Map</a>
+    <a class="btn btn-green" href="/ipmdb/dad/">DAD</a>
     <a class="btn" href="/ipmdb/search.php">Search</a>
     <a class="btn" href="/ipmdb/ledger.php">Ledger</a>
     <a class="btn" href="/ipmdb/viewer.php">Viewer</a>

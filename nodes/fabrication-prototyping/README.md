@@ -45,15 +45,10 @@ It supports the IPM.db process by helping ideas move from written concept to des
 ## Related Nodes
 
 - Core System
-- Economic Development
+- Economic Security
 - Governance
 - PCWM
 - Public Services
-
-## Contributors
-
-- Alexander John Fisher
-- ChatGPT
 
 ## Next Actions
 

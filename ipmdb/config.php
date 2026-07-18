@@ -32,6 +32,10 @@ return [
         'model' => getenv('IPMDB_OPENAI_MODEL') ?: 'gpt-5.6',
         'timeout_seconds' => max(10, (int)(getenv('IPMDB_OPENAI_TIMEOUT') ?: 45)),
     ],
+    'dad' => [
+        'public_email' => getenv('IPMDB_DAD_EMAIL') ?: 'dad@ipmdb.ai',
+        'square_url' => getenv('IPMDB_DAD_SQUARE_URL') ?: 'https://square.link/u/O5gSk7XM',
+    ],
     'mail' => [
         'from' => getenv('IPMDB_MAIL_FROM') ?: 'no-reply@ipmdb.ai',
         'reply_to' => getenv('IPMDB_MAIL_REPLY_TO') ?: '',

@@ -30,11 +30,16 @@ function h(?string $value): string
     return htmlspecialchars((string)$value, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
 }
 
-$dadEmail = 'dad@ajfisherco.com';
-$squareLink = 'https://square.link/u/O5gSk7XM';
+$configPath = is_file(dirname(__DIR__) . '/config.local.php')
+    ? dirname(__DIR__) . '/config.local.php'
+    : dirname(__DIR__) . '/config.php';
+$config = require $configPath;
+$dadConfig = is_array($config['dad'] ?? null) ? $config['dad'] : [];
+$dadEmail = trim((string)($dadConfig['public_email'] ?? 'dad@ipmdb.ai')) ?: 'dad@ipmdb.ai';
+$squareLink = trim((string)($dadConfig['square_url'] ?? ''));
 
 $checks = [
-    'DAD landing page' => '/dad/',
+    'DAD landing page' => '/ipmdb/dad/',
     'Square contribution link' => $squareLink,
     'IPMdb public ledger' => '/ipmdb/',
     'IPMdb viewer' => '/ipmdb/viewer.php',
@@ -267,7 +272,8 @@ h2{
     </div>
 
     <nav class="nav">
-        <a href="/dad/">DAD Page</a>
+        <a href="/ipmdb/dad/">DAD Page</a>
+        <a href="/ipmdb/ecosystem.php">System Map</a>
         <a href="/ipmdb/">IPMdb</a>
         <a href="/ipmdb/ledger.php">Ledger</a>
         <a href="/ipmdb/search.php">Search</a>
@@ -307,7 +313,7 @@ h2{
 
         <div class="actions">
             <a class="btn primary" href="<?= h($squareLink) ?>">Open Square</a>
-            <a class="btn" href="/dad/">Open DAD</a>
+            <a class="btn" href="/ipmdb/dad/">Open DAD</a>
         </div>
     </article>
 
@@ -321,7 +327,7 @@ h2{
         </div>
 
         <p class="muted">
-            Current public DAD address. Future migration target: dad@ipmdb.ai.
+            Public DAD identity configured for this environment.
         </p>
     </article>
 
@@ -374,7 +380,7 @@ h2{
         <?php if (!$schemaLoaded): ?>
             <p class="muted">
                 Schema file was not loaded. Expected:
-                <span class="code">/httpdocs/dad/includes/dad_schema.php</span>
+                <span class="code">/httpdocs/ipmdb/dad/includes/dad_schema.php</span>
             </p>
         <?php else: ?>
             <table class="table">
@@ -431,16 +437,16 @@ h2{
 </section>
 
 <footer class="footer">
-    <strong>Alexander John Fisher &amp; Co.</strong>
-    <span>DAD · Dollar a Day · Powered by IPMdb</span>
+    <strong>DAD · Dollar a Day</strong>
+    <span>Part of the IPMdb.ai ecosystem</span>
 </footer>
 
 </div>
 
 <script>
 function copyDadEmail(){
-    navigator.clipboard.writeText('dad@ajfisherco.com').then(function(){
-        alert('dad@ajfisherco.com copied');
+    navigator.clipboard.writeText(<?= json_encode($dadEmail, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>).then(function(){
+        alert('DAD contact copied');
     });
 }
 </script>

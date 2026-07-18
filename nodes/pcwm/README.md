@@ -2,7 +2,7 @@
 
 ## Asset ID
 
-IPMDB-0008
+IPMDB-0010
 
 ## Purpose
 
@@ -29,15 +29,10 @@ The node focuses on what happens to products and materials after they have compl
 
 The objective is to reduce waste, improve recovery systems, and create more efficient and accountable resource flows.
 
-## Contributors
-
-- Alexander John Fisher
-- ChatGPT
-
 ## Related Nodes
 
 - Public Services
-- Economic Development
+- Economic Security
 - Governance
 
 ## Next Actions

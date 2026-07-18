@@ -2,7 +2,7 @@
 
 ## Asset ID
 
-IPMDB-0006
+IPMDB-0011
 
 ## Purpose
 
@@ -21,16 +21,11 @@ Draft node.
 - public interaction systems
 - operational transparency
 
-## Contributors
-
-- Alexander John Fisher
-- ChatGPT
-
 ## Related Nodes
 
 - Housing
 - Governance
-- Economic Development
+- Economic Security
 - Transportation
 
 ## Next Actions

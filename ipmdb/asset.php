@@ -354,6 +354,7 @@ a.asset{
   <a href="/ipmdb/ledger.php">Ledger</a>
   <a href="/ipmdb/search.php">Search</a>
   <a href="/ipmdb/relationship_explorer.php">Graph</a>
+  <a href="/ipmdb/ecosystem.php">System Map</a>
   <a href="/ipmdb/dad/">DAD</a>
 </div>
     <?php if ($error !== ''): ?>

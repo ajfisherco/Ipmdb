@@ -1,61 +1,77 @@
-# IPMdb.ai demo script — target 2:40
+# IPMdb.ai + DAD demo script — target 2:55
 
 The recording must be public on YouTube, include narration, and stay below three minutes.
 
-## 0:00–0:18 — The problem
+## 0:00–0:18 — One living system
 
-**On screen:** IPMdb landing page.
-
-**Narration:**
-
-“Ideas are born in conversations, inboxes, and documents, but their origin and impact are quickly lost. IPMdb turns an idea into a durable, connected asset with a stable identity and verifiable history.”
-
-## 0:18–0:42 — Idea to asset
-
-**On screen:** Submit a short demo idea, then show the resulting asset viewer.
+**On screen:** Open the System Map.
 
 **Narration:**
 
-“I lock an idea once and IPMdb assigns a stable asset ID. The private originator email is retained for administration but never appears on public pages. The asset now has a status, version, history, and permanent place in the ledger.”
+“Ideas, evidence, funding, work, and outcomes usually live in separate systems. IPMdb.ai connects that complete trail. It turns ideas into verifiable assets, and DAD—Dollar a Day—is its Priority 1 implementation: one dollar a day, one goal, end homelessness.”
 
-## 0:42–1:10 — Provenance receipt
+## 0:18–0:38 — Idea to asset
 
-**On screen:** Open **Provenance Receipt**, point to the manifest hash, then open **Public JSON**.
-
-**Narration:**
-
-“Every asset can produce a public provenance receipt. IPMdb fingerprints the asset content, archived versions, and relationship context with SHA-256. The same receipt is available as JSON, so another system can verify or archive it.”
-
-## 1:10–1:37 — Relationship graph
-
-**On screen:** Open the Asset Domain Map, focus an asset, filter a relationship type, and select a connected node.
+**On screen:** Lock a short demo idea, then open its Asset Record.
 
 **Narration:**
 
-“Ideas become more useful when we can see what they depend on, implement, document, or replace. The interactive graph turns a list of records into a navigable map of influence and outcomes.”
+“I lock an idea once and IPMdb assigns a stable asset ID. The originator's contact information remains private while the public record preserves the title, status, versions, relationships, and implementation path.”
 
-## 1:37–2:18 — GPT-5.6 AI Map
+## 0:38–1:05 — Ecosystem architecture
 
-**On screen:** Log in, open **AI Map · GPT-5.6**, click **Analyze**, inspect a recommendation, then approve one edge and return to the graph.
-
-**Narration:**
-
-“GPT-5.6 helps find relationships that a growing ledger could hide. IPMdb sends only bounded, non-contact asset content through the Responses API and requires strict structured output using known asset IDs and allowed edge types. The model explains each suggestion and scores its confidence. Nothing is written automatically: a human approves every edge.”
-
-## 2:18–2:40 — Codex and close
-
-**On screen:** Briefly show the repository README, Docker command, tests, then return to the graph.
+**On screen:** Return to System Map and scroll through The Mill, DADS, Sandola, seven nodes, and Seven Ms.
 
 **Narration:**
 
-“Codex helped recover and harden the application, trace a broken graph bundle, repair privacy and security issues, implement the GPT-5.6 workflow, and produce a one-command judge environment with sample data and automated checks. IPMdb turns ideas into assets—and makes the trail visible.”
+“The Relationship Explorer is the graph operating system. The Mill integrates people, evidence, resources, and pathways. Seven action nodes organize Housing, COPO, Governance, Transportation, PCWM, Public Service, and Economic Security. Work advances through Make, Measure, Map, Model, Memorize, Merge, and Mature.”
+
+## 1:05–1:30 — DAD and Sandola
+
+**On screen:** From the Asset Record choose **Implement with DAD**, then show DAD and return to the Sandola asset.
+
+**Narration:**
+
+“DAD connects community contributions to decisions, implementation work, and measurable outcomes. DADS provides stewardship and public accountability. Sandola preserves contribution, evidence, implementation, attribution, and transparent reserves as a ledger and archive—not a speculative currency.”
+
+## 1:30–1:52 — Connected nodes
+
+**On screen:** Open the Relationship Explorer focused on `IPMDB-0004`, then select Housing, Public Service, Sandola, and IPMdb.ai.
+
+**Narration:**
+
+“The graph makes the system navigable. Here DAD is part of IPMdb.ai, implements the Housing node, supports public-service and economic-security pathways, and is documented by Sandola.”
+
+## 1:52–2:23 — GPT-5.6 AI Map
+
+**On screen:** Log in, open **AI Map · GPT-5.6** for `IPMDB-0004`, click **Analyze**, inspect one recommendation, approve it, and return to the graph.
+
+**Narration:**
+
+“GPT-5.6 finds relationships a growing ecosystem could hide. IPMdb sends only bounded, non-contact asset content through the Responses API and requires strict structured output using known IDs and allowed edge types. The model explains and scores each suggestion. Nothing is written automatically: a human approves every edge.”
+
+## 2:23–2:43 — Public provenance
+
+**On screen:** Open a Provenance Receipt, point to the manifest hash, then open Public JSON.
+
+**Narration:**
+
+“Public provenance receipts fingerprint the asset, archived versions, and graph context with SHA-256. The same receipt is available as JSON so another system can independently verify or archive the record.”
+
+## 2:43–2:55 — Codex and close
+
+**On screen:** Briefly show the repository checks, then return to the System Map.
+
+**Narration:**
+
+“Codex helped recover, secure, integrate, document, and test the system. IPMdb.ai turns ideas into assets; DAD and the nodes turn those assets into traceable public action.”
 
 ## Recording checklist
 
 - Record at 1080p with browser zoom near 100%.
-- Use seeded asset `IPMDB-0001` for provenance and AI Map.
+- Use seeded DAD asset `IPMDB-0004` for the graph and AI Map.
 - Set `OPENAI_API_KEY` and test AI Map immediately before recording.
-- Keep the full take below 2:55.
-- Confirm narration is clearly audible.
-- Remove bookmarks, notifications, API keys, email addresses, and server panels from the frame.
-- Upload as **Public** or **Unlisted** only if Devpost accepts unlisted; verify the link in a signed-out window.
+- Keep the full take below 2:58.
+- Confirm narration is clearly audible; do not add copyrighted music.
+- Remove notifications, API keys, private email addresses, and server panels from the frame.
+- Upload as **Public** on YouTube and verify the link in a signed-out window.

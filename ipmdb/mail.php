@@ -42,8 +42,6 @@ function ipmdb_send_acknowledgement(array $asset): bool
     $allowedHosts = [
         'ipmdb.ai',
         'www.ipmdb.ai',
-        'ajfisherco.com',
-        'www.ajfisherco.com',
     ];
     $host = in_array($requestHost, $allowedHosts, true) ? $requestHost : 'ipmdb.ai';
     $assetUrl = 'https://' . $host . '/ipmdb/asset.php?id=' . rawurlencode($assetId);

@@ -14,7 +14,7 @@ The canonical source is the GitHub `build-week-2026` branch. Production changes 
 
 Create `/httpdocs/ipmdb/config.local.php` from `config.local.php.example`. It must never be committed or included in a public archive.
 
-Configure a production database account with access only to the IPMdb database, an administrator password hash generated with `password_hash`, and an OpenAI API key if AI Map is enabled.
+Configure a production database account with access only to the IPMdb database, an administrator password hash generated with `password_hash`, an OpenAI API key if AI Map is enabled, `IPMDB_DAD_EMAIL`, and the approved `IPMDB_DAD_SQUARE_URL`.
 
 Before deploying, rotate any credential that has appeared in a prior export, message, screenshot, or package.
 
@@ -39,10 +39,13 @@ Before deploying, rotate any credential that has appeared in a prior export, mes
 ## Smoke checks
 
 - `/ipmdb/` loads and locks a test idea.
+- `/ipmdb/ecosystem.php` shows IPMdb.ai/I2A, The Mill, DAD, DADS, Sandola, all seven action nodes, and the Seven Ms.
+- `/ipmdb/dad/` shows the official DAD logo, Priority 1 mission, public contact, and approved contribution destination.
 - `/ipmdb/ledger.php` and search return records without submitter email.
 - `/ipmdb/viewer.php?asset_id=...` loads versions and relationships.
 - `/ipmdb/provenance.php?asset_id=...` returns HTML and JSON receipts.
 - `/ipmdb/relationship_explorer.php` renders nodes and edges.
+- The graph connects DAD to Housing, COPO, Governance, Transportation/TDM, PCWM, Public Service, Economic Security, DADS, and Sandola.
 - Login succeeds; logout is POST-only.
 - Every admin mutation rejects a missing or invalid CSRF token.
 - AI Map returns structured GPT-5.6 suggestions and does not write before approval.

@@ -306,6 +306,7 @@ textarea.expanded{min-height:260px}
 
       <div class="actions">
         <button class="primary" type="submit" id="lockButton" tabindex="5">LOCK IDEA</button>
+        <a class="btn" href="/ipmdb/ecosystem.php">SYSTEM MAP</a>
         <a class="btn" href="/ipmdb/ledger.php">ASSET LEDGER</a>
         <a class="btn" href="/ipmdb/search.php">SEARCH</a>
         <a class="btn" href="/ipmdb/dad/">DAD</a>

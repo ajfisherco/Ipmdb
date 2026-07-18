@@ -131,6 +131,8 @@ $graphJson = ipmdb_rel_graph_json($graphData);
         <a href="/ipmdb/ledger.php">Ledger</a>
         <a href="/ipmdb/viewer.php">Viewer</a>
         <a href="/ipmdb/relationship_explorer.php">Explorer</a>
+        <a href="/ipmdb/ecosystem.php">System Map</a>
+        <a href="/ipmdb/dad/">DAD</a>
         <a href="/ipmdb/admin.php">Admin</a>
         <a href="/ipmdb/lock.php">Lock Idea</a>
     </nav>
