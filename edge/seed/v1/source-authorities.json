@@ -1,0 +1,132 @@
+{
+  "schema_version": "1.0",
+  "mined_on": "2026-09-05",
+  "policy": "Metadata, original summaries, and links only. Article text and publisher images remain with their owners.",
+  "authorities": [
+    {
+      "id": "source:reuters",
+      "name": "Reuters",
+      "website": "https://www.reuters.com/",
+      "category": "WIRE_SERVICE",
+      "authority_status": "REPORTING_AUTHORITY",
+      "authority_scope": "Independent reporting and named-source attribution; not the first-hand authority for claims made by governments, militaries, or companies.",
+      "history": "Paul Reuter opened a London office in 1851 to send market prices and news by telegraph. Reuters is now part of Thomson Reuters and operates under published Trust Principles on independence, integrity, and freedom from bias.",
+      "history_evidence": [
+        "https://www.thomsonreuters.com/en/about-us/company-history",
+        "https://www.thomsonreuters.com/en/about-us/trust-principles"
+      ]
+    },
+    {
+      "id": "source:associated-press",
+      "name": "The Associated Press",
+      "website": "https://apnews.com/",
+      "category": "NEWS_COOPERATIVE",
+      "authority_status": "REPORTING_AUTHORITY",
+      "authority_scope": "Independent reporting and named-source attribution; not the first-hand authority for claims made by governments or armed forces.",
+      "history": "AP began in 1846 when five New York newspapers shared the cost of gathering news from the Mexican War. It remains an independent, not-for-profit news cooperative.",
+      "history_evidence": [
+        "https://www.ap.org/about/our-story/",
+        "https://www.ap.org/about/"
+      ]
+    },
+    {
+      "id": "source:statistics-canada",
+      "name": "Statistics Canada",
+      "website": "https://www.statcan.gc.ca/",
+      "category": "GOV_STATISTICAL_AGENCY",
+      "authority_status": "PRIMARY_OFFICIAL",
+      "authority_scope": "Primary authority for the methods and results of Statistics Canada releases; later interpretation remains separately attributable.",
+      "history": "The Dominion Bureau of Statistics was created in 1918. It became Statistics Canada under the Statistics Act in 1971.",
+      "history_evidence": [
+        "https://www.statcan.gc.ca/en/about/history",
+        "https://www150.statcan.gc.ca/n1/pub/89-20-0002/892000022018001-eng.htm"
+      ]
+    },
+    {
+      "id": "source:finance-canada",
+      "name": "Department of Finance Canada",
+      "website": "https://www.canada.ca/en/department-finance.html",
+      "category": "GOV_DEPARTMENT",
+      "authority_status": "PRIMARY_OFFICIAL",
+      "authority_scope": "Primary authority for its published tariff measures, dates, lists, and remission process; not an independent test of their impact.",
+      "history": "The federal finance department dates to Confederation in 1867. It advises on economic, fiscal, tax, tariff, and financial policy and prepares the federal budget.",
+      "history_evidence": [
+        "https://www.canada.ca/en/department-finance/corporate/mandate.html",
+        "https://www.canada.ca/en/department-finance/corporate/transparency/plans-performance/departmental-plans/2026-2027/dp-combined.html"
+      ]
+    },
+    {
+      "id": "source:times-colonist",
+      "name": "Times Colonist",
+      "website": "https://www.timescolonist.com/",
+      "category": "REGIONAL_PUBLISHER",
+      "authority_status": "LOCAL_REPORTING_AUTHORITY",
+      "authority_scope": "Regional reporting, with official and union claims kept under their named speakers.",
+      "history": "The paper was formed in 1980 by merging the British Colonist, started in 1858, and the Victoria Daily Times, started in 1884.",
+      "history_evidence": [
+        "https://www.timescolonist.com/other/about",
+        "https://www.timescolonist.com/islander/160-years-of-news-from-the-british-colonist-to-todays-times-colonist-4668160"
+      ]
+    },
+    {
+      "id": "authority:centcom",
+      "name": "United States Central Command",
+      "website": "https://www.centcom.mil/",
+      "category": "MILITARY_COMMAND",
+      "authority_status": "FIRST_PARTY_OFFICIAL",
+      "authority_scope": "Primary for what CENTCOM says it ordered or carried out; casualty, damage, and legal claims need independent checks.",
+      "history": "A United States combatant command responsible for a defined regional area and military mission.",
+      "history_evidence": ["https://www.centcom.mil/ABOUT-US/"]
+    },
+    {
+      "id": "authority:kremlin",
+      "name": "Office of the President of Russia",
+      "website": "http://en.kremlin.ru/",
+      "category": "GOV_EXECUTIVE",
+      "authority_status": "FIRST_PARTY_OFFICIAL",
+      "authority_scope": "Primary for its own announcements; not independent proof of compliance or battlefield facts.",
+      "history": "Official executive source for statements and acts of the Russian president.",
+      "history_evidence": ["http://en.kremlin.ru/structure/president"]
+    },
+    {
+      "id": "authority:president-ukraine",
+      "name": "President of Ukraine",
+      "website": "https://www.president.gov.ua/en",
+      "category": "GOV_EXECUTIVE",
+      "authority_status": "FIRST_PARTY_OFFICIAL",
+      "authority_scope": "Primary for its own announcements; not independent proof of compliance or battlefield facts.",
+      "history": "Official executive source for statements and acts of the Ukrainian president.",
+      "history_evidence": ["https://www.president.gov.ua/en"]
+    },
+    {
+      "id": "authority:bc-transit",
+      "name": "BC Transit",
+      "website": "https://www.bctransit.com/",
+      "category": "CROWN_AGENCY",
+      "authority_status": "FIRST_PARTY_OFFICIAL",
+      "authority_scope": "Primary for its service notices and bargaining position; union claims require separate attribution.",
+      "history": "British Columbia's provincial public transit agency outside Metro Vancouver.",
+      "history_evidence": ["https://www.bctransit.com/about/"]
+    },
+    {
+      "id": "authority:unifor-local-333",
+      "name": "Unifor Local 333",
+      "website": "https://www.unifor333bc.ca/",
+      "category": "LABOUR_UNION",
+      "authority_status": "FIRST_PARTY_STAKEHOLDER",
+      "authority_scope": "Primary for its members' actions and bargaining position; employer claims require separate attribution.",
+      "history": "Union local representing Greater Victoria transit operators and maintenance workers.",
+      "history_evidence": ["https://www.unifor333bc.ca/"]
+    },
+    {
+      "id": "authority:openai",
+      "name": "OpenAI",
+      "website": "https://openai.com/",
+      "category": "AI_COMPANY",
+      "authority_status": "SUBJECT_SELF_REPORT",
+      "authority_scope": "Primary for what the company says it found or did; safety and impact claims need outside review.",
+      "history": "OpenAI was founded in 2015 and describes itself as an AI research and deployment company.",
+      "history_evidence": ["https://openai.com/about/"]
+    }
+  ]
+}
