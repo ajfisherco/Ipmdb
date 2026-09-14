@@ -1,0 +1,166 @@
+name: Core release 6.0.5
+
+on:
+  push:
+    branches: [core-release-6.0.5]
+
+permissions:
+  contents: read
+
+jobs:
+  build-test-package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up PHP 8.3
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.3"
+          extensions: curl, mbstring, pdo_mysql
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Validate source
+        run: |
+          npm ci
+          npm test
+          find ipmdb -type f -name '*.php' -print0 | xargs -0 -n1 php -l
+
+      - name: Assemble core-only root deployment
+        run: |
+          mkdir -p release
+          cp -a ipmdb/. release/
+          rm -rf release/dad
+          rm -f release/database/seed.sql
+          rm -f release/index.html
+          rm -f release/relationship_government.php
+          python3 - <<'PY'
+          from pathlib import Path
+
+          root = Path("release")
+          suffixes = {".php", ".html", ".js", ".css", ".md", ".txt", ".sql", ".htaccess"}
+          for path in root.rglob("*"):
+              if not path.is_file() or (path.suffix.lower() not in suffixes and path.name != ".htaccess"):
+                  continue
+              data = path.read_text(encoding="utf-8")
+              data = data.replace('href="/ipmdb/dad/">DAD</a>', '')
+              data = data.replace("/ipmdb/", "/")
+              data = data.replace("/ipmdb", "")
+              path.write_text(data, encoding="utf-8")
+
+          config = root / "config.php"
+          data = config.read_text(encoding="utf-8")
+          data = data.replace("getenv('IPMDB_BASE_PATH') ?: ''", "getenv('IPMDB_BASE_PATH') ?: ''")
+          config.write_text(data, encoding="utf-8")
+
+          instructions = """IPMdb.ai 6.0.5 — COMPLETE CORE REPLACEMENT
+
+SCOPE
+Core only: idea capture, assets, search, ledger, viewer, versions/history,
+provenance, relationships/graph, AI relationship suggestions, authentication,
+administration, schema, security, mail and shared services.
+
+NO NODES
+DAD, DADS, Sandola, COPO, EDGE and all subject/campaign nodes are excluded.
+
+SAFE REPLACEMENT
+1. Back up the current web root and database.
+2. Preserve config.local.php, storage/, and any private uploads.
+3. Replace the public application files with this ZIP's contents.
+4. Restore config.local.php and preserved private data.
+5. Do not import seed data. No seed file is included.
+6. Apply database/schema.sql only after review; it uses CREATE ... IF NOT EXISTS.
+7. PHP 8.3+ with curl, mbstring and pdo_mysql is required.
+
+TEST URLS
+/  /search.php  /ledger.php  /viewer.php
+/provenance.php?asset_id=YOUR-ID  /relationship_explorer.php  /login.php
+"""
+          (root / "REPLACE-INSTRUCTIONS.txt").write_text(instructions, encoding="utf-8")
+          PY
+
+      - name: Verify core-only boundary
+        run: |
+          test -f release/index.php
+          test -f release/lock.php
+          test -f release/search.php
+          test -f release/ledger.php
+          test -f release/viewer.php
+          test -f release/history.php
+          test -f release/provenance.php
+          test -f release/relationship_explorer.php
+          test -f release/login.php
+          test -f release/admin.php
+          test -f release/database/schema.sql
+          test ! -e release/dad
+          test ! -e release/database/seed.sql
+          test ! -e release/index.html
+          test ! -e release/relationship_government.php
+          if grep -RniE --exclude='REPLACE-INSTRUCTIONS.txt' '(/dad/|/dads/|/sandola/|/copo/|/edge/|Dollar a Day|Court of Public Opinion|Sandola)' release; then
+            echo "Node material found in core release"
+            exit 1
+          fi
+          if grep -RniE --exclude='REPLACE-INSTRUCTIONS.txt' '/(housing|governance|transportation|pcwm|public-service|economic-security)(/|["'\''?#])' release; then
+            echo "Subject-node route found in core release"
+            exit 1
+          fi
+
+      - name: Validate assembled PHP and JavaScript
+        run: |
+          find release -type f -name '*.php' -print0 | xargs -0 -n1 php -l
+          while IFS= read -r -d '' file; do node --check "$file"; done < <(find release -type f -name '*.js' -print0)
+          php release/service_boot_test.php
+
+      - name: Security and package-integrity checks
+        run: |
+          if grep -RniE --exclude='REPLACE-INSTRUCTIONS.txt' --exclude='config.local.php.example' '(BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY|sk-[A-Za-z0-9_-]{20,}|password[[:space:]]*=[[:space:]]*["'\''][^"'\'']+|api[_-]?key[[:space:]]*=[[:space:]]*["'\''][^"'\'']+)' release; then
+            echo "Potential credential found"
+            exit 1
+          fi
+          test ! -e release/config.local.php
+          test ! -e release/.env
+          test "$(find release -type f | wc -l)" -ge 75
+          test "$(find release -type f | wc -l)" -le 110
+
+      - name: HTTP smoke test
+        run: |
+          php -S 127.0.0.1:8099 -t release > /tmp/ipmdb-php.log 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid"' EXIT
+          for attempt in {1..20}; do
+            if curl --fail --silent --show-error http://127.0.0.1:8099/ -o /tmp/home.html; then break; fi
+            sleep 0.25
+          done
+          grep -q 'Lock Idea' /tmp/home.html
+          grep -q 'name="_token"' /tmp/home.html
+          grep -q 'name="email"' /tmp/home.html
+          grep -q 'name="title"' /tmp/home.html
+          grep -q 'name="idea"' /tmp/home.html
+          ! grep -qiE '(DAD|Sandola|COPO|EDGE)' /tmp/home.html
+          status=$(curl --silent --output /tmp/get-lock.txt --write-out '%{http_code}' http://127.0.0.1:8099/lock.php)
+          test "$status" = "302"
+          kill "$server_pid"
+          trap - EXIT
+
+      - name: Manifest and deterministic deployment ZIP
+        working-directory: release
+        run: |
+          find . -type f ! -name SHA256SUMS.txt -print0 | sort -z | xargs -0 sha256sum > SHA256SUMS.txt
+          zip -q -r ../IPMdb.ai.6.0.5-complete.zip . -x 'config.local.php' '.env' 'storage/*' 'uploads/*'
+          unzip -t ../IPMdb.ai.6.0.5-complete.zip
+          test "$(unzip -Z1 ../IPMdb.ai.6.0.5-complete.zip | grep -Ec '(^|/)(dad|dads|sandola|copo|edge)(/|$)')" = "0"
+          test "$(unzip -Z1 ../IPMdb.ai.6.0.5-complete.zip | grep -Ec '^ipmdb/')" = "0"
+
+      - name: Upload complete replacement ZIP
+        uses: actions/upload-artifact@v4
+        with:
+          name: IPMdb.ai.6.0.5-complete
+          path: IPMdb.ai.6.0.5-complete.zip
+          if-no-files-found: error
+          retention-days: 30
+          compression-level: 0
