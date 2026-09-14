@@ -58,29 +58,15 @@ jobs:
           data = data.replace("getenv('IPMDB_BASE_PATH') ?: ''", "getenv('IPMDB_BASE_PATH') ?: ''")
           config.write_text(data, encoding="utf-8")
 
-          instructions = """IPMdb.ai 6.0.5 — COMPLETE CORE REPLACEMENT
-
-SCOPE
-Core only: idea capture, assets, search, ledger, viewer, versions/history,
-provenance, relationships/graph, AI relationship suggestions, authentication,
-administration, schema, security, mail and shared services.
-
-NO NODES
-DAD, DADS, Sandola, COPO, EDGE and all subject/campaign nodes are excluded.
-
-SAFE REPLACEMENT
-1. Back up the current web root and database.
-2. Preserve config.local.php, storage/, and any private uploads.
-3. Replace the public application files with this ZIP's contents.
-4. Restore config.local.php and preserved private data.
-5. Do not import seed data. No seed file is included.
-6. Apply database/schema.sql only after review; it uses CREATE ... IF NOT EXISTS.
-7. PHP 8.3+ with curl, mbstring and pdo_mysql is required.
-
-TEST URLS
-/  /search.php  /ledger.php  /viewer.php
-/provenance.php?asset_id=YOUR-ID  /relationship_explorer.php  /login.php
-"""
+          instructions = "\\n".join([
+              "IPMdb.ai 6.0.5 - COMPLETE CORE REPLACEMENT",
+              "",
+              "Core only: lock, assets, search, ledger, viewer, history, provenance, relationships, graph, authentication, administration, schema, security, mail and shared services.",
+              "",
+              "No nodes: DAD, DADS, Sandola, COPO, EDGE and all subject or campaign nodes are excluded.",
+              "",
+              "Back up the web root and database. Preserve config.local.php, storage and private uploads. Replace the public files, then restore preserved private files. No seed data is included.",
+          ]) + "\\n"
           (root / "REPLACE-INSTRUCTIONS.txt").write_text(instructions, encoding="utf-8")
           PY
 
