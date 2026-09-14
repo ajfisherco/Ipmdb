@@ -159,7 +159,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: IPMdb.ai.6.0.5-complete
-          path: IPMdb.ai.6.0.5-complete.zip
+          path: release/
           if-no-files-found: error
           retention-days: 30
           compression-level: 0
