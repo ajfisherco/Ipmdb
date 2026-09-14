@@ -136,7 +136,7 @@ jobs:
             sleep 0.25
           done
           grep -q 'Lock Idea' /tmp/home.html
-          grep -q 'name="_token"' /tmp/home.html
+          grep -q 'name="csrf_token"' /tmp/home.html
           grep -q 'name="email"' /tmp/home.html
           grep -q 'name="title"' /tmp/home.html
           grep -q 'name="idea"' /tmp/home.html
