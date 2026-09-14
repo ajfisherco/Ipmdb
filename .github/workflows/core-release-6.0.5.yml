@@ -52,6 +52,16 @@ jobs:
               data = data.replace('href="/ipmdb/dad/">DAD</a>', '')
               data = data.replace('    <a href="/ipmdb/dad/?asset_id=<?php echo rawurlencode($assetIdDisplay); ?>">\\n        Implement with DAD\\n    </a>\\n', '')
               data = re.sub(r'\\s*<a\\b[^>]*href="/(?:ipmdb/)?dad/[^"]*"[^>]*>.*?</a>', '', data, flags=re.IGNORECASE | re.DOTALL)
+              kept = []
+              skipping_node_link = False
+              for line in data.splitlines(keepends=True):
+                  if 'href="/ipmdb/dad/' in line or 'href="/dad/' in line:
+                      skipping_node_link = True
+                  if not skipping_node_link:
+                      kept.append(line)
+                  if skipping_node_link and "</a>" in line:
+                      skipping_node_link = False
+              data = "".join(kept)
               data = data.replace("/ipmdb/", "/")
               data = data.replace("/ipmdb", "")
               path.write_text(data, encoding="utf-8")
